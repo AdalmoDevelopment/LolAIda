@@ -114,7 +114,7 @@ def get_pending_hilos(mysql_conn_params):
         conn = pymysql.connect(**mysql_conn_params)
         cursor = conn.cursor()
         
-        cursor.execute("SELECT id, aida_request FROM hilos WHERE lola_generated = 0")
+        cursor.execute("SELECT id, aida_request FROM hilos WHERE lola_generated = 0 '")
         hilos = cursor.fetchall()
         
         cursor.close()

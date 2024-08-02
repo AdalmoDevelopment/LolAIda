@@ -9,6 +9,8 @@ import pymysql
 import smtplib
 from dotenv import load_dotenv
 import os
+from bs4 import BeautifulSoup
+from datetime import datetime
 
 load_dotenv()
 
@@ -55,6 +57,7 @@ def check_inbox(mail):
             print("No hay mensajes nuevos.")
             return []
         email_ids = messages[0].split()
+        email_ids.reverse()
         return email_ids
     except Exception as e:
         print(f"Error al revisar la bandeja de entrada: {e}")
@@ -73,8 +76,9 @@ def fetch_email(mail, email_id):
         print(f"Error al recuperar el correo: {e}")
         return None
 
+
 def parse_email(msg):
-    """Analizar el correo y extraer el remitente y el cuerpo."""
+    """Analizar el correo y extraer el remitente y el cuerpo sin etiquetas HTML."""
     try:
         subject = decode_header(msg["Subject"])[0][0]
         if isinstance(subject, bytes):
@@ -83,7 +87,23 @@ def parse_email(msg):
         from_ = msg.get("From")
         if "<" in from_ and ">" in from_:
             from_ = from_.split("<")[1].split(">")[0]
+        
+        date_str = msg.get("Date")
+        date = None
 
+        # Probar diferentes formatos de fecha
+        date_formats = [
+            '%a, %d %b %Y %H:%M:%S %z',  # Formato con día de la semana
+            '%d %b %Y %H:%M:%S %z'       # Formato sin día de la semana
+        ]
+
+        for fmt in date_formats:
+            try:
+                date = datetime.strptime(date_str, fmt)
+                break
+            except ValueError:
+                continue
+        
         body = ""
         if msg.is_multipart():
             for part in msg.walk():
@@ -93,13 +113,26 @@ def parse_email(msg):
                 if "attachment" not in content_disposition:
                     if content_type == "text/plain":
                         body += part.get_payload(decode=True).decode()
+                    elif content_type == "text/html":
+                        html = part.get_payload(decode=True).decode()
+                        soup = BeautifulSoup(html, "html.parser")
+                        body += soup.get_text()
         else:
-            body = msg.get_payload(decode=True).decode()
+            if msg.get_content_type() == "text/plain":
+                body = msg.get_payload(decode=True).decode()
+            elif msg.get_content_type() == "text/html":
+                html = msg.get_payload(decode=True).decode()
+                soup = BeautifulSoup(html, "html.parser")
+                body = soup.get_text()
         
-        return from_, subject, body
+        MAX_LENGTH = 2000  # para que no de error por exceso de tokens
+        if len(body) > MAX_LENGTH:
+            body = body[:MAX_LENGTH] + '...'
+        
+        return from_, subject, body, date
     except Exception as e:
         print(f"Error al analizar el correo: {e}")
-        return None, None, None
+        return None, None, None, None
 
 def add_memory(user_id, text, metadata=None):
     """Añadir una nueva memoria automáticamente para el usuario dado."""
@@ -142,11 +175,11 @@ def email_listener():
                 for email_id in email_ids:
                     email_count += 1
                     print(email_count)
-                    if email_count == 1000:
+                    if email_count == 100:
                         break
                     msg = fetch_email(mail, email_id)
                     if msg:
-                        from_, subject, body = parse_email(msg)
+                        from_, subject, body, date = parse_email(msg)
                         if from_ and subject and body:
                             print(f"Nuevo correo de {from_}: {subject}\n\n")
                             add_memory(user_id=from_, text=body, metadata={"subject": subject})
@@ -158,18 +191,19 @@ def email_listener():
                             print("Correo almacenado en la memoria.\n")
                             response = generate_response(from_, body)
                             print(f"Respuesta generada para SQLCoder:\n{response}")
-                            
-                            if "Lola." in response:
+                            print(date)
+                            mycursor = mydb.cursor()
+                            if response:
                                 try:
-                                    if "@adalmo" not in from_:
+                                    if "skibidisigma" not in from_:
                                         if "@gmail" in from_:
                                             from_ = f"@{from_.split('@')[0]}"
                                         else:
                                             from_ = f"@{from_.split('@')[1]}"
                                         
-                                        mycursor = mydb.cursor()
-                                        query = "INSERT INTO hilos(aida_correo, aida_request) VALUES (%s,%s)"
-                                        mycursor.execute(query, (body, from_))
+                                        
+                                        query = "INSERT INTO hilos(date, aida_correo, aida_response, aida_request) VALUES (%s,%s,%s,%s)"
+                                        mycursor.execute(query, (date,body, response, from_))
                                         mydb.commit()  # Asegúrate de hacer commit para guardar los cambios
                                         print("Correo guardado en la base de datos")
 
