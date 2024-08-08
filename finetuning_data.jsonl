@@ -1,0 +1,430 @@
+[
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 30L (azul)(cop)?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CISTERNA?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 30L (negro)(cop)?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor SOPORTE SANITARIO GRUPO II 40L?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR C (28 m3)?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor VOLTEADOR?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor AUTOCOMPACTADOR PARA LIQUIDOS?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 60L (azul)(cop)?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 60L (negro)(cop)?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CUBETO?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BOTELLA DE GAS?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 100 Kva?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor GRG 1000L?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR VERDE 1000L?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BOLSA 25L SANITARIO GRUPO II (verde)?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 50 Kva?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor PRENSA VERTICAL?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 250 Kva?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR TAPADO C (28 m3)?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BAÚL PARA FLUORESCENTES?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 12L?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR K PEQUEÑO (1.5 m3)?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 160 Kva?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 30L (negro)?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 60L (negro)?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor COMPACTADOR ESTÁTICO (30 m3)?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 400 Kva?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 630 Kva?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR MARRÓN 240L?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR MARRÓN 120L?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 10 Kva?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 1000 Kva?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 200 Kva?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor ROLLO FILM NEGRO 400 GALGAS?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR CONFIDENCIAL 240L?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 12L (azul)?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 220 Kva?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIG BAG 1M3?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 30 Kva?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 75 Kva?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 40 Kva?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 25 Kva?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BOLSA 40L SANITARIO GRUPO II (verde)?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 20 Kva?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 50L (azul)?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BOLSA 200L MATERIAL CON AMIANTO?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 5L?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CELDA?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BOLSA TRANSPARENTE SIGFITO?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR 14M3?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR 28M3?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CAJA PARA FLUORESCENTES?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR PARA PILAS ERP 20L?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIDÓN 220L?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIDÓN 60L?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR K (5 m3)?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 60L (rojo)?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 3L?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 7L?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 4L?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR VERDE 340L?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR TAPADO P (16 m3)?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIG BAG RNP 1 m3?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR TAPADO K (5 m3)?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BALA?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR AZUL 1000L?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor SOPORTE BIG BAG?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 10L?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 30L (azul)?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 60L (reutilizable)?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor PALET?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor AUTOCOMPACTADOR?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor GRANEL?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CUBETO?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor GARRAFA 25L?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIG BAG HOMOLOGADO RP 1 m3?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor JAULA?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIG BAG AMIANTO 1 m3?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 60L (azul)?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR AMARILLO 1000L?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 1L?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BOLSA 100L SANITARIO GRUPO II (verde)?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor GRG 1000L ABIERTO?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BOLSA SANITARIO GRUPO III (amarilla)?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 2L?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 0.4L?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIDÓN 3L PARA PILAS?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR CONFIDENCIAL 120L?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIG BAG PLACAS AMIANTO (320x120x30cm)?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BRIDAS?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR P (11 m3)?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 30L (rojo)?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor ROLLO BOLSA TRANSPARENTE 120L?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor UNIDAD HIGIENE FEMENINA?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor ROLLO FLEJE PRENSA VERTICAL?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor SOPORTE SANITARIO GRUPO II 100L?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor VERMICULITA EN BIDÓN 60L?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor GRANEL?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR AMARILLO 800L?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR VERDE 240L?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR VERDE 240L TAPA VIDRIO?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR AZUL 800L?",
+    "completion": "camion verde"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR VERDE 800L?",
+    "completion": "camion amarillo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CUBETO CON TAPA?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR 11M3?",
+    "completion": "camion rojo"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR 5M3?",
+    "completion": "camion azul"
+  },
+  {
+    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor PALET?",
+    "completion": "camion azul"
+  }
+]
