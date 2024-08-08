@@ -195,7 +195,7 @@ def email_listener():
                             mycursor = mydb.cursor()
                             if response:
                                 try:
-                                    if "skibidisigma" not in from_:
+                                    if "adalmo" not in from_:
                                         if "@gmail" in from_:
                                             from_ = f"@{from_.split('@')[0]}"
                                         else:
