@@ -1,430 +1,85 @@
-[
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 30L (azul)(cop)?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CISTERNA?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 30L (negro)(cop)?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor SOPORTE SANITARIO GRUPO II 40L?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR C (28 m3)?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor VOLTEADOR?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor AUTOCOMPACTADOR PARA LIQUIDOS?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 60L (azul)(cop)?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 60L (negro)(cop)?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CUBETO?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BOTELLA DE GAS?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 100 Kva?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor GRG 1000L?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR VERDE 1000L?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BOLSA 25L SANITARIO GRUPO II (verde)?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 50 Kva?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor PRENSA VERTICAL?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 250 Kva?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR TAPADO C (28 m3)?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BAÚL PARA FLUORESCENTES?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 12L?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR K PEQUEÑO (1.5 m3)?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 160 Kva?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 30L (negro)?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 60L (negro)?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor COMPACTADOR ESTÁTICO (30 m3)?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 400 Kva?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 630 Kva?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR MARRÓN 240L?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR MARRÓN 120L?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 10 Kva?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 1000 Kva?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 200 Kva?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor ROLLO FILM NEGRO 400 GALGAS?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR CONFIDENCIAL 240L?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 12L (azul)?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 220 Kva?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIG BAG 1M3?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 30 Kva?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 75 Kva?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 40 Kva?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 25 Kva?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BOLSA 40L SANITARIO GRUPO II (verde)?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor Cobre 20 Kva?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 50L (azul)?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BOLSA 200L MATERIAL CON AMIANTO?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 5L?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CELDA?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BOLSA TRANSPARENTE SIGFITO?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR 14M3?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR 28M3?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CAJA PARA FLUORESCENTES?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR PARA PILAS ERP 20L?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIDÓN 220L?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIDÓN 60L?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR K (5 m3)?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 60L (rojo)?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 3L?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 7L?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 4L?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR VERDE 340L?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR TAPADO P (16 m3)?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIG BAG RNP 1 m3?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR TAPADO K (5 m3)?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BALA?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR AZUL 1000L?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor SOPORTE BIG BAG?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 10L?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 30L (azul)?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 60L (reutilizable)?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor PALET?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor AUTOCOMPACTADOR?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor GRANEL?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CUBETO?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor GARRAFA 25L?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIG BAG HOMOLOGADO RP 1 m3?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor JAULA?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIG BAG AMIANTO 1 m3?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 60L (azul)?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR AMARILLO 1000L?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 1L?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BOLSA 100L SANITARIO GRUPO II (verde)?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor GRG 1000L ABIERTO?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BOLSA SANITARIO GRUPO III (amarilla)?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 2L?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 0.4L?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIDÓN 3L PARA PILAS?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR CONFIDENCIAL 120L?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BIG BAG PLACAS AMIANTO (320x120x30cm)?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor BRIDAS?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR P (11 m3)?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor DEPÓSITO 30L (rojo)?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor ROLLO BOLSA TRANSPARENTE 120L?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor UNIDAD HIGIENE FEMENINA?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor ROLLO FLEJE PRENSA VERTICAL?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor SOPORTE SANITARIO GRUPO II 100L?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor VERMICULITA EN BIDÓN 60L?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor GRANEL?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR AMARILLO 800L?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR VERDE 240L?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR VERDE 240L TAPA VIDRIO?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR AZUL 800L?",
-    "completion": "camion verde"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR VERDE 800L?",
-    "completion": "camion amarillo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CUBETO CON TAPA?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR 11M3?",
-    "completion": "camion rojo"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor CONTENEDOR 5M3?",
-    "completion": "camion azul"
-  },
-  {
-    "prompt": "¿Cuál es el tipo de camión adecuado para el contenedor PALET?",
-    "completion": "camion azul"
-  }
-]
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": ""
+    },
+    {
+      "role": "user",
+      "content": "Me haces este DU? mail: Buenos tardes, Solicito recogida de los residuos que a continuación les detallo, con reposición. 2 sacas de papel/cartón 1 plástico info: { \"Contratos\": [[\"TK Elevadores España SL\", \"AA2400526\", \"[RPECMET] ENVASES VACÍOS METÁLICOS CONTAMINADOS\", \"BIG BAG HOMOLOGADO RP 1 m3\", \"RESIDUO PELIGROSO\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RFR3FLD] RAEE FR3 FLUORESCENTES\", \"BIDÓN 220L\", \"RAEE\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RFR4GP] RAEE FR4 GRANDES PROFESIONAL\", \"GRANEL\", \"RAEE\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RPTON] TÓNER DE IMPRESIÓN CON S.P.\", \"BIDÓN 60L\", \"RESIDUO PELIGROSO\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[EBPILAS] BIDÓN 3L PARA PILAS\", null, \"ENVASE\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RVPCONF] PAPEL CONFIDENCIAL\", \"BIG BAG RNP 1 m3\", \"RESIDUO PAPEL Y CARTÓN\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RPANICD] ACUMULADORES DE Ni-Cd\", \"BIDÓN 60L\", \"RESIDUO PELIGROSO\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RFR5SPP] RAEE FR5 PEQUEÑOS CON S.P. PROFESIONAL\", \"GRANEL\", \"RAEE\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3\", null, \"ENVASE\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RNPPLC] PLÁSTICO (ORIGEN CONSTRUCCIÓN)\", \"BIG BAG RNP 1 m3\", \"RESIDUO NO PELIGROSO\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RPECPLA] ENVASES VACÍOS PLÁSTICOS CONTAMINADOS\", \"BIG BAG HOMOLOGADO RP 1 m3\", \"RESIDUO PELIGROSO\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RNPVIDM] VIDRIO (MUNICIPAL)\", \"GRANEL\", \"RESIDUO NO PELIGROSO\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[SMHORAR] MANIPULACIÓN RESIDUOS\", null, \"MANIPULACIÓN\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[EBB1M3] BIG BAG RNP 1 m3\", null, \"ENVASE\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[EB60L] BIDÓN 60L\", null, \"ENVASE\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RPABS] ABSORBENTES Y TRAPOS RP\", \"BIDÓN 220L\", \"RESIDUO PELIGROSO\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR\", \"GRANEL\", \"RESIDUO PELIGROSO\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RVPC] PAPEL Y CARTÓN\", \"BIG BAG RNP 1 m3\", \"RESIDUO PAPEL Y CARTÓN\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)\", null, \"TRANSPORTE\", \"[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR\"], [\"TK Elevadores España SL\", \"AA2400526\", \"[RPAMPL] MATERIALES DE CONSTRUCCIÓN CON AMIANTO\", \"BIG BAG AMIANTO 1 m3\", \"RESIDUO PELIGROSO\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RPEMAV] ENVASES DE AEROSOLES VACÍOS\", \"BIDÓN 60L\", \"RESIDUO PELIGROSO\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RPCYGU] CERAS Y GRASAS USADAS\", \"BIDÓN 220L\", \"RESIDUO PELIGROSO\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[EB220L] BIDÓN 220L\", null, \"ENVASE\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[DCT] CONTRATO DE TRATAMIENTO\", null, \"DOCUMENTACIÓN\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[RVOLIOC] RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)\", \"BIG BAG RNP 1 m3\", \"RESIDUO NO PELIGROSO\", null], [\"TK Elevadores España SL\", \"AA2400526\", \"[TT] TRANSPORTE\", null, \"TRANSPORTE\", null]], \"Lugares de recogida\": [[\"[AA2400526] TK Elevadores España SL\", \"TK Elevadores España SL, Delegación B4\"]] }"
+    },
+    {
+      "role": "assistant",
+      "content": "{\n  \"Titular\": \"TK Elevadores España SL\",\n  \"Contrato\": \"AA2400526\",\n  \"Lugar de recogida\": \"TK Elevadores España SL, Delegación B4\",\n  \"Categoría de vehículo\": \"RPs\",\n  \"Líneas del DU\": [\n    {\n      \"Producto\": \"[RVPC] PAPEL Y CARTÓN\",\n      \"Cantidad\": 2,\n      \"Envase\": \"BIG BAG RNP 1 m3\",\n      \"Residuo\": null\n    },\n    {\n      \"Producto\": \"[RNPPLC] PLÁSTICO (ORIGEN CONSTRUCCIÓN)\",\n      \"Cantidad\": 1,\n      \"Envase\": \"BIG BAG RNP 1 m3\",\n      \"Residuo\": null\n    },\n    {\n      \"Producto\": \"[EBB1M3] BIG BAG RNP 1 m3\",\n      \"Cantidad\": 3,\n      \"Envase\": null,\n      \"Residuo\": null\n    },\n    {\n      \"Producto\": \"[TT] TRANSPORTE\",\n      \"Cantidad\": 1,\n      \"Envase\": null,\n      \"Residuo\": null\n    }\n  ]\n}"
+    }
+  ]
+}
+
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": ""
+    }, 
+    {
+      "role": "user",
+      "content": "Me haces este DU? mail: Buenas tardes, Agradecería realizarán las recogidas y sustitución de los siguientes residuos: - Jaula con plásticos banales - Dos sacas con envases vacíos contaminados - Cubo 200lts. Con materiales absorbentes contaminados. Un saludo. info: {\"Contratos\": [[\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"ABSORBENTES Y TRAPOS RP\", \"BIDÓN 220L\", \"RESIDUO PELIGROSO\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"SERVICIO CAMIÓN HORA (CISTERNA)\", null, \"TRANSPORTE\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"BIG BAG HOMOLOGADO RP 1 m3\", null, \"TRANSPORTE\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"PLÁSTICO (ORIGEN CONSTRUCCIÓN)\", \"JAULA\", \"RESIDUO NO PELIGROSO\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"AGUAS CON HIDROCARBUROS\", \"GRANEL\", \"RESIDUO PELIGROSO\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)\", \"GRANEL\", \"RESIDUO NO PELIGROSO\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"ALQUILER\", \"CONTENEDOR C (28 m3)\", \"TRANSPORTE\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"BIDÓN 60L\", null, \"ENVASE\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"RAEE FR5 PEQUEÑOS CON S.P. PROFESIONAL\", \"GRANEL\", \"RAEE\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"ENVASES DE AEROSOLES VACÍOS\", \"BIDÓN 220L\", \"RESIDUO PELIGROSO\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"TRANSPORTE\", null, \"TRANSPORTE\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"CAMBIO\", \"CONTENEDOR K (5 m3)\", \"TRANSPORTE\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"CAMBIO\", \"JAULA\", \"TRANSPORTE\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"PAPEL Y CARTÓN\", \"JAULA\", \"RESIDUO PAPEL Y CARTÓN\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"ACEITE MINERAL NO CLORADO DE MOTOR\", \"GRANEL\", \"RESIDUO PELIGROSO\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"ALQUILER\", \"CONTENEDOR K (5 m3)\", \"TRANSPORTE\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"ALQUILER\", \"JAULA\", \"TRANSPORTE\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"RESIDUOS DE PINTURA Y BARNIZ CON DISOLVENTES\", \"BIG BAG HOMOLOGADO RP 1 m3\", \"RESIDUO PELIGROSO\", null], [\"S.E de Carburos Metálicos SA\", \"AA2400649\", \"GASES EN RECIPIENTES A PRESIÓN\", \"GRANEL\", \"RESIDUO PELIGROSO\", null], [\"S.E de Carburos Metálicos SA\", \"AA2401319\", \"BIDÓN 220L\", null, \"ENVASE\", null]], \"Lugares de recogida\": [[\"[AA2401319] S.E de Carburos Metálicos SA\", \"S.E de Carburos Metálicos SA, Dirección de Recogida\"], [\"[AA2400649] (S.E. De Carburos Metalicos SA) Sociedad Española De Carburos Metalicos SA\", \"S.E de Carburos Metálicos SA, Dirección de Recogida\"]]}"
+      
+    },
+    {
+      "role": "assistant", "content": "{\"Titular\": \"S.E de Carburos Metálicos SA\", \"Contrato\": \"AA2401319\", \"Lugar de recogida\": \"S.E de Carburos Metálicos SA, Dirección de Recogida\", \"Categoría de vehículo\": \"RPs\", \"Líneas del DU\": [{\"Producto\": \"PLÁSTICO (ORIGEN CONSTRUCCIÓN)\", \"Cantidad\": 1, \"Envase\": \"JAULA\", \"Residuo\": null}, {\"Producto\": \"ENVASES VACÍOS PLÁSTICOS CONTAMINADOS\", \"Cantidad\": 2, \"Envase\": \"BIG BAG HOMOLOGADO RP 1 m3\", \"Residuo\": null}, {\"Producto\": \"BIG BAG HOMOLOGADO RP 1 m3\", \"Cantidad\": 2, \"Envase\": \"BIG BAG\", \"Residuo\": null}, {\"Producto\": \"ABSORBENTES Y TRAPOS RP\", \"Cantidad\": 1, \"Envase\": \"BIDÓN 220L\", \"Residuo\": null}, {\"Producto\": \"BIDÓN 220L\", \"Cantidad\": 1, \"Envase\": null, \"Residuo\": null}, {\"Producto\": \"CAMBIO\", \"Cantidad\": 1, \"Envase\": \"JAULA\", \"Residuo\": null}, {\"Producto\": \"TRANSPORTE\", \"Cantidad\": 1, \"Envase\": null, \"Residuo\": null}]}"
+    }
+  ]
+}
+
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": ""
+    },
+    {
+      "role": "user",
+      "content": "Me haces este DU? mail: Buenos dias, Solicito la sustitución del depósito IBC de 1000 litros de mezcla de hidrocarburos ubicado en nuestra base de SON OMS, Can Singala 18. Gracias. un saludo. info: { \"Contratos\": [[\"OK Mobility España SLU\", \"AA2401363\", \"[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3\", null, \"ENVASE\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[RH] HIERRO\", \"CONTENEDOR K (5 m3)\", \"RESIDUO METÁLICO\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[RPSOLAC] RESIDUOS DE SOLUCIONES ÁCIDAS\", \"BIDÓN 220L\", \"RESIDUO PELIGROSO\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[RPSOLBA] RESIDUOS DE SOLUCIONES BASES\", \"BIDÓN 220L\", \"RESIDUO PELIGROSO\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[DCT] CONTRATO DE TRATAMIENTO\", null, \"DOCUMENTACIÓN\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[TTB] TRANSPORTE BULTO\", null, \"TRANSPORTE\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)\", null, \"TRANSPORTE\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[RPHCA] AGUAS CON HIDROCARBUROS\", \"GRG 1000L\", \"RESIDUO PELIGROSO\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[RPECMET] ENVASES VACÍOS METÁLICOS CONTAMINADOS\", \"BIG BAG HOMOLOGADO RP 1 m3\", \"RESIDUO PELIGROSO\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[RPECPLA] ENVASES VACÍOS PLÁSTICOS CONTAMINADOS\", \"BIG BAG HOMOLOGADO RP 1 m3\", \"RESIDUO PELIGROSO\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)\", null, \"TRANSPORTE\", \"[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR\"], [\"OK Mobility España SLU\", \"AA2401363\", \"[RPDNH] DISOLVENTES NO HALOGENADOS\", \"BIDÓN 220L\", \"RESIDUO PELIGROSO\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[RVOLIOC] RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)\", \"CONTENEDOR K (5 m3)\", \"RESIDUO NO PELIGROSO\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[EGRG1000L] GRG 1000L\", null, \"ENVASE\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[EGRG1000L] GRG 1000L\", null, \"ENVASE\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[TT] TRANSPORTE\", null, \"TRANSPORTE\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[TC] CAMBIO\", \"CONTENEDOR K (5 m3)\", \"TRANSPORTE\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[RNFU] NEUMÁTICOS FUERA DE USO\", \"GRANEL\", \"RESIDUO NO PELIGROSO\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR\", \"GRANEL\", \"RESIDUO PELIGROSO\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[TA] ALQUILER\", \"CONTENEDOR K (5 m3)\", \"TRANSPORTE\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[TE] ENTREGA\", \"CONTENEDOR K (5 m3)\", \"TRANSPORTE\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[TR] RETIRADA\", \"CONTENEDOR K (5 m3)\", \"TRANSPORTE\", null], [\"OK Mobility España SLU\", \"AA2401363\", \"[RPAAS] AGUA ACEITOSA DE SEPARADORES\", \"GRG 1000L\", \"RESIDUO PELIGROSO\", null]], \"Lugares de recogida\": [[\"[AA2401363] OK Mobility España SLU\", \"OK Mobility España SLU, Mahón\"], [\"[AA2401363] OK Mobility España SLU\", \"OK Mobility España SLU, Son Oms\"]] }"
+    },
+    {
+      "role": "assistant",
+      "content": "{\n  \"Titular\": \"OK Mobility España SLU\",\n  \"Contrato\": \"AA2401363\",\n  \"Lugar de recogida\": \"OK Mobility España SLU, Son Oms\",\n  \"Categoría de vehículo\": \"RPs\",\n  \"Líneas del DU\": [\n    {\n      \"Producto\": \"[RPHCA] AGUAS CON HIDROCARBUROS\",\n      \"Cantidad\": 1,\n      \"Envase\": \"GRG 1000L\",\n      \"Residuo\": null\n    },\n    {\n      \"Producto\": \"[EGRG1000L] GRG 1000L\",\n      \"Cantidad\": 1,\n      \"Envase\": null,\n      \"Residuo\": null\n    },\n    {\n      \"Producto\": \"[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)\",\n      \"Cantidad\": 1,\n      \"Envase\": null,\n      \"Residuo\": null\n    }\n  ]\n}"
+    }
+  ]
+}
+
+{
+  "messages": [
+    {"role": "system",
+      "content": ""
+    },
+    {
+      "role": "user",
+      "content": "Me haces este DU? mail: Buenos días: Según conversación telefónica con una compañera vuestra que me ha comunicado que lo solicite por vía e-mail, ruego por motivos necesarios hoy día 13/09/24 solicito servicio de camión grúa para la retirada de hierro a la Deixallería de Marratxí debido a unas descargas del ayuntamiento de Marratxí. Muchas Gracias, Eva Grimaldo Melchor Mascaró"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"Titular\": \"Melchor Mascaro SA\", \"Contrato\": \"AA2403260\", \"Lugar de recogida\": \"Marratxi XXI SA, Deixalleria Marratxí\", \"Categoría de vehículo\": \"Gruas\", \"Líneas del DU\": [{\"Producto\": \"[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)\", \"Cantidad\": 1, \"Envase\": null, \"Residuo\": null}, {\"Producto\": \"[RH] HIERRO\", \"Cantidad\": 1, \"Envase\": \"GRANEL\", \"Residuo\": null}]}"
+    }
+  ]
+}
+
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": ""
+    },
+    {
+      "role": "user",
+      "content": ""
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ]
+}
+
+

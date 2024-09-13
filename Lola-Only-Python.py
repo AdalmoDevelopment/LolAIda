@@ -122,24 +122,40 @@ def main():
 
             print(f"Obteniendo contratos para: {aida_request}")
             query_contratos = """
-                SELECT rp.name, paa.name, pt.name as producto, uu.name as UNIDAD_ECONOMICA,
-                       pal.pnt_price_unit as precio_unitario, ptContainer.name as ENVASE,
-                       case when ppWaste.default_code is not null then 
-                            concat('[', ppWaste.default_code, '] ', ptWaste.name) 
-                       end as Residuo 
+                SELECT rp.name, paa.name as Contrato,
+                case when pp.default_code is not null then concat('[',pp.default_code,'] ', pt.name) end as Producto,
+                ptContainer.name as ENVASE,
+                pc.name as categoria_producto,
+                case when ppWaste.default_code is not null then concat('[',ppWaste.default_code,'] ', ptWaste.name) end as Residuo
+
                 FROM public.pnt_agreement_agreement paa
-                LEFT JOIN res_partner rp ON paa.pnt_holder_id = rp.id
-                LEFT JOIN pnt_agreement_line pal ON paa.id = pal.pnt_agreement_id
-                LEFT JOIN uom_uom uu ON pal.pnt_product_Economic_uom = uu.id
-                LEFT JOIN product_product pp ON pal.pnt_product_id = pp.id
-                LEFT JOIN product_template pt ON pp.product_tmpl_id = pt.id
-                LEFT JOIN product_product ppContainer ON pal.pnt_container_id = ppContainer.id
-                LEFT JOIN product_template ptContainer ON ppContainer.product_tmpl_id = ptContainer.id
-                LEFT JOIN product_product ppWaste ON pal.pnt_product_waste_id = ppWaste.id
-                LEFT JOIN product_template ptWaste ON ppWaste.product_tmpl_id = ptWaste.id
-                WHERE pnt_holder_id IN (SELECT id FROM res_partner WHERE email ILIKE %s AND is_company = true)
+
+                left join res_partner rp on paa.pnt_holder_id = rp.id
+                LEFT JOIN pnt_agreement_line pal ON paa.id  = pal.pnt_agreement_id
+
+                left join uom_uom uu on pal.pnt_product_Economic_uom = uu.id
+
+                LEFT JOIN product_product pp ON pal.pnt_product_id  = pp.id
+                LEFT JOIN product_template pt ON pp.product_tmpl_id  = pt.id
+
+                LEFT JOIN product_product ppContainer ON pal.pnt_container_id  = ppContainer.id
+                LEFT JOIN product_template ptContainer ON ppContainer.product_tmpl_id  = ptContainer.id
+
+                LEFT JOIN product_product ppWaste ON pal.pnt_product_waste_id  = ppWaste.id
+                LEFT JOIN product_template ptWaste ON ppWaste.product_tmpl_id  = ptWaste.id
+
+                left join product_category pc  on pt.categ_id = pc.id
+
+                where pnt_holder_id IN (select id from res_partner where email ilike %s and is_company = true)
+                and paa.state = 'done'
+
             """
             results = execute_query(query_contratos, (email_pattern,), postgres_conn_params)
+            
+            if isinstance(results, str):
+                print(f"Error ejecutando la consulta: {results}\n")
+            else:
+                print(f"Resultados obtenidos: {results}")
 
             print(f"Obteniendo lugares de recogida para: {aida_request}")
             query_lugares_recogida = """
