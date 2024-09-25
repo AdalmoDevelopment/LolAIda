@@ -101,7 +101,10 @@ def process_pending_hilos():
                     """},
                     {"role": "user", "content": prompt}
                 ]
+<<<<<<< HEAD
                 
+=======
+>>>>>>> 45140bb9dbed86a97fb868f7b85bb080828fa816
             )
             aida_generated_du = response.choices[0].message.content
             print(f"Respuesta: {aida_generated_du}")
