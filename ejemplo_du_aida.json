@@ -1,0 +1,21 @@
+{
+    "Titular": "Motor Mallorca SA",
+    "Contrato": "AA2400484",
+    "Lugar de recogida": "Motor Mallorca SA, Ford Palma",
+    "Categoría de vehículo": "Contenedores/Ganchos",
+    "Líneas del DU": [
+      {
+        "Producto": "[TC] CAMBIO",
+        "Unidades": 1,
+        "Envase": "CONTENEDOR TAPADO K (5 m3)",
+        "Residuo": "[RVPCONF] PAPEL CONFIDENCIAL"
+      },
+      {
+        "Producto": "[RVPCONF] PAPEL CONFIDENCIAL",
+        "Unidades": 1,
+        "Envase": "CONTENEDOR TAPADO K (5 m3)",
+        "Residuo": ""
+      }
+    ],
+    "Track_Gmail_Uid": "192dd097288fbefeacz8e433"
+}

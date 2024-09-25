@@ -1,17 +1,51 @@
 import os
+import base64
 import imaplib
 import email
 from email.header import decode_header
-from mem0 import Memory
 import openai
 import time
 import pymysql
 import smtplib
 from dotenv import load_dotenv
-import os
 from bs4 import BeautifulSoup
 from datetime import datetime
 import psycopg2
+import pickle
+import google.auth
+from google.auth.transport.requests import Request
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
+from extract_msg_id import get_message_by_id
+from diccionario import palabras
+
+CREDENTIALS_FILE = './credentials.json'
+TOKEN_PICKLE = 'token.pickle'
+SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
+
+SCOPES = ['https://mail.google.com/']  # Necesitas acceso completo a Gmail
+
+def obtener_credenciales():
+    """
+    Autenticar y obtener credenciales OAuth2 para Gmail.
+    Si ya existen credenciales almacenadas, se usan; de lo contrario, se solicitan.
+    """
+    creds = None
+    if os.path.exists(TOKEN_PICKLE):
+        with open(TOKEN_PICKLE, 'rb') as token:
+            creds = pickle.load(token)
+    
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
+            creds = flow.run_local_server(port=0)
+        with open(TOKEN_PICKLE, 'wb') as token:
+            pickle.dump(creds, token)
+    
+    return creds
+
 
 load_dotenv()
 
@@ -49,18 +83,22 @@ mydb = pymysql.connect(
 # Establecer la clave de API desde una variable de entorno
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
-# Inicializar Mem0
-m = Memory()
-
-def connect_imap():
-    """Conectar y autenticar con el servidor IMAP."""
+def connect_imap_oauth2(token):
+    """Conectar al servidor IMAP usando OAuth 2.0."""
+    mail = imaplib.IMAP4_SSL("imap.gmail.com")
+    
+    # Crear la cadena de autenticación XOAUTH2
+    auth_string = f'user={mail_user}\1auth=Bearer {token.token}\1\1'
     try:
-        mail = imaplib.IMAP4_SSL(mail_imap_server)
-        mail.login(mail_user, mail_password)
+        # Autenticar usando XOAUTH2
+        mail.authenticate('XOAUTH2', lambda x: auth_string)
+        print("Autenticado exitosamente con IMAP usando OAuth.")
         return mail
     except imaplib.IMAP4.error as e:
-        print(f"Error al conectar al servidor IMAP: {e}")
+        print(f"Error al autenticar con OAuth: {e}")
         return None
+
+
 
 def check_inbox(mail):
     """Revisar la bandeja de entrada en busca de correos no leídos."""
@@ -85,14 +123,19 @@ def fetch_email(mail, email_id):
             print("No se pudo recuperar el correo.")
             return None
         msg = email.message_from_bytes(msg_data[0][1])
-        return msg
+        
+        msg_id = msg.get("Message-ID")
+        
+        mail.uid('STORE', msg_id, '-FLAGS', '\\UNSEEN')
+        
+        return msg, msg_id
     except Exception as e:
         print(f"Error al recuperar el correo: {e}")
         return None
 
 
-def parse_email(msg):
-    """Analizar el correo y extraer el remitente y el cuerpo sin etiquetas HTML."""
+def parse_email(msg, email_id):
+    """Analizar el correo y extraer el remitente, el cuerpo sin etiquetas HTML, y el Message-ID."""
     try:
         subject = decode_header(msg["Subject"])[0][0]
         if isinstance(subject, bytes):
@@ -117,7 +160,12 @@ def parse_email(msg):
                 break
             except ValueError:
                 continue
-        
+
+        # Obtener el Message-ID
+        message_id = msg.get("Message-ID", email_id)  # Si no hay Message-ID, usar el ID de IMAP
+
+        print(f"Message-ID: {message_id}")  # Imprimir el Message-ID
+
         body = ""
         if msg.is_multipart():
             for part in msg.walk():
@@ -126,38 +174,27 @@ def parse_email(msg):
 
                 if "attachment" not in content_disposition:
                     if content_type == "text/plain":
-                        body += part.get_payload(decode=True).decode()
+                        body += part.get_payload(decode=True).decode(errors='replace')
                     elif content_type == "text/html":
-                        html = part.get_payload(decode=True).decode()
+                        html = part.get_payload(decode=True).decode(errors='replace')
                         soup = BeautifulSoup(html, "html.parser")
                         body += soup.get_text()
         else:
             if msg.get_content_type() == "text/plain":
-                body = msg.get_payload(decode=True).decode()
+                body = msg.get_payload(decode=True).decode(errors='replace')
             elif msg.get_content_type() == "text/html":
-                html = msg.get_payload(decode=True).decode()
+                html = msg.get_payload(decode=True).decode(errors='replace')
                 soup = BeautifulSoup(html, "html.parser")
                 body = soup.get_text()
-        
-        MAX_LENGTH = 2000  # para que no de error por exceso de tokens
+
+        MAX_LENGTH = 2000  # para que no dé error por exceso de tokens
         if len(body) > MAX_LENGTH:
             body = body[:MAX_LENGTH] + '...'
-        
-        return from_, subject, body, date
+
+        return message_id, from_, subject, body, date  # Devolver el Message-ID junto con el resto de información
     except Exception as e:
         print(f"Error al analizar el correo: {e}")
-        return None, None, None, None
-
-def add_memory(user_id, text, metadata=None):
-    """Añadir una nueva memoria automáticamente para el usuario dado."""
-    try:
-        if metadata is None:
-            metadata = {}
-        result = m.add(text, user_id=user_id, metadata=metadata)
-        return result
-    except Exception as e:
-        print(f"Error al añadir memoria: {e}")
-        return None
+        return email_id, None, None, None, None
     
 def get_pending_hilos(mysql_conn_params):
     try:
@@ -237,7 +274,6 @@ def generate_response(from_, body):
             {"role": "user", "content": f"Usuario: {from_}\nPregunta: {body}\nRespuesta:"}
         ]
         
-        print(messages)
         response = openai.chat.completions.create(
             model="gpt-4",
             messages=messages,
@@ -250,58 +286,65 @@ def generate_response(from_, body):
 
 def email_listener():
     while True:
-        mail = connect_imap()
-        if mail:
-            email_ids = check_inbox(mail)
-            if email_ids:
-                email_count = 0
-                for email_id in email_ids:
-                    email_count += 1
-                    # print(email_count)
-                    if email_count == 100:
-                        break
-                    msg = fetch_email(mail, email_id)
-                    if msg:
-                        from_, subject, body, date = parse_email(msg)
-                        if from_ and subject and body and "adalmo" not in from_:
-                            print(f"Nuevo correo de {from_}: {subject}\n\n")
-                            add_memory(user_id=from_, text=body, metadata={"subject": subject})
-                            # print(body, '\n')
+        try:
+            token = obtener_credenciales()
+            mail = connect_imap_oauth2(token)
+            if mail:
+                email_ids = check_inbox(mail)
+                if email_ids:
+                    email_count = 0
+                    for email_id in email_ids:
+                        email_count += 1
+                        if email_count == 100:
+                            break
+                        msg, msg_id = fetch_email(mail, email_id)
+                        
+                        if msg:
+                            message_id, from_, subject, body, date = parse_email(msg, email_id)
                             
-                            all_memories = m.get_all() 
-                            memory_id = all_memories[0]["id"] # get a memory_id
-                            # print(memory_id)
-                            # print("Correo almacenado en la memoria.\n")
-                            
-                            response = generate_response(from_, body)
-                            # print(f"Respuesta generada para SQLCoder:\n{response}")
-                            # print(date)
-                            mycursor = mydb.cursor()
-                            if response:
-                                try:
-                                    if "adalmo" not in from_:
-                                        if "@gmail" in from_:
-                                            from_ = f"{from_.split('@')[0]}"
-                                            print(from_)
-                                        else:
-                                            from_ = f"{from_.split('@')[1]}"
-                                            from_ = f"{from_.split('.')[0]}"
-                                            print(from_)
-                                        print("mail para aida", from_)                                           
-                                        
-                                        query = "INSERT INTO hilos(date, date_created, aida_correo, aida_response, aida_request) VALUES (%s, curdate(),%s,%s,%s)"
-                                        mycursor.execute(query, (date,body, response, from_))
-                                        mydb.commit()  # Asegúrate de hacer commit para guardar los cambios
-                                        print("Correo guardado en la base de datos")
+                            if any(palabra in body.lower() for palabra in palabras):
+                                
+                                if from_ and subject and body and "adalmo" not in from_:
+                                    mail_track_id = get_message_by_id(message_id)
+                                    print(f"Nuevo correo id({mail_track_id}) de {from_}: {subject}\n\n")
+                                                                    
+                                    response = generate_response(from_, body)
+                                    mycursor = mydb.cursor()
 
-                                except pymysql.MySQLError as e:
-                                    print(f"Error al ejecutar la consulta SQL: {e}")
-                                    return False
+                                    if response:
+                                        print(response)
+                                        try:
+                                            # Extraer nombre de usuario o dominio del correo
+                                            if "adalmo" not in from_:
+                                                if "@gmail" in from_:
+                                                    from_ = f"{from_.split('@')[0]}"
+                                                    print(from_)
+                                                else:
+                                                    from_ = f"{from_.split('@')[1].split('.')[0]}"
+                                                    print(from_)
+                                                print("Mail para Aida:", from_)                                           
 
-                                finally:
-                                    mycursor.close()
-                                    time.sleep(5)  # Esperar 1 minuto antes de revisar nuevamente
+                                                # Guardar en la base de datos
+                                                query = """
+                                                INSERT INTO hilos(date, date_created, aida_correo, aida_response, aida_request, mail_track_id) 
+                                                VALUES (%s, curdate(), CONCAT('Asunto:', %s, %s), %s, %s, %s)
+                                                """
+                                                mycursor.execute(query, (date, subject, body, response, from_, mail_track_id))
+                                                mydb.commit()  # Confirmar los cambios
+                                                print("Correo guardado en la base de datos")
 
+                                        except pymysql.MySQLError as e:
+                                            print(f"Error al ejecutar la consulta SQL: {e}")
+                                        finally:
+                                            mycursor.close()
+
+            # Cerrar la conexión IMAP después de procesar
+            mail.logout()
+            time.sleep(60)  # Esperar 1 minuto antes de revisar nuevamente
+
+        except Exception as e:
+            print(f"Error general: {e}")
+            time.sleep(60)  # Esperar y reintentar en caso de error
 
 if __name__ == "__main__":
     email_listener()

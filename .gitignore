@@ -1,2 +1,8 @@
 .env
 saved_model/
+credentials.json
+token
+token.json
+token.pickle
+metadata.sql
+finetuning_data.jsonl
