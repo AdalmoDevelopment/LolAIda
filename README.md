@@ -3,4 +3,4 @@ GPT-4(FineTunning + RAG) + Python + API Gmail Stack para generar documentos úni
 
 Deploy en AWS Lambda.
 
-![Proceso LolAida drawio](https://github.com/user-attachments/assets/89a5c50e-c7ae-4522-afc2-d5077a98230a)
+![Proceso LolAida](https://github.com/user-attachments/assets/d28aca27-bbe5-4bef-beea-e8ca3122d20d)
