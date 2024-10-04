@@ -122,7 +122,7 @@ def main():
 
             print(f"Obteniendo contratos para: {aida_request}")
             query_contratos = """
-                SELECT rp.name, paa.name as Contrato,
+SELECT rp.name, paa.name as Contrato,
                 case when pp.default_code is not null then concat('[',pp.default_code,'] ', pt.name) end as Producto,
                 ptContainer.name as ENVASE,
                 pc.name as categoria_producto,
@@ -159,7 +159,7 @@ def main():
 
             print(f"Obteniendo lugares de recogida para: {aida_request}")
             query_lugares_recogida = """
-                SELECT paa.pnt_complete_name, rprecog.display_name as Lugares_de_recogida
+                SELECT paa.name, rprecog.display_name as Lugares_de_recogida
                 FROM public.pnt_agreement_agreement paa
                 LEFT JOIN res_partner rp ON paa.pnt_holder_id = rp.id
                 LEFT JOIN pnt_agreement_partner_pickup_rel pappr ON paa.id = pappr.pnt_agreement_id

@@ -33,7 +33,7 @@ def get_pending_hilos(mysql_conn_params):
             SELECT id, CONCAT('¿Me haces este DU? Mail:', aida_correo , ', "Info:": ', lola_response,' }')
             FROM hilos
             WHERE lola_generated = 1 AND aida_generated = 0
-            AND lola_response != '{ "Contratos": [], "Lugares de recogida": [] }'
+            AND lola_response != '{ "Contratos": [], "Lugares de recogida": [] }' AND CONCAT('¿Me haces este DU? Mail:', aida_correo , ', "Info:": ', lola_response,' }') IS NOT NULL
 
         """)
         hilos = cursor.fetchall()
@@ -98,7 +98,7 @@ def process_pending_hilos():
             thread_id=thread.id,
             assistant_id="asst_5ZarbjA6POT814f7nIJvbEWu",
             temperature=0.1,
-            model="gpt-4o",
+            model="ft:gpt-4o-2024-08-06:personal:primerfinetuning:AAc44BUA",
             instructions="""
                 Instruction:
 
@@ -111,7 +111,7 @@ def process_pending_hilos():
                 "Titular": "",
                 "Contrato": "",
                 "Lugar de recogida": "",
-                "Categoría de vehículo": (ALWAYS RPs, Contenedor/Cadenas, Contenedor/Ganchos, Recolectores, Sanitarios, Pulpos, Cisternas look at the Tabla Equivalencias in the provided document),
+                "Categoría de vehículo": (ALWAYS RPs, Contenedores/Cadenas, Contenedores/Ganchos, Recolectores, Sanitarios, Pulpos, Cisternas look at the Tabla Equivalencias in the provided document),
                 "Líneas del DU": [
                     {
                     "Producto": (could be a service, envase or waste),
@@ -148,9 +148,8 @@ def process_pending_hilos():
                 The info I'm providing you follows the next structure:
                 *You won't take info from categoria_producto, just to classify and make decisions*
                 {"Titular", "Contrato", "Producto", "Envase", "Categoria_producto”,“Residuo” }, and you must fill the DU with the equivalent fields. 
-
-
             """,
+            
             tools=[{"type": "file_search"}]
             # Lo siguiente no se pone porque en teoria el asistente ya tiene el vector, en todo caso se le pone al crearlo o actualizarlo
             # tool_resources={
@@ -170,7 +169,7 @@ def process_pending_hilos():
                     time.sleep(2)  # Espera 2 segundos antes de verificar nuevamente
 
         messages = client.beta.threads.messages.list(thread_id=thread.id)
-        print(messages)
+        # print(messages)
                     
         last_message = None
         
@@ -189,15 +188,15 @@ def process_pending_hilos():
                 for block in content_blocks:
                     json_content += block.text.value
                 
-                # Imprimir contenido combinado antes de limpiar
-                print(f"Contenido combinado antes de limpiar: {json_content}")
+                # # Imprimir contenido combinado antes de limpiar
+                # print(f"Contenido combinado antes de limpiar: {json_content}")
 
                 # Extraer el JSON que está entre ```json\n y \n```
                 match = re.search(r'```json\s*(.*?)\s*```', json_content, re.DOTALL)
                 if match:
                     clean_content = match.group(1).strip()
-                    # Imprimir contenido después de limpiar
-                    print(f"Contenido después de limpiar: {clean_content}")
+                    # # Imprimir contenido después de limpiar
+                    # print(f"Contenido después de limpiar: {clean_content}")
 
                     try:
                         # Validar si el contenido es JSON válido
@@ -210,6 +209,10 @@ def process_pending_hilos():
                         print(f"Error al procesar JSON: {e}")
                 else:
                     print("No se encontró el JSON en el contenido.")
+                    message = ''
+                    for block in content_blocks:
+                        message += block.text.value
+                    mark_as_processed(mysql_conn_params, hilo_id, message)
         else:
                 print("No se encontraron mensajes del asistente en la respuesta.")
 
