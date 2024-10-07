@@ -9,20 +9,17 @@ import os
 
 load_dotenv()
 
-# Configuración de conexión a PostgreSQL
 dbname = os.getenv('DB_NAME')
 postgres_user = os.getenv('DB_USER')
 postgres_password = os.getenv('DB_PASSWORD')
 postgres_host = os.getenv('DB_HOST')
 postgres_port = os.getenv('DB_PORT')
 
-# Configuración de conexión a MySQL
 mysql_host = os.getenv('MYSQL_HOST')
 mysql_user = os.getenv('MYSQL_USER')
 mysql_password = os.getenv('MYSQL_PASSWORD')
 mysql_database = os.getenv('MYSQL_DATABASE')
 
-    # Parámetros de conexión a la base de datos PostgreSQL
 postgres_conn_params = {
         'dbname': dbname,
         'user': postgres_user,
@@ -30,8 +27,7 @@ postgres_conn_params = {
         'host': postgres_host,
         'port': postgres_port
 }
-    
-    # Parámetros de conexión a la base de datos MySQL
+
 mysql_conn_params = {
         'host': mysql_host,
         'user': mysql_user,
@@ -77,7 +73,6 @@ def queries_du(json_du):
     categoria_vehiculo = (json_du["Categoría de vehículo"].replace("/", " / ")).replace("Contenedor ", "Contenedores ")
     lineas_du = json_du["Líneas del DU"]
     
-    # Verificamos los valores antes de pasarlos
     print(f"Holder ID: {holder_name}")
     print(f"Contrato: {num_contrato}")
     

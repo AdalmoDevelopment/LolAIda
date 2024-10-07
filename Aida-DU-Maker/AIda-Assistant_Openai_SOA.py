@@ -174,50 +174,47 @@ def process_pending_hilos():
         last_message = None
         
         for message in messages:
-                    if message.role == 'assistant':  # Asegúrate de obtener el mensaje del asistente
-                        last_message = message
-                        print(last_message)
-                        break
+            if message.role == 'assistant':  # Asegúrate de obtener el mensaje del asistente
+                last_message = message
+                print(last_message)
+                break
                     
         if last_message:
-                # Obtener el contenido del mensaje
-                content_blocks = last_message.content
-                
-                # Extraer el JSON directamente de los bloques de contenido
-                json_content = ''
+            # Obtener el contenido del mensaje
+            content_blocks = last_message.content
+            
+            # Extraer el JSON directamente de los bloques de contenido
+            json_content = ''
+            for block in content_blocks:
+                json_content += block.text.value
+            
+            # # Imprimir contenido combinado antes de limpiar
+            # print(f"Contenido combinado antes de limpiar: {json_content}")
+
+            # Extraer el JSON que está entre ```json\n y \n```
+            match = re.search(r'```json\s*(.*?)\s*```', json_content, re.DOTALL)
+            if match:
+                clean_content = match.group(1).strip()
+                # # Imprimir contenido después de limpiar
+                # print(f"Contenido después de limpiar: {clean_content}")
+
+                try:
+                    # Validar si el contenido es JSON válido
+                    json_object = json.loads(clean_content)
+                    print(f"Respuesta: {json.dumps(json_object, indent=4)}")
+
+                    # Marcar como procesado en la base de datos
+                    mark_as_processed(mysql_conn_params, hilo_id, clean_content)
+                except json.JSONDecodeError as e:
+                    print(f"Error al procesar JSON: {e}")
+            else:
+                print("No se encontró el JSON en el contenido.")
+                message = ''
                 for block in content_blocks:
-                    json_content += block.text.value
-                
-                # # Imprimir contenido combinado antes de limpiar
-                # print(f"Contenido combinado antes de limpiar: {json_content}")
-
-                # Extraer el JSON que está entre ```json\n y \n```
-                match = re.search(r'```json\s*(.*?)\s*```', json_content, re.DOTALL)
-                if match:
-                    clean_content = match.group(1).strip()
-                    # # Imprimir contenido después de limpiar
-                    # print(f"Contenido después de limpiar: {clean_content}")
-
-                    try:
-                        # Validar si el contenido es JSON válido
-                        json_object = json.loads(clean_content)
-                        print(f"Respuesta: {json.dumps(json_object, indent=4)}")
-
-                        # Marcar como procesado en la base de datos
-                        mark_as_processed(mysql_conn_params, hilo_id, clean_content)
-                    except json.JSONDecodeError as e:
-                        print(f"Error al procesar JSON: {e}")
-                else:
-                    print("No se encontró el JSON en el contenido.")
-                    message = ''
-                    for block in content_blocks:
-                        message += block.text.value
-                    mark_as_processed(mysql_conn_params, hilo_id, message)
+                    message += block.text.value
+                mark_as_processed(mysql_conn_params, hilo_id, message)
         else:
                 print("No se encontraron mensajes del asistente en la respuesta.")
-
- 
-                
 
 def email_listener():
     while True:

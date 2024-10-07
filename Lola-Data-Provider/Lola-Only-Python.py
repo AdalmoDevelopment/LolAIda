@@ -165,7 +165,7 @@ SELECT rp.name, paa.name as Contrato,
                 LEFT JOIN pnt_agreement_partner_pickup_rel pappr ON paa.id = pappr.pnt_agreement_id
                 LEFT JOIN res_partner rprecog ON pappr.partner_id = rprecog.id
                 WHERE paa.pnt_holder_id IN (SELECT id FROM res_partner WHERE email ILIKE %s AND is_company = true)
-                AND paa.state = 'done'
+                AND paa.state = 'done'  
             """
             results2 = execute_query(query_lugares_recogida, (email_pattern,), postgres_conn_params)
             
