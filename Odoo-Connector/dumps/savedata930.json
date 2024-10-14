@@ -1,0 +1,31 @@
+{
+      "Titular": "Fundaci\u00f3n Ecolec",
+      "Contrato": "AA2400245",
+      "Lugar de recogida": "Obrador Ricart Bernardo, Felanitx Pla\u00e7a Pax, 17",
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2589,
+                  "container_id": 2667,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RFR1CFCD] RAEE FR1 CON CFC DOM\u00c9STICO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2561,
+                  "container_id": 2667,
+                  "waste_id": null
+            }
+      ],
+      "holder_id": 11485,
+      "agreement_id": 768,
+      "pickup_id": 53194,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1927b1137eac0963"
+}

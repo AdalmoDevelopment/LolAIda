@@ -55,7 +55,7 @@ def get_pending_hilos(mysql_conn_params):
         conn = pymysql.connect(**mysql_conn_params)
         cursor = conn.cursor()
         
-        cursor.execute("SELECT id, aida_generated_du, mail_track_id FROM hilos WHERE aida_generated_du is not null and aida_generated_du like '%Líneas del DU%' AND DATE > '2024-09-10' order by id desc ")
+        cursor.execute("SELECT id, aida_generated_du, mail_track_id FROM hilos WHERE aida_generated_du is not null and aida_generated_du like '%Líneas del DU%' AND date_created > '2024-10-11' order by id desc ")
         hilos = cursor.fetchall()
         
         cursor.close()
@@ -70,8 +70,8 @@ def queries_du(json_du):
     holder_name = json_du["Titular"].replace("'", "''")
     num_contrato = json_du["Contrato"]
     lugar_recogida = json_du["Lugar de recogida"]
-    categoria_vehiculo = (json_du["Categoría de vehículo"].replace("/", " / ")).replace("Contenedor ", "Contenedores ")
-    lineas_du = json_du["Líneas del DU"]
+    categoria_vehiculo = (json_du["Categoria de vehiculo"].replace("/", " / ")).replace("Contenedor ", "Contenedores ")
+    lineas_du = json_du["Lineas del DU"]
     
     print(f"Holder ID: {holder_name}")
     print(f"Contrato: {num_contrato}")
@@ -153,11 +153,22 @@ def main():
         
         for hilo_id, aida_generated, mail_track_id in pending_hilos:
             print(hilo_id)
-            json_du = json.loads(aida_generated)
+            try:
+                # Intentamos cargar el JSON
+                json_du = json.loads(aida_generated)
+                print("JSON cargado con éxito")
+            except json.JSONDecodeError as e:
+                # Muestra el contenido que causó el error para facilitar la depuración
+                print(f"Error al decodificar el JSON en el hilo {hilo_id}: {e}")
+                print(f"Contenido de 'aida_generated': {aida_generated}")
+                continue  # Salta a la siguiente iteración si el JSON es inválido
+
             queries_du(json_du)
 
             json_du["Track_Gmail_Uid"] = mail_track_id
-            
+            save_file = open(f"./dumps/savedata{hilo_id}.json", "x")  
+            json.dump(json_du, save_file, indent = 6)  
+            save_file.close()  
             print(json_du)
             
         break

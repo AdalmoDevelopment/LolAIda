@@ -122,11 +122,14 @@ def main():
 
             print(f"Obteniendo contratos para: {aida_request}")
             query_contratos = """
-SELECT rp.name, paa.name as Contrato,
+                SELECT rp.display_name, paa.name as Contrato,
                 case when pp.default_code is not null then concat('[',pp.default_code,'] ', pt.name) end as Producto,
-                ptContainer.name as ENVASE,
-                pc.name as categoria_producto,
-                case when ppWaste.default_code is not null then concat('[',ppWaste.default_code,'] ', ptWaste.name) end as Residuo
+
+                case when ptContainer.default_code is not null then concat('[',ptContainer.default_code,'] ', ptContainer.name) end as ENVASE,
+
+                case when ppWaste.default_code is not null then concat('[',ppWaste.default_code,'] ', ptWaste.name) end as Residuo,
+
+                pc.name as categoria_producto
 
                 FROM public.pnt_agreement_agreement paa
 

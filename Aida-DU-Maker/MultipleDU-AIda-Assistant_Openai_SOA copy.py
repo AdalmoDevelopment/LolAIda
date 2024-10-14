@@ -48,27 +48,35 @@ def get_pending_hilos(mysql_conn_params):
         print(f"Error al conectar a MySQL: {e}")
         return []
 
-def mark_as_processed(mysql_conn_params, hilo_id, clean_response, du):
+def mark_as_processed(mysql_conn_params, hilo_id, aida_generated_du, aida_response):
     try:
         conn = pymysql.connect(**mysql_conn_params)
         cursor = conn.cursor()
         
-        cursor.execute("""
-            UPDATE hilos
-            SET aida_generated_du = %s, aida_generated = 1
-            WHERE id = %s
-        """, (clean_response, hilo_id))
-        
-        if du is not None:
+        if aida_generated_du == None and aida_response == None:
+            print('Se borra lo anterior del hilo:', hilo_id)
             cursor.execute("""
-                INSERT INTO generated_dus_aida(id_hilo, message, du)
-                VALUES(%s, %s, %s)
-            """, (hilo_id, clean_response, du))
-        
-        conn.commit()
-        
+                            DELETE FROM generated_dus_aida WHERE id_hilo = %s
+                        """, ( hilo_id ))
+            conn.commit()
+        else:
+            cursor.execute("""
+                UPDATE hilos
+                SET aida_generated = 1, aida_generated_du = %s
+                WHERE id = %s
+            """, ( aida_response, hilo_id))
+            conn.commit()
+            
+            if aida_generated_du != None :
+                cursor.execute("""
+                INSERT INTO generated_dus_aida(id_hilo, message, du, time)
+                VALUES (%s, %s, %s, CURRENT_TIMESTAMP())
+                """, (hilo_id, aida_response, aida_generated_du))
+                conn.commit()
+                
         cursor.close()  
         conn.close()
+
     except pymysql.MySQLError as e:
         print(f"Error al actualizar MySQL: {e}")
 
@@ -104,9 +112,9 @@ def process_pending_hilos():
         run = client.beta.threads.runs.create(
             thread_id=thread.id,
             assistant_id="asst_5ZarbjA6POT814f7nIJvbEWu",
-            temperature=0.1,
+            temperature=0.7,
             model= model,
-            instructions=prompt,
+            instructions= prompt,
             
             tools=[{"type": "file_search"}]
             # Lo siguiente no se pone porque en teoria el asistente ya tiene el vector, en todo caso se le pone al crearlo o actualizarlo
@@ -118,13 +126,13 @@ def process_pending_hilos():
         )
         
         while True:
-                    run_status = client.beta.threads.runs.retrieve(thread_id=thread.id, run_id=run.id)
-                    if run_status.status == "completed":
-                        break
-                    elif run_status.status == "failed":
-                        print("Error en la ejecución:", run_status.last_error)
-                        break
-                    time.sleep(2)  # Espera 2 segundos antes de verificar nuevamente
+            run_status = client.beta.threads.runs.retrieve(thread_id=thread.id, run_id=run.id)
+            if run_status.status == "completed":
+                break
+            elif run_status.status == "failed":
+                print("Error en la ejecución:", run_status.last_error)
+                break
+            time.sleep(2)  # Espera 2 segundos antes de verificar nuevamente
 
         messages = client.beta.threads.messages.list(thread_id=thread.id)
         # print(messages)
@@ -150,23 +158,23 @@ def process_pending_hilos():
             # print(f"Contenido combinado antes de limpiar: {json_content}")
 
             # Extraer el JSON que está entre ```json\n y \n```
-            match = re.search(r'```json\s*(.*?)\s*```', json_content, re.DOTALL)
-            clean_response = json_content.replace(r'```json\s*(.*?)\s*```', '{Du generado}')
-                        
-            if match:
-                for du in re.findall(r'```json\s*(.*?)\s*```', json_content, re.DOTALL):
-                    print(du)
-                    # clean_content = du.group(1).strip()
-                    # # Imprimir contenido después de limpiar
-                    # print(f"Contenido después de limpiar: {clean_content}")
+            # La única diferencia con el AIda-Assistant_Openai_SOA es que este va a sacar todos los json que haya, en bucle, por si hubiesen más de uno 
+            
+            matches = re.findall(r'```json\s*(.*?)\s*```',json_content, re.DOTALL)
+            mark_as_processed(mysql_conn_params, hilo_id, None, None)            
+            if matches:
                 
+                
+                
+                for du in matches:
+                    
                     try:
                         # Validar si el contenido es JSON válido
                         json_object = json.loads(du)
                         print(f"Respuesta: {json.dumps(json_object, indent=4)}")
 
                         # Marcar como procesado en la base de datos
-                        mark_as_processed(mysql_conn_params, hilo_id, clean_response, du)
+                        mark_as_processed(mysql_conn_params, hilo_id, du, json_content)
                     except json.JSONDecodeError as e:
                         print(f"Error al procesar JSON: {e}")
             else:
@@ -174,7 +182,8 @@ def process_pending_hilos():
                 message = ''
                 for block in content_blocks:
                     message += block.text.value
-                mark_as_processed(mysql_conn_params, hilo_id, message, None)
+                    
+                mark_as_processed(mysql_conn_params, hilo_id, None, json_content)
         else:
                 print("No se encontraron mensajes del asistente en la respuesta.")
 
@@ -185,3 +194,5 @@ def email_listener():
 
 if __name__ == "__main__":
     email_listener()
+
+

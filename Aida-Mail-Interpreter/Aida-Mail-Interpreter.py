@@ -269,7 +269,7 @@ def generate_response(from_, body):
             multiple_lugar_recogida = ""
             
         messages = [
-            {"role": "system", "content": f"Me llamo AIda. Reviso los datos de cada mail que me llega, si no interpreto que me están solicitando una entrega, cambio, o recogida de residuo/recipiente o vaciado de estos, no respondo nada. Si es una solicitud y no contiene material (puede ser un residuo o envase también){multiple_lugar_recogida} en el cuerpo los pediré hasta que los tenga, una vez los tenga responderé 'Lola. Dame la información de {from_} (siempre el mail del remitente)''"},
+            {"role": "system", "content": f"Me llamo AIda, no haré nunca referencia a que soy un asistente AI. Reviso los datos de cada mail que me llega, si no interpreto que me están solicitando una entrega, cambio, o recogida de residuo/recipiente/contenedor o vaciado de estos, no respondo nada. Si es una solicitud y no contiene un residuo, recipiente o contenedor{multiple_lugar_recogida} en el cuerpo los pediré hasta que los tenga, una vez los tenga responderé 'Lola. Dame la información de {from_} (siempre el mail del remitente)''"},
             {"role": "user", "content": f"Usuario: {from_}\nPregunta: {body}\nRespuesta:"}
         ]
         
@@ -326,7 +326,7 @@ def email_listener():
                                                 # Guardar en la base de datos
                                                 query = """
                                                 INSERT INTO hilos(date, date_created, aida_correo, aida_response, aida_request, mail_track_id) 
-                                                VALUES (%s, curdate(), CONCAT('Asunto:', %s, %s), %s, %s, %s)
+                                                VALUES (%s, curdate(), CONCAT('Asunto:', '\n', %s,'\n', %s), %s, %s, %s)
                                                 """
                                                 mycursor.execute(query, (date, subject, body, response, from_, mail_track_id))
                                                 mydb.commit()  # Confirmar los cambios

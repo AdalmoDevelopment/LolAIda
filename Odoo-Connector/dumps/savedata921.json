@@ -1,0 +1,31 @@
+{
+      "Titular": "Mundopanel SL",
+      "Contrato": "AA2400626",
+      "Lugar de recogida": "Mundopanel SL, Palma",
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": "[RH] HIERRO",
+                  "product_id": 2589,
+                  "container_id": 2668,
+                  "waste_id": 2959
+            },
+            {
+                  "Producto": "[EK] CONTENEDOR K (5 m3)",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2668,
+                  "container_id": 2668,
+                  "waste_id": null
+            }
+      ],
+      "holder_id": 27662,
+      "agreement_id": 1161,
+      "pickup_id": 30200,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1927b52a784c1bb8"
+}

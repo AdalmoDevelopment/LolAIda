@@ -1,0 +1,31 @@
+{
+      "Titular": "AENA SME SA",
+      "Contrato": "AA2403673",
+      "Lugar de recogida": "AENA SME SA, Planta de Transferencia",
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EKT] CONTENEDOR TAPADO K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2589,
+                  "container_id": 2672,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RRSU] MEZCLAS DE RESIDUOS MUNICIPALES",
+                  "Unidades": 1,
+                  "Envase": "[EKT] CONTENEDOR TAPADO K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2540,
+                  "container_id": 2672,
+                  "waste_id": null
+            }
+      ],
+      "holder_id": 10815,
+      "agreement_id": 4340,
+      "pickup_id": 33435,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1927b7075e88cc6c"
+}
