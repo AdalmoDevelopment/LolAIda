@@ -129,7 +129,7 @@ def main():
 
                 case when ppWaste.default_code is not null then concat('[',ppWaste.default_code,'] ', ptWaste.name) end as Residuo,
 
-                pc.name as categoria_producto
+                case when pc.name = 'TRANSPORTE' then null when ppWaste.default_code is not null then concat('[',ppWaste.default_code,'] ', ptWaste.name) end as Residuo
 
                 FROM public.pnt_agreement_agreement paa
 
@@ -150,8 +150,8 @@ def main():
                 left join product_category pc  on pt.categ_id = pc.id
 
                 where pnt_holder_id IN (select id from res_partner where email ilike %s and is_company = true)
-                and paa.state = 'done'
-
+                and paa.state = 'done'and pt.company_id = 1
+                order by rp.display_name, paa.name
             """
             results = execute_query(query_contratos, (email_pattern,), postgres_conn_params)
             
@@ -162,13 +162,14 @@ def main():
 
             print(f"Obteniendo lugares de recogida para: {aida_request}")
             query_lugares_recogida = """
-                SELECT paa.name, rprecog.display_name as Lugares_de_recogida
+                SELECT paa.name, rprecog.display_name as Lugar_de_recogida
                 FROM public.pnt_agreement_agreement paa
                 LEFT JOIN res_partner rp ON paa.pnt_holder_id = rp.id
                 LEFT JOIN pnt_agreement_partner_pickup_rel pappr ON paa.id = pappr.pnt_agreement_id
                 LEFT JOIN res_partner rprecog ON pappr.partner_id = rprecog.id
                 WHERE paa.pnt_holder_id IN (SELECT id FROM res_partner WHERE email ILIKE %s AND is_company = true)
-                AND paa.state = 'done'  
+                AND paa.state = 'done'
+                and rp.company_id = 1
             """
             results2 = execute_query(query_lugares_recogida, (email_pattern,), postgres_conn_params)
             

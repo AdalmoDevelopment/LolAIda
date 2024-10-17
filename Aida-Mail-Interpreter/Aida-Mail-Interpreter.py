@@ -276,7 +276,8 @@ def generate_response(from_, body):
         response = openai.chat.completions.create(
             model="gpt-4",
             messages=messages,
-            max_tokens=100
+            max_tokens=100,
+            temperature= 0.6
         )
         return response.choices[0].message.content
     except Exception as e:

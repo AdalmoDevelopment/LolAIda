@@ -112,7 +112,7 @@ def process_pending_hilos():
         run = client.beta.threads.runs.create(
             thread_id=thread.id,
             assistant_id="asst_5ZarbjA6POT814f7nIJvbEWu",
-            temperature=0.7,
+            temperature=0.1,
             model= model,
             instructions= prompt,
             
