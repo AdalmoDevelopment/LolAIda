@@ -68,9 +68,10 @@ def queries_du(json_du):
     """
     
     query_product_ids = """
-        select pp.id
+        select pp.id, pc.name
         from product_template pt
-        left join product_product pp on pt.id = pp.product_tmpl_id 
+        left join product_product pp on pt.id = pp.product_tmpl_id
+        left join product_category pc  on pt.categ_id = pc.id
         where
             case WHEN position(']' in %s) = 0 then pt.name = %s
             else concat('[',pp.default_code,'] ', pt.name) = %s
@@ -89,7 +90,7 @@ def queries_du(json_du):
         json_du["pickup_id"] = results2[0][0] if results2 else None
         json_du["category_fleet_id"] = results3[0][0] if results3 else None            
         
-        print("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\")
+        print(Fore.BLUE + '─' * 200 + Style.RESET_ALL)
         print(f"Id holder y contrato: {results}")
         print(f"{lugar_recogida} / {holder_name} / Id lugar de recogida: {results2}")
         print(f"Id categoria vehiculo: {results3}")
@@ -111,7 +112,7 @@ def queries_du(json_du):
            
             if du_cambio and linea['Producto'] != '[TC] CAMBIO':
                 residuo_cache = results4[0][0]
-                print('se ha guardado el id', results4, 'en cache')
+                print(Fore.YELLOW + 'se ha guardado el id', results4, 'en cache' + Style.RESET_ALL)
             print("\n", linea['Producto'])
             print(f"\____product_id:{results4} \n")
             linea["product_id"] = results4[0][0] if results4 else None
@@ -129,6 +130,45 @@ def queries_du(json_du):
                 print(linea['Residuo'])
                 print(f"\____waste_id:{results6} \n")
                 linea["waste_id"] = results6[0][0] if results6 else None
+                
+            servicio_aida = linea['Producto']
+                
+            if results4[0][1] == 'TRANSPORTE':
+                if linea['Producto'] == '[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)':
+                    json_du["Categoria de vehiculo"] = "Cisternas"
+                    json_du["agreement_id"] = 13
+                    
+                elif linea['Producto'] == '[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)':
+                    json_du["Categoria de vehiculo"] = "Pulpos"
+                    json_du["agreement_id"] = 8
+                    
+                elif linea['Producto'] == '[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)':
+                    json_du["Categoria de vehiculo"] = "Recolectores"
+                    json_du["agreement_id"] = 15
+                    
+                elif linea['Producto'] == '[TC] CAMBIO':
+                    if linea["container_id"] in [2672, 2668, 2926]:
+                        json_du["Categoria de vehiculo"] = "Contenedores/Cadenas"
+                        json_du["agreement_id"] = 7
+                    else:
+                        json_du["Categoria de vehiculo"] = "Contenedores/Ganchos"
+                        json_du["agreement_id"] = 6
+                
+                elif linea['Producto'] == '[TT] TRANSPORTE':
+                    for linea in reversed(lineas_du):
+                        #Para saber si hay un envase sanitario, 
+                        if '[ES' in linea['Producto'] or 'SANITARIO' in linea['Producto'] or linea['Producto'] == "[EUHF] UNIDAD HIGIENE FEMENINA":
+                            json_du["Categoria de vehiculo"] = "Sanitarios"
+                            json_du["agreement_id"] = 4
+                        else:
+                            json_du["Categoria de vehiculo"] = "RPs"
+                            json_du["agreement_id"] = 14
+                    
+                linea["container_id"] = None
+                linea["Envase"] = ""
+                
+                if servicio_aida != linea['Producto']:
+                    print(Fore.YELLOW + "Se ha modificado el servicio de " + servicio_aida + " a " + linea['Producto'] + Style.RESET_ALL)
             
             print("-------------------------------------------------------------------------------------------------------")
 
@@ -153,10 +193,10 @@ def main():
 
             queries_du(json_du)
 
-            json_du["Track_Gmail_Uid"] = mail_track_id
-            save_file = open(f"./dumps/savedata{hilo_id}_{du_id}.json", "x", encoding="utf-8")  
-            json.dump(json_du, save_file, ensure_ascii= False, indent = 6)  
-            save_file.close()  
+            # json_du["Track_Gmail_Uid"] = mail_track_id
+            # save_file = open(f"./dumps/savedata{hilo_id}_{du_id}.json", "x", encoding="utf-8")  
+            # json.dump(json_du, save_file, ensure_ascii= False, indent = 6)  
+            # save_file.close()  
             print(json_du)
             
         break

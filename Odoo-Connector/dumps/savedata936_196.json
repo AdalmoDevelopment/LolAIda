@@ -1,0 +1,31 @@
+{
+      "Titular": "Elsamex Gestion de Infraestructuras SL",
+      "Contrato": "AA2400719",
+      "Lugar de recogida": "Elsamex Gestion de Infraestructuras SL, Centre Conservacio Eix Ponent - Llevant",
+      "Categoria de vehiculo": "Pulpos",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RVOLIOC] RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2607,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "holder_id": 11847,
+      "agreement_id": 1257,
+      "pickup_id": 11848,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "1928f3d5a0a076e9"
+}

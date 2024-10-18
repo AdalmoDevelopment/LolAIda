@@ -1,0 +1,31 @@
+{
+      "Titular": "Fundación Ecolec",
+      "Contrato": "AA2400245",
+      "Lugar de recogida": "Centros Comerciales Carrefour SA, Porto Pi",
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RFR1CFCD] RAEE FR1 CON CFC DOMÉSTICO",
+                  "Unidades": 4,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2575,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "holder_id": 11485,
+      "agreement_id": 768,
+      "pickup_id": 12161,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1929eb30b0ceb2cb"
+}

@@ -1,0 +1,31 @@
+{
+      "Titular": "Dra Balear SL",
+      "Contrato": "FA2300095",
+      "Lugar de recogida": "Dra Balear SL, Dra Palma",
+      "Categoria de vehiculo": "Pulpos",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[02014] ALUMINIO LLANTAS",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": null,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "holder_id": 10036,
+      "agreement_id": 97,
+      "pickup_id": 10037,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "1927b3dea0e12367"
+}

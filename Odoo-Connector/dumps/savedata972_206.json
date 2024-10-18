@@ -1,0 +1,31 @@
+{
+      "Titular": "Transports Trias Germans SL",
+      "Contrato": "AA2400780",
+      "Lugar de recogida": "Transports Trias Germans SL, Dirección de Recogida",
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": "[RVPC] PAPEL Y CARTÓN",
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": 2727
+            },
+            {
+                  "Producto": "[RVPC] PAPEL Y CARTÓN",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2727,
+                  "container_id": 2681,
+                  "waste_id": null
+            }
+      ],
+      "holder_id": 27885,
+      "agreement_id": 1321,
+      "pickup_id": 30423,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "19298ee7bc69cf13"
+}

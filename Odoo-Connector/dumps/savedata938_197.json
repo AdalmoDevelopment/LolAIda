@@ -1,0 +1,40 @@
+{
+      "Titular": "Son Vida Golf SL Unipersonal",
+      "Contrato": "AA2401190",
+      "Lugar de recogida": "Son Vida Golf SL Unipersonal, Restaurant Son Vida",
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RNPAVEG] ACEITE VEGETAL",
+                  "Unidades": 1,
+                  "Envase": "[EB220L] BIDÓN 220L",
+                  "Residuo": null,
+                  "product_id": 2382,
+                  "container_id": 2641,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB220L] BIDÓN 220L",
+                  "Unidades": 1,
+                  "Envase": "[EB220L] BIDÓN 220L",
+                  "Residuo": null,
+                  "product_id": 2641,
+                  "container_id": 2641,
+                  "waste_id": null
+            }
+      ],
+      "holder_id": 48877,
+      "agreement_id": 1740,
+      "pickup_id": 48880,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1928f3a8d073bc5f"
+}

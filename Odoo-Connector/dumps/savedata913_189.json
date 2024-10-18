@@ -1,0 +1,40 @@
+{
+      "Titular": "Capó Binimelis Sebastián",
+      "Contrato": "AA2402311",
+      "Lugar de recogida": "Capó Binimelis Sebastián, Elèctrica s'Horta",
+      "Categoria de vehiculo": "Pulpos",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RH] HIERRO",
+                  "Unidades": 1,
+                  "Envase": "[EBB1M3] BIG BAG RNP 1 m3",
+                  "Residuo": null,
+                  "product_id": 2512,
+                  "container_id": 2642,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EBB1M3] BIG BAG RNP 1 m3",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2642,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "holder_id": 45667,
+      "agreement_id": 2912,
+      "pickup_id": 52084,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "1927cb1608e9f9ed"
+}
