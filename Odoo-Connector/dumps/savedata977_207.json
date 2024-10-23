@@ -2,7 +2,7 @@
       "Titular": "Fundación Ecolec",
       "Contrato": "AA2400245",
       "Lugar de recogida": "Centros Comerciales Carrefour SA, Porto Pi",
-      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "Categoria de vehiculo": "RPs",
       "Lineas del DU": [
             {
                   "Producto": "[TT] TRANSPORTE",
@@ -24,7 +24,7 @@
             }
       ],
       "holder_id": 11485,
-      "agreement_id": 768,
+      "agreement_id": 14,
       "pickup_id": 12161,
       "category_fleet_id": 6,
       "Track_Gmail_Uid": "1929eb30b0ceb2cb"

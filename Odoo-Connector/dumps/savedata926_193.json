@@ -2,7 +2,7 @@
       "Titular": "La Union Imprenta SL",
       "Contrato": "AA2401889",
       "Lugar de recogida": "La Union Imprenta SL, Dirección de Recogida",
-      "Categoria de vehiculo": "Contenedores/Cadenas",
+      "Categoria de vehiculo": "Contenedores/Ganchos",
       "Lineas del DU": [
             {
                   "Producto": "[TC] CAMBIO",
@@ -42,7 +42,7 @@
             }
       ],
       "holder_id": 33921,
-      "agreement_id": 2476,
+      "agreement_id": 6,
       "pickup_id": 33922,
       "category_fleet_id": 7,
       "Track_Gmail_Uid": "1927b311ee23c78f"

@@ -6,6 +6,7 @@ import json
 from decimal import Decimal
 from dotenv import load_dotenv
 import os
+from Json_Formatter import json_formatter
 
 load_dotenv()
 
@@ -77,7 +78,7 @@ def nose():
 
         left join product_category pc  on pt.categ_id = pc.id
 
-        where pnt_holder_id IN (select id from res_partner where email ilike '%ajpuigpunyent%' and is_company = true)
+        where pnt_holder_id IN (select id from res_partner where email ilike '%havenmarine%' and is_company = true)
         and paa.state = 'done'and pt.company_id = 1
         order by rp.display_name, paa.name
     """
@@ -112,7 +113,7 @@ def nose():
         LEFT JOIN res_partner rp ON paa.pnt_holder_id = rp.id
         LEFT JOIN pnt_agreement_partner_pickup_rel pappr ON paa.id = pappr.pnt_agreement_id
         LEFT JOIN res_partner rprecog ON pappr.partner_id = rprecog.id
-        WHERE paa.pnt_holder_id IN (SELECT id FROM res_partner WHERE email ILIKE '%ajpuigpunyent%' AND is_company = true)
+        WHERE paa.pnt_holder_id IN (SELECT id FROM res_partner WHERE email ILIKE '%havenmarine%' AND is_company = true)
         AND paa.state = 'done'
         and rp.company_id = 1
         order by paa.name
@@ -137,15 +138,18 @@ def nose():
     json_contratos = json.dumps(titulares, ensure_ascii= False, indent=4 )
     json_lugares = json.dumps(contratos, ensure_ascii= False, indent=4)
 
-    print("Contratos:", json_contratos, "\n")
-    print("Lugares de recogida:", json_lugares, "\n")
+    # print("Contratos:", json_contratos, "\n")
+    # print("Lugares de recogida:", json_lugares, "\n")
+    
+    
+    result = json_formatter(results, results2)
+    
+    print(result)
     
     if isinstance(results, str):
         print(f"Error ejecutando la consulta: {results}\n")
     else:
         print(f" Resultado exitoso")
-
-    
 
 if __name__ == "__main__":
     nose()

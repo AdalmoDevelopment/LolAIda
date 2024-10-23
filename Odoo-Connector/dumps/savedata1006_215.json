@@ -1,7 +1,7 @@
 {
-      "Titular": "Ajuntament de Puigpunyent",
-      "Contrato": "AA2400530",
-      "Lugar de recogida": "Ajuntament de Puigpunyent, PV Puigpunyent",
+      "Titular": "Werkhaus SL",
+      "Contrato": "AA2300079",
+      "Lugar de recogida": "Werkhaus SL, Bauhaus Mallorca",
       "Categoria de vehiculo": "Contenedores/Ganchos",
       "Lineas del DU": [
             {
@@ -11,21 +11,21 @@
                   "Residuo": null,
                   "product_id": 2603,
                   "container_id": 2684,
-                  "waste_id": 2608
+                  "waste_id": 2727
             },
             {
-                  "Producto": "[RVOLMYO] RESIDUOS VOLUMINOSOS (ORIGEN MUNICIPAL Y OBRAS)",
+                  "Producto": "[RVPC] PAPEL Y CARTÓN",
                   "Unidades": 1,
                   "Envase": "[EAUTO] AUTOCOMPACTADOR",
                   "Residuo": null,
-                  "product_id": 2608,
+                  "product_id": 2727,
                   "container_id": 2684,
                   "waste_id": null
             }
       ],
-      "holder_id": 12290,
+      "holder_id": 28274,
       "agreement_id": 6,
-      "pickup_id": 12291,
+      "pickup_id": 30812,
       "category_fleet_id": 6,
-      "Track_Gmail_Uid": "1928ec0a188ea19f"
+      "Track_Gmail_Uid": "192adabf7b7fbb49"
 }

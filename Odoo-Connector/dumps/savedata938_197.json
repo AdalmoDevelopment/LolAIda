@@ -2,7 +2,7 @@
       "Titular": "Son Vida Golf SL Unipersonal",
       "Contrato": "AA2401190",
       "Lugar de recogida": "Son Vida Golf SL Unipersonal, Restaurant Son Vida",
-      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "Categoria de vehiculo": "RPs",
       "Lineas del DU": [
             {
                   "Producto": "[TT] TRANSPORTE",
@@ -33,7 +33,7 @@
             }
       ],
       "holder_id": 48877,
-      "agreement_id": 1740,
+      "agreement_id": 14,
       "pickup_id": 48880,
       "category_fleet_id": 6,
       "Track_Gmail_Uid": "1928f3a8d073bc5f"

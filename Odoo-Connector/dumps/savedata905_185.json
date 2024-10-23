@@ -1,0 +1,40 @@
+{
+      "Titular": "(Emaya) Empresa Municipal D'Aigües i Clavegueram SA",
+      "Contrato": "AA2400460",
+      "Lugar de recogida": "Son Pacs Talleres",
+      "Categoria de vehiculo": "RPs",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPABS] ABSORBENTES Y TRAPOS RP",
+                  "Unidades": 1,
+                  "Envase": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                  "Residuo": null,
+                  "product_id": 2257,
+                  "container_id": 2707,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2707,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "holder_id": 10367,
+      "agreement_id": 14,
+      "pickup_id": 37937,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "1927a69cb8ca0f3e"
+}

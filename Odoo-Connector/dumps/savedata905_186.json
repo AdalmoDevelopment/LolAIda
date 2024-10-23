@@ -1,7 +1,7 @@
 {
-      "Titular": "Ajuntament de Puigpunyent",
-      "Contrato": "AA2400530",
-      "Lugar de recogida": "Ajuntament de Puigpunyent, PV Puigpunyent",
+      "Titular": "(Emaya) Empresa Municipal D'Aigües i Clavegueram SA",
+      "Contrato": "AA2400642",
+      "Lugar de recogida": "Son Pacs Talleres",
       "Categoria de vehiculo": "Pulpos",
       "Lineas del DU": [
             {
@@ -14,18 +14,18 @@
                   "waste_id": null
             },
             {
-                  "Producto": "[RHMUN] HIERRO (MUNICIPAL)",
+                  "Producto": "[RH] HIERRO",
                   "Unidades": 1,
                   "Envase": "[EGRA] GRANEL",
                   "Residuo": null,
-                  "product_id": 2954,
+                  "product_id": 2512,
                   "container_id": 2449,
                   "waste_id": null
             }
       ],
-      "holder_id": 12290,
+      "holder_id": 10367,
       "agreement_id": 8,
-      "pickup_id": 12291,
-      "category_fleet_id": 8,
-      "Track_Gmail_Uid": "1928ec0a188ea19f"
+      "pickup_id": 37937,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1927a69cb8ca0f3e"
 }

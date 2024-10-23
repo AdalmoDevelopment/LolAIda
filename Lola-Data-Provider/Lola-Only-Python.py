@@ -5,6 +5,7 @@ import json
 from decimal import Decimal
 from dotenv import load_dotenv
 import os
+from Json_Formatter import json_formatter
 
 load_dotenv()
 
@@ -61,7 +62,7 @@ def get_pending_hilos(mysql_conn_params):
         return []
 
 # Función para actualizar el campo lola_generated en la tabla hilos
-def mark_as_processed(mysql_conn_params, hilo_id, results, results2):
+def mark_as_processed(mysql_conn_params, hilo_id, results, results2, result_json):
     def default_converter(obj):
         if isinstance(obj, Decimal):
             return float(obj)
@@ -78,10 +79,12 @@ def mark_as_processed(mysql_conn_params, hilo_id, results, results2):
         cursor.execute(
             """
             UPDATE hilos
-            SET lola_response = (CONCAT('{ "Contratos": ', %s, ', "Lugares de recogida": ', %s, ' }')), lola_generated = 1
+            SET lola_response = (CONCAT('{ "Contratos": ', %s, ', "Lugares de recogida": ', %s, ' }')),
+            lola_response_json = %s,
+            lola_generated = 1
             WHERE id = %s
             """,
-            (results_str, results_str2, hilo_id)
+            (results_str, results_str2, result_json, hilo_id)
         )
         
         conn.commit()
@@ -173,12 +176,14 @@ def main():
             """
             results2 = execute_query(query_lugares_recogida, (email_pattern,), postgres_conn_params)
             
+            result_json = json_formatter(results, results2)
+            
             if isinstance(results, str):
                 print(f"Error ejecutando la consulta: {results}\n")
             else:
                 print(f"Resultados obtenidos: {results}")
             
-            mark_as_processed(mysql_conn_params, hilo_id, results, results2)
+            mark_as_processed(mysql_conn_params, hilo_id, results, results2, result_json)
         
         # Esperar un tiempo antes de volver a revisar la tabla
         time.sleep(10)  # Espera de 10 segundos antes de la siguiente verificación

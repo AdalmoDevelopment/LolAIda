@@ -1,7 +1,7 @@
 {
-      "Titular": "Fundación Ecolec",
-      "Contrato": "AA2400245",
-      "Lugar de recogida": "Centros Comerciales Carrefour SA, Coll d'en Rebassa",
+      "Titular": "MAC Insular SL",
+      "Contrato": "AA2400378",
+      "Lugar de recogida": "MAC Insular SL, PT1 Bunyola",
       "Categoria de vehiculo": "Contenedores/Ganchos",
       "Lineas del DU": [
             {
@@ -11,21 +11,21 @@
                   "Residuo": null,
                   "product_id": 2603,
                   "container_id": 2681,
-                  "waste_id": 2575
+                  "waste_id": 2512
             },
             {
-                  "Producto": "[RFR1CFCD] RAEE FR1 CON CFC DOMÉSTICO",
+                  "Producto": "[RH] HIERRO",
                   "Unidades": 1,
                   "Envase": "[EC] CONTENEDOR C (28 m3)",
                   "Residuo": null,
-                  "product_id": 2575,
+                  "product_id": 2512,
                   "container_id": 2681,
                   "waste_id": null
             }
       ],
-      "holder_id": 11485,
+      "holder_id": 12373,
       "agreement_id": 6,
-      "pickup_id": 12159,
+      "pickup_id": 12374,
       "category_fleet_id": 6,
-      "Track_Gmail_Uid": "1929eb1b0fcc11dc"
+      "Track_Gmail_Uid": "192ada08e0db4c20"
 }
