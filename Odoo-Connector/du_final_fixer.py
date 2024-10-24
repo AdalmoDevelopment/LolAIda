@@ -1,5 +1,5 @@
 from colorama import Fore, Back, Style
-import json
+import json, time
 import psycopg2
 import pymysql
 import json
@@ -22,14 +22,15 @@ def execute_query(query, params):
 	except Exception as e:
 		return str(e)
 
-def get_pending_hilos(mysql_conn_params):
+def mysql_execute_query(query):
 	try:
 		conn = pymysql.connect(**mysql_conn_params)
 		cursor = conn.cursor()
 		
-		cursor.execute("SELECT gda.id, id_hilo, du , h.mail_track_id FROM generated_dus_aida gda, hilos h WHERE id_hilo = h.id AND date_created > '2024-10-12' AND gda.id = 215")
+		cursor.execute(query)
 		hilos = cursor.fetchall()
-		
+
+		conn.commit()
 		cursor.close()
 		conn.close()
 		
@@ -138,33 +139,33 @@ def query_format_du(json_du):
 			if results4[0][1] == 'TRANSPORTE':
 				if linea['Producto'] == '[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)':
 					json_du["Categoria de vehiculo"] = "Cisternas"
-					json_du["agreement_id"] = 13
+					json_du["category_fleet_id"] = 13
 					
 				elif linea['Producto'] == '[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)':
 					json_du["Categoria de vehiculo"] = "Pulpos"
-					json_du["agreement_id"] = 8
+					json_du["category_fleet_id"] = 8
 					
 				elif linea['Producto'] == '[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)':
 					json_du["Categoria de vehiculo"] = "Recolectores"
-					json_du["agreement_id"] = 15
+					json_du["category_fleet_id"] = 15
 					
 				elif linea['Producto'] == '[TC] CAMBIO':
 					if linea["container_id"] in [2672, 2668, 2926]:
 						json_du["Categoria de vehiculo"] = "Contenedores/Cadenas"
-						json_du["agreement_id"] = 7
+						json_du["category_fleet_id"] = 7
 					else:
 						json_du["Categoria de vehiculo"] = "Contenedores/Ganchos"
-						json_du["agreement_id"] = 6
+						json_du["category_fleet_id"] = 6
 					
 				elif linea['Producto'] == '[TT] TRANSPORTE':
 					for linea in reversed(lineas_du):
 						#Para saber si hay un envase sanitario, 
 						if '[ES' in linea['Producto'] or 'SANITARIO' in linea['Producto'] or linea['Producto'] == "[EUHF] UNIDAD HIGIENE FEMENINA":
 							json_du["Categoria de vehiculo"] = "Sanitarios"
-							json_du["agreement_id"] = 4
+							json_du["category_fleet_id"] = 4
 						else:
 							json_du["Categoria de vehiculo"] = "RPs"
-							json_du["agreement_id"] = 14
+							json_du["category_fleet_id"] = 14
 				
 				if linea['Producto'] != '[TC] CAMBIO':
 					linea["container_id"] = None
@@ -177,9 +178,9 @@ def query_format_du(json_du):
 		print(f"Error al ejecutar la consulta: {e}")
 
 def main():
-	print(mysql_conn_params)
 	while True:
-		pending_hilos = get_pending_hilos(mysql_conn_params)
+		print('ecubi')
+		pending_hilos = mysql_execute_query("SELECT gda.id, id_hilo, du , h.mail_track_id FROM generated_dus_aida gda, hilos h WHERE id_hilo = h.id AND created = 0 AND date_created > '2024-10-20' ")
 		
 		for du_id, hilo_id, aida_generated, mail_track_id in pending_hilos:
 			print(hilo_id)
@@ -195,22 +196,24 @@ def main():
 			
 			try:
 				json_du["Track_Gmail_Uid"] = mail_track_id
-				save_file = open(f"./dumps/savedata{hilo_id}_{du_id}.json", "x", encoding="utf-8")  
+				save_file = open(f"./dumps/savedata_{hilo_id}_{du_id}.json", "x", encoding="utf-8")  
 				json.dump(json_du, save_file, ensure_ascii= False, indent = 6)  
 				save_file.close()
 			except FileExistsError:
 				print(Fore.YELLOW + f"¡savedata{hilo_id}_{du_id}.json ya existe!" + Style.RESET_ALL)
-			
-			result = send_du_odoo(json_du)
 
-			print(result)
+			# print( Fore.CYAN + 'Intentando crear DU para', json_du['Titular'] ,', con el contrato', json_du['Contrato'], Style.RESET_ALL)
 			
-			if result:
-				try:
-					execute_query('UPDATE TABLE generated_dus_aida SET odoo_final_response = %s WHERE id = %s', ( result, du_id ))
-					print('Metido en la mysql!!!')
-				except:
-					print(f"Error al conectar a MySQL: {e}")
+			# response, success = send_du_odoo(json_du)
+
+			# print(f"UPDATE generated_dus_aida SET odoo_final_response = {response}, created = {success} WHERE id = {du_id}")
+			
+			# try:
+			# 	response = mysql_execute_query(f'UPDATE generated_dus_aida SET odoo_final_response = {response}, created = {success} WHERE id = {du_id}')
+			# 	print('Metido en la mysql!!!', response)
+			# except:
+			# 	print(f"Error al conectar a MySQL: {e}")
+		time.sleep(3)
 
 if __name__ == "__main__":
 	main()
