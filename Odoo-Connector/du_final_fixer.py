@@ -172,7 +172,7 @@ def query_format_du(json_du):
 					linea["Envase"] = None
 				
 				if cat_vehiculo_aida != json_du["Categoria de vehiculo"]:
-					print(Fore.MAGENTA + "Se ha modificado la categoría vehículo de " + cat_vehiculo_aida + " a " + json_du["Categoria de vehiculo"] + Style.RESET_ALL)
+					print(Fore.MAGENTA + "Se ha modificado la categoría vehículo a " + json_du["Categoria de vehiculo"] + Style.RESET_ALL)
 			print("-------------------------------------------------------------------------------------------------------")
 	except Exception as e:
 		print(f"Error al ejecutar la consulta: {e}")
@@ -180,9 +180,9 @@ def query_format_du(json_du):
 def main():
 	while True:
 		print('ecubi')
-		pending_hilos = mysql_execute_query("SELECT gda.id, id_hilo, du , h.mail_track_id FROM generated_dus_aida gda, hilos h WHERE id_hilo = h.id AND created = 0 AND date_created > '2024-10-20' ")
+		pending_hilos = mysql_execute_query("SELECT gda.id, id_hilo, du , h.mail_track_id FROM generated_dus_aida gda, hilos h WHERE id_hilo = h.id AND created = 0 AND date_created >= '2024-11-04' ")
 		
-		for du_id, hilo_id, aida_generated, mail_track_id in pending_hilos:
+		for du_id, hilo_id, aida_generated, mail_track_id in pending_hilos: 
 			print(hilo_id)
 			try:
 				json_du = json.loads(aida_generated)
@@ -197,7 +197,7 @@ def main():
 			try:
 				json_du["Track_Gmail_Uid"] = mail_track_id
 				save_file = open(f"./dumps/savedata_{hilo_id}_{du_id}.json", "x", encoding="utf-8")  
-				json.dump(json_du, save_file, ensure_ascii= False, indent = 6)  
+				json.dump(json_du, save_file, ensure_ascii= False, indent = 6)
 				save_file.close()
 			except FileExistsError:
 				print(Fore.YELLOW + f"¡savedata{hilo_id}_{du_id}.json ya existe!" + Style.RESET_ALL)

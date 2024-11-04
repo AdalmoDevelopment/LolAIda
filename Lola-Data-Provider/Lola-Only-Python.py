@@ -50,7 +50,7 @@ def get_pending_hilos(mysql_conn_params):
         conn = pymysql.connect(**mysql_conn_params)
         cursor = conn.cursor()
         
-        cursor.execute("SELECT id, aida_request FROM hilos WHERE lola_generated = 0 AND aida_response LIKE 'Lola%'")
+        cursor.execute("SELECT id, aida_request FROM hilos WHERE lola_generated = 0 AND aida_response LIKE '%Lola%'")
         hilos = cursor.fetchall()
         
         cursor.close()

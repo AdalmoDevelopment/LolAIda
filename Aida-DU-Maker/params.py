@@ -1,18 +1,17 @@
-model = 'ft:gpt-4o-2024-08-06:personal:segundofinetuning:ADtQlEw4'
+model = 'ft:gpt-4o-2024-08-06:personal::APoKimZU'
+# ft:gpt-4o-2024-08-06:personal:segundofinetuning:ADtQlEw4
 
-prompt = '''
-Instruction:
+prompt = '''Instruction:
 
 Only use the information provided. You must not invent, assume, or infer any information that is not clearly present in the contracts use only what is explicitly given.
 
 Strict DU Format:
 When generating the DU or DU's, follow this strict JSON format:
 
-{
+```json{
   "Titular": "",
   "Contrato": "",
-  "Lugar de recogida": "",
-  "Categoria de vehiculo": ( Only can be RPs, Contenedores/Cadenas, Contenedores/Ganchos, Recolectores, Sanitarios, Pulpos, Cisternas, look at the Tabla Equivalencias in the provided document),
+  "Lugar de recogida": (it's supossed to be declared on mail, if not, try to infer it and choose one from contracts)
   "Lineas del DU": [
     {
       "Producto": (could be a service, envase or waste),
@@ -21,7 +20,9 @@ When generating the DU or DU's, follow this strict JSON format:
       "Residuo": (null if "Producto" is not "[TC] CAMBIO", in that case depends on the waste selected),
     }
   ]
-}
+}```
+
+PLEASE, IMPORTANT, give me each json involved in ```json {du}```.
 
 IMPORTANT:
 
@@ -29,9 +30,7 @@ Only use the information exactly as it appears in the contracts.
 If any category, product, or other data is not in the contracts, leave it blank or use the default value (e.g., Unidades: 1).
 
 Logic for Container Replenishments:
-Whenever a container (Envase) is specified in a line, if it's not [EGRA] GRANEL(you will never replenish GRANEL) automatically add an additional line for the replenishment of that container, ALWAYS. The quantity should match the original (e.g. if you use 8 containers for contaminated plastic waste, replenish 8 containers).
-Information about this replenishment must be present in the provided contracts.
-Do not assume replenishment information if it is not clearly specified in the contract.
+Whenever a container (Envase) is specified in a line, if it's not [EGRA] GRANEL(you will never replenish GRANEL) or Service Line is not [THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR), automatically add an additional line for the replenishment of that container, ALWAYS. The quantity should match the original (e.g. if you use 8 containers for contaminated plastic waste, replenish 8 containers).
 
 Service Line:
 Service lines can only be: [TT] TRANSPORTE, [THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA) and [THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR), [TC] CAMBIO.
@@ -44,10 +43,9 @@ You always put at least TWO Lineas del DU, 1 for a service and 1 for a Product(W
 
 Try to not write identical lines(e.g.:  3 [RH] HIERRO lines), instead write one line with "Unidades"=3.
 
-DO multiple DU's if you can:
-If the requested waste or containers require different types of services(For example, you're forced to make a DU with two Envases provdided but a Envase requires a [TT] TRANSPORTE and the other one a [THORAC] SERVICIO CAMIÓN HORA (CISTERNA) ), create each DU's you can. If there are any limitations in the contract that prevent you from creating all necessary DU's, create as many as you can and clearly explain why the remaining DU's could not be generated.  
-
-PLEASE, IMPORTANT, give me each json involved in ```json {du}```.
+DO multiple DU's when:
+If the requested waste or containers require different types of services(For example, you're forced to make a DU with two Envases provided but a Envase requires a [TT] TRANSPORTE and the other one a [THORAC] SERVICIO CAMIÓN HORA (CISTERNA) ), create each DU's you can. If there are any limitations in the contract that prevent you from creating all necessary DU's, create as many as you can and clearly explain why the remaining DU's could not be generated. 
+IMPORTANT: Don't make more than 1 DU with same Service Line, do not make two DUs with [TT] TRANSPORTE, merge them in 1 DU. 
 
 The info I'm providing you follows the next structure:
 *You won't take info from categoria_producto, just to classify and make decisions*

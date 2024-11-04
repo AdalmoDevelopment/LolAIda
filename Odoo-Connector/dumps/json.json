@@ -1,0 +1,20 @@
+{
+    "Titular": "Multiauto Palma SL",
+    "Contrato": "AA2400131",
+    "Lugar de recogida": "Multiauto Palma SL, Dirección de Recogida",
+    "Categoria de vehiculo": "Cisternas",
+    "Lineas del DU": [
+      {
+        "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+        "Unidades": 1,
+        "Envase": null,
+        "Residuo": null
+      },
+      {
+        "Producto": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+        "Unidades": 1,
+        "Envase": "[EGRA] GRANEL",
+        "Residuo": null
+      }
+    ]
+  }

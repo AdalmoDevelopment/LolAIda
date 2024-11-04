@@ -34,10 +34,9 @@ def get_pending_hilos(mysql_conn_params):
 			SELECT id, CONCAT('¿Me haces este/estos DU? Mail:', aida_correo , ', "Info:": ', lola_response_json)
 			FROM hilos
 			WHERE lola_generated = 1 AND aida_generated = 0
-			AND lola_response != '{ "Contratos": [], "Lugares de recogida": [] }' AND CONCAT('¿Me haces este DU? Mail:', aida_correo , ', "Info:": ', lola_response,' }') IS NOT NULL
+			AND lola_response != '{ "Contratos": [], "Lugares de recogida": [] }' AND CONCAT('¿Me haces este DU? Mail:', aida_correo , ', "Info:": ', lola_response,' }') IS NOT NULL and date_created = CURDATE()
 		""")
 		hilos = cursor.fetchall()
-		
 		
 		cursor.close()
 		conn.close()
@@ -55,8 +54,8 @@ def mark_as_processed(mysql_conn_params, hilo_id, aida_generated_du, aida_respon
 		if aida_generated_du == None and aida_response == None:
 			print('Se borra lo anterior del hilo:', hilo_id)
 			cursor.execute("""
-							DELETE FROM generated_dus_aida WHERE id_hilo = %s
-						""", ( hilo_id ))
+				DELETE FROM generated_dus_aida WHERE id_hilo = %s
+			""", ( hilo_id ))
 			conn.commit()
 		else:
 			cursor.execute("""
@@ -96,7 +95,7 @@ def process_pending_hilos():
 		thread = client.beta.threads.create(
 		tool_resources={
 			"file_search": {
-			"vector_store_ids": ["vs_jHWxYjUYCPWM1TfyWU4Dq6Ox"]
+			"vector_store_ids": ["vs_iV73bKFND6aIR2Wg1bja0ktM"]
 			}
 		}        
 		)
@@ -115,12 +114,6 @@ def process_pending_hilos():
 			instructions= prompt,
 			
 			tools=[{"type": "file_search"}]
-			# Lo siguiente no se pone porque en teoria el asistente ya tiene el vector, en todo caso se le pone al crearlo o actualizarlo
-			# tool_resources={
-			#     "file_search": {
-			#     "vector_store_ids": ["vs_2"]
-			#     }
-			# }
 		)
 		
 		while True:

@@ -18,12 +18,13 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from extract_msg_id import get_message_by_id
 from diccionario import palabras
+from colorama import Fore, Back, Style
 
 CREDENTIALS_FILE = './credentials.json'
 TOKEN_PICKLE = 'token.pickle'
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
-SCOPES = ['https://mail.google.com/']  # Necesitas acceso completo a Gmail
+SCOPES = ['https://mail.google.com/']
 
 # def lambda_handler(event, context):
 def obtener_credenciales():
@@ -189,10 +190,10 @@ def parse_email(msg, email_id):
 				soup = BeautifulSoup(html, "html.parser")
 				body = soup.get_text()
 
-		MAX_LENGTH = 2000  # para que no dé error por exceso de tokens
+		MAX_LENGTH = 5000  # para que no dé error por exceso de tokens
 		if len(body) > MAX_LENGTH:
 			body = body[:MAX_LENGTH] + '...'
-
+		
 		return message_id, from_, subject, body, date, to_  # Devolver el Message-ID junto con el resto de información
 	except Exception as e:
 		print(f"Error al analizar el correo: {e}")
@@ -269,15 +270,15 @@ def generate_response(from_, body):
 			multiple_lugar_recogida = ""
 			
 		messages = [
-			{"role": "system", "content": f"Me llamo AIda, no haré nunca referencia a que soy un asistente AI. Reviso los datos de cada mail que me llega, si no interpreto que me están solicitando una entrega, cambio, o recogida de residuo/recipiente/contenedor o vaciado de estos, no respondo nada. Si es una solicitud y no contiene un residuo, recipiente o contenedor{multiple_lugar_recogida} en el cuerpo los pediré hasta que los tenga, una vez los tenga responderé 'Lola. Dame la información de {from_} (siempre el mail del remitente)''"},
-			{"role": "user", "content": f"Usuario: {from_}\nPregunta: {body}\nRespuesta:"}
+			{"role": "system", "content": f"Me llamo AIda, no haré nunca referencia a que soy un asistente AI. Reviso los datos de cada mail que me llega, si no interpreto que me están solicitando una entrega, cambio, o recogida de algun tipo de residuo/recipiente/contenedor o vaciado de alguno de estos, respondo 'No se ha detectado ninguna petición'. Una vez interprete algo de esto responderé 'Lola. Dame la información de {from_}' (siempre el mail del remitente). A su vez, me devolverás también el correo pero limpio con solo lo importante, borrando mensajes evidentemente predeterminados, plantillas, etc.''"},
+			{"role": "user", "content": f"{from_}\n {body}\n "}
 		]
 		
 		response = openai.chat.completions.create(
-			model="gpt-4",
+			model="gpt-4o",
 			messages=messages,
 			max_tokens=200,
-			temperature= 0.3
+			temperature= 1
 		)
 		return response.choices[0].message.content
 	except Exception as e:
@@ -308,46 +309,51 @@ def email_listener():
 									print(f"Nuevo correo id({mail_track_id}) de {from_}: {subject}\n\n")
 									
 									
-									# response = generate_response(from_, body)
+									response = generate_response(from_, body)
 									
-									# # if response:
-									# #     print(response)
-									# try:
-										# Extraer nombre de usuario o dominio del correo
-									if "adalmo" not in from_:
-										if ["@gmail","@hotmail"] in from_:
-											from_ = f"{from_.split('@')[0]}"
-											print(from_)
-										else:
-											from_ = f"{from_.split('@')[1].split('.')[0]}"
-											print(from_)
-										print("Mail para Aida:", from_)
+									if response:
+										print(response)
+									try:
+									#Extraer nombre de usuario o dominio del correo
+										print(from_)
+										if "adalmo" not in from_:
+											if any(domain in from_ for domain in ["@gmail", "@hotmail"]):
+												from_ = f"{from_.split('@')[0]}"
+												print(from_)
+											else:
+												from_ = f"{from_.split('@')[1].split('.')[0]}"
+												print(from_)
 										
-										for receiver in to_:
-											if 'aena' in from_ and 'emaya' in receiver:
-												print("Se ha identificado que es es un pedido de Emaya para el lugar de recogida de Aena")
-												from_  = 'aena'
-											
-											
-											# Guardar en la base de datos
-											# query = """
-											# INSERT INTO hilos(date, date_created, aida_correo, aida_response, aida_request, mail_track_id) 
-											# VALUES (%s, curdate(), CONCAT('Asunto:', '\n', %s,'\n', %s), %s, %s, %s)
-											# """
-											# mycursor = mydb.cursor()
-											# mycursor.execute(query, (date, subject, body, response, from_, mail_track_id))
-											# mydb.commit()  # Confirmar los cambios
-											# print("Correo guardado en la base de datos")
+										if from_ == 'inpronet':
+											from_ = 'leroymerlin'										
+										if to_:
+											for receiver in to_:
+												print( "Ecubidubi", Fore.CYAN + receiver + Style.RESET_ALL )
+			
+												if 'aena' in from_ and 'emaya' in receiver:
+													print("Se ha identificado que es es un pedido de Emaya para el lugar de recogida de Aena")
+													from_  = 'emaya'
+										print( "Mail para Aida:", Fore.CYAN + from_ + Style.RESET_ALL )
+										# Guardar en la base de datos
+										query = """
+										INSERT INTO hilos(date, date_created, aida_correo, aida_response, aida_request, mail_track_id) 
+										VALUES (%s, curdate(), CONCAT('Asunto:', '\n', %s,'\n', %s), %s, %s, %s)
+										"""
+										mycursor = mydb.cursor()
+										mycursor.execute(query, (date, subject, response, response, from_, mail_track_id))
+										mydb.commit()  # Confirmar los cambios
+										print("Correo guardado en la base de datos")
 
-									# except pymysql.MySQLError as e:
-									#     print(f"Error al ejecutar la consulta SQL: {e}")
-									# finally:
-									#     mycursor.close()
+									except pymysql.MySQLError as e:
+										print(f"Error al ejecutar la consulta SQL: {e}")
+									finally:
+										mycursor.close()
 							else:
 								print('Ninguna palabra del diccionario en el cuerpo del mensaje')    
 
 			# Cerrar la conexión IMAP después de procesar
 			mail.logout()
+			print( Fore.CYAN + "Exitoooo" + Style.RESET_ALL )
 			time.sleep(60)  # Esperar 1 minuto antes de revisar nuevamente
 
 		except Exception as e:
