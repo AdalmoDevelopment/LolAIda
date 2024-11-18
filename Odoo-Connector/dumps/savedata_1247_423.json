@@ -1,0 +1,31 @@
+{
+      "Titular": "Transportes Berga Alou SL",
+      "Contrato": "AA2300129",
+      "Lugar de recogida": "Transportes Berga Alou SL, TBA Logística",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2684,
+                  "waste_id": 2727
+            },
+            {
+                  "Producto": "[RVPC] PAPEL Y CARTÓN",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2727,
+                  "container_id": 2684,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 35118,
+      "agreement_id": 375,
+      "pickup_id": 35120,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1932e89398558c0a"
+}

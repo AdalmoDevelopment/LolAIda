@@ -1,0 +1,31 @@
+{
+      "Titular": "Serpista SA",
+      "Contrato": "AA2402032",
+      "Lugar de recogida": "Serpista SA, Nave Aena III",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": 2607
+            },
+            {
+                  "Producto": "[RVOLIOC] RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2607,
+                  "container_id": 2682,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 20385,
+      "agreement_id": 2625,
+      "pickup_id": 20637,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "192fb5ff4e6baec9"
+}

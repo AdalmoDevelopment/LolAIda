@@ -1,0 +1,76 @@
+{
+      "Titular": "(Juaneda) Clínica Salus Menorca SLU",
+      "Contrato": "AA2400198",
+      "Lugar de recogida": "(Juaneda) Clínica Salus Menorca SLU, Clínica Juaneda Mahón",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[ES30LA] DEPÓSITO 30L (azul)",
+                  "Unidades": 40,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2443,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EBRIDA] BRIDAS",
+                  "Unidades": 40,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2710,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RSGIII] SANITARIO GRUPO III",
+                  "Unidades": 40,
+                  "Envase": "[ES30LA] DEPÓSITO 30L (azul)",
+                  "Residuo": null,
+                  "product_id": 2259,
+                  "container_id": 2443,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[ESB75A] BOLSA SANITARIO GRUPO III (amarilla)",
+                  "Unidades": 40,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2452,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RSGII] SANITARIO GRUPO II",
+                  "Unidades": 40,
+                  "Envase": "[ESB100V] BOLSA 100L SANITARIO GRUPO II (verde)",
+                  "Residuo": null,
+                  "product_id": 2446,
+                  "container_id": 2450,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[ESB100V] BOLSA 100L SANITARIO GRUPO II (verde)",
+                  "Unidades": 40,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2450,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 35648,
+      "agreement_id": 694,
+      "pickup_id": 35652,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "192f73bb1d59bf98"
+}

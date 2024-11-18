@@ -1,0 +1,31 @@
+{
+      "Titular": "Fundación Ecotic",
+      "Contrato": "AA2400787",
+      "Lugar de recogida": "Anluga SA, Aptel Cala Millor Park",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": "[RFR5SPD] RAEE FR5 PEQUEÑOS CON S.P. DOMÉSTICO",
+                  "product_id": 2603,
+                  "container_id": 2688,
+                  "waste_id": 2590
+            },
+            {
+                  "Producto": "[RFR5SPD] RAEE FR5 PEQUEÑOS CON S.P. DOMÉSTICO",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2590,
+                  "container_id": 2688,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 10878,
+      "agreement_id": 1328,
+      "pickup_id": 12096,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1932e9cd25adca1c"
+}

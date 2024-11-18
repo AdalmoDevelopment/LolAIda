@@ -1,0 +1,31 @@
+{
+      "Titular": "Empresa Municipal de Serveis 2002 SL UNI",
+      "Contrato": "AA2400107",
+      "Lugar de recogida": "Empresa Municipal de Serveis 2002 SL UNI, Punt Verd Pollença",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 4,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": 2534
+            },
+            {
+                  "Producto": "[RMADM] MADERA (MUNICIPAL)",
+                  "Unidades": 4,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2534,
+                  "container_id": 2681,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 33365,
+      "agreement_id": 563,
+      "pickup_id": 33368,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "192f6020ccc1fcd8"
+}

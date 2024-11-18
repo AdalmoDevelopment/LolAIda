@@ -1,0 +1,31 @@
+{
+      "Titular": "Ajuntament de Santa Maria del Cami",
+      "Contrato": "AA2400511",
+      "Lugar de recogida": "Ajuntament de Santa Maria del Cami, PV Santa Maria del Cami - Son Llaüt",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": "[RHMUN] HIERRO (MUNICIPAL)",
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": 2954
+            },
+            {
+                  "Producto": "[RHMUN] HIERRO (MUNICIPAL)",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2954,
+                  "container_id": 2681,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 11605,
+      "agreement_id": 1045,
+      "pickup_id": 12183,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "192fb25dd24df6be"
+}

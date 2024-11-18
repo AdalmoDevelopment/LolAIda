@@ -1,0 +1,31 @@
+{
+      "Titular": "Cobra Instalaciones y Servicios SA",
+      "Contrato": "AA2400702",
+      "Lugar de recogida": "Cobra Instalaciones y Servicios SA, Hangar S H1",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "product_id": 2679,
+                  "container_id": null,
+                  "waste_id": 2379
+            },
+            {
+                  "Producto": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2379,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Cisternas",
+      "holder_id": 11233,
+      "agreement_id": 1240,
+      "pickup_id": 33831,
+      "category_fleet_id": 13,
+      "Track_Gmail_Uid": "192f67e0dfc07f6b"
+}

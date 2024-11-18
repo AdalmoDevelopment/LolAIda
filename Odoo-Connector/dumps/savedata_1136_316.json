@@ -1,0 +1,31 @@
+{
+      "Titular": "Multiauto Palma SL",
+      "Contrato": "AA2400131",
+      "Lugar de recogida": "Multiauto Palma SL, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": 2607
+            },
+            {
+                  "Producto": "[RVOLIOC] RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2607,
+                  "container_id": 2682,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 27410,
+      "agreement_id": 592,
+      "pickup_id": 33407,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "192f722133582ba4"
+}

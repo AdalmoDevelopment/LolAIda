@@ -1,0 +1,31 @@
+{
+      "Titular": "Medimotors Gestión SL",
+      "Contrato": "AA2400426",
+      "Lugar de recogida": "Medimotors Gestión SL, Toyota Palma Asima 40",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EAM1000] CONTENEDOR AMARILLO 1000L",
+                  "Residuo": "[RPECPLA] ENVASES VACÍOS PLÁSTICOS CONTAMINADOS",
+                  "product_id": 2603,
+                  "container_id": 2690,
+                  "waste_id": 2482
+            },
+            {
+                  "Producto": "[RPECPLA] ENVASES VACÍOS PLÁSTICOS CONTAMINADOS",
+                  "Unidades": 1,
+                  "Envase": "[EAM1000] CONTENEDOR AMARILLO 1000L",
+                  "Residuo": null,
+                  "product_id": 2482,
+                  "container_id": 2690,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 14309,
+      "agreement_id": 958,
+      "pickup_id": 14317,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "192f637f598fb4c6"
+}

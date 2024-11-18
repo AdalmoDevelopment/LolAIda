@@ -1,0 +1,31 @@
+{
+      "Titular": "Isleña De Motores SL",
+      "Contrato": "AA2400713",
+      "Lugar de recogida": "Isleña De Motores SL, Son Castelló",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": "[RH] HIERRO",
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": ""
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": "[RVOLIOC] RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)",
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": ""
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 27354,
+      "agreement_id": 1251,
+      "pickup_id": 33326,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "192f614ef90e472f"
+}

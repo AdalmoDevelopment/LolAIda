@@ -1,0 +1,85 @@
+{
+      "Titular": "Proa Premium, SL",
+      "Contrato": "AA2400001",
+      "Lugar de recogida": "Proa Premium, SL, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPPOLIJ] POLVO DE LIJADO",
+                  "Unidades": 1,
+                  "Envase": "[EB220L] BIDÓN 220L",
+                  "Residuo": null,
+                  "product_id": 2570,
+                  "container_id": 2641,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPDNH] DISOLVENTES NO HALOGENADOS",
+                  "Unidades": 1,
+                  "Envase": "[EB60L] BIDÓN 60L",
+                  "Residuo": null,
+                  "product_id": 2477,
+                  "container_id": 2640,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPECPLA] ENVASES VACÍOS PLÁSTICOS CONTAMINADOS",
+                  "Unidades": 1,
+                  "Envase": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                  "Residuo": null,
+                  "product_id": 2482,
+                  "container_id": 2707,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPECMET] ENVASES VACÍOS METÁLICOS CONTAMINADOS",
+                  "Unidades": 1,
+                  "Envase": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                  "Residuo": null,
+                  "product_id": 2481,
+                  "container_id": 2707,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB220L] BIDÓN 220L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2641,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB60L] BIDÓN 60L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2640,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                  "Unidades": 2,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2707,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 35540,
+      "agreement_id": 452,
+      "pickup_id": 35542,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "192f685448fffed2"
+}

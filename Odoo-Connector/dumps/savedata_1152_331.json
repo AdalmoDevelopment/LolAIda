@@ -1,0 +1,49 @@
+{
+      "Titular": "Ajuntament de Puigpunyent",
+      "Contrato": "AA2400530",
+      "Lugar de recogida": "Ajuntament de Puigpunyent, PV Puigpunyent",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RHMUN] HIERRO (MUNICIPAL)",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2954,
+                  "container_id": 2681,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RVOLMYO] RESIDUOS VOLUMINOSOS (ORIGEN MUNICIPAL Y OBRAS)",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2608,
+                  "container_id": 2681,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 2,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": ""
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 12290,
+      "agreement_id": 1064,
+      "pickup_id": 12291,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "192fb34fcb4260cc"
+}

@@ -1,0 +1,31 @@
+{
+      "Titular": "Stellantis & You España SAU",
+      "Contrato": "AA2400584",
+      "Lugar de recogida": "Stellantis & You España SAU, C/Aragón",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 2,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": "[RVOLIOC] RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)",
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": 2607
+            },
+            {
+                  "Producto": "[RVOLIOC] RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)",
+                  "Unidades": 2,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2607,
+                  "container_id": 2682,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12408,
+      "agreement_id": 1118,
+      "pickup_id": 12410,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1932e7c97fa25635"
+}

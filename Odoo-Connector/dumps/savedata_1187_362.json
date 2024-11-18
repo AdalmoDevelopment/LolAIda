@@ -1,0 +1,31 @@
+{
+      "Titular": "Ca Na Negreta SA",
+      "Contrato": "AA2403921",
+      "Lugar de recogida": "Ca Na Negreta SA, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2795,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[STRAT] TRATAMIENTO",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": "[RSECYAIS] SECCIONADORES Y AISLADORES",
+                  "product_id": 2832,
+                  "container_id": 2449,
+                  "waste_id": 2965
+            }
+      ],
+      "Categoria de vehiculo": "Recolectores",
+      "holder_id": 12076,
+      "agreement_id": 4598,
+      "pickup_id": 57553,
+      "category_fleet_id": 15,
+      "Track_Gmail_Uid": "192f68ad5620baee"
+}

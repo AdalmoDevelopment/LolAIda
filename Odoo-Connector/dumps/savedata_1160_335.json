@@ -1,0 +1,67 @@
+{
+      "Titular": "Intercruises Port Operations Spain SLU",
+      "Contrato": "AA2401676",
+      "Lugar de recogida": "Intercruises Port Operations Spain SLU, Barco - Mein Schiff 6",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[SMARV] MARPOL VARIOS",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 3085,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RVOLIOC] RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)",
+                  "Unidades": 34,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2607,
+                  "container_id": 2449,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPECPLA] ENVASES VACÍOS PLÁSTICOS CONTAMINADOS",
+                  "Unidades": 4,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2482,
+                  "container_id": 2449,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPECMET] ENVASES VACÍOS METÁLICOS CONTAMINADOS",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2481,
+                  "container_id": 2449,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB220L] BIDÓN 220L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2641,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 17274,
+      "agreement_id": 2247,
+      "pickup_id": 36371,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "192f8f336d0e6b6a"
+}

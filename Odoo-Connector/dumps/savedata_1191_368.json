@@ -1,0 +1,31 @@
+{
+      "Titular": "Ajuntament de Palma",
+      "Contrato": "AA2400464",
+      "Lugar de recogida": "Ajuntament de Palma, Son Pacs",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RNPPINT] RESIDUOS DE PINTURA Y BARNIZ NO PELIGROSOS",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2622,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 12231,
+      "agreement_id": 998,
+      "pickup_id": 37606,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "192f669936a4a2a2"
+}

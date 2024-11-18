@@ -1,0 +1,31 @@
+{
+      "Titular": "CIBIC Baleares SL",
+      "Contrato": "AA2400443",
+      "Lugar de recogida": "CIBIC Baleares SL, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": 2404
+            },
+            {
+                  "Producto": "[RALREC] ALUMINIO RECORTE",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2404,
+                  "container_id": 2682,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 20367,
+      "agreement_id": 976,
+      "pickup_id": 20619,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "192f797767a81376"
+}

@@ -1,0 +1,31 @@
+{
+      "Titular": "MAC Insular SL",
+      "Contrato": "AA2400378",
+      "Lugar de recogida": "MAC Insular SL, PT1 Bunyola",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": "[RALCACH] ALUMINIO CACHARRO",
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": 2398
+            },
+            {
+                  "Producto": "[RALCACH] ALUMINIO CACHARRO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2398,
+                  "container_id": 2682,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12373,
+      "agreement_id": 909,
+      "pickup_id": 12374,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "192fb5357765b62b"
+}

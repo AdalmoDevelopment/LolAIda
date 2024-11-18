@@ -1,0 +1,31 @@
+{
+      "Titular": "Concesionaria Hosp Univ Son Espases SA",
+      "Contrato": "AA2300091",
+      "Lugar de recogida": "IBSalut - Hospital Universitari Son Espases App, H. Son Espases",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": "[RPFORM] FORMOL",
+                  "product_id": 2679,
+                  "container_id": null,
+                  "waste_id": 2499
+            },
+            {
+                  "Producto": "[RPRLAB] REACTIVOS DE LABORATORIO",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2595,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Cisternas",
+      "holder_id": 12583,
+      "agreement_id": 336,
+      "pickup_id": 53908,
+      "category_fleet_id": 13,
+      "Track_Gmail_Uid": "192f70a5f3d20e12"
+}

@@ -1,0 +1,31 @@
+{
+      "Titular": "AENA SME SA",
+      "Contrato": "AA2400508",
+      "Lugar de recogida": "AENA SME SA, Planta de Transferencia",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": "[RRSU] MEZCLAS DE RESIDUOS MUNICIPALES",
+                  "product_id": 2603,
+                  "container_id": 2684,
+                  "waste_id": 2554
+            },
+            {
+                  "Producto": "[RRSU] MEZCLAS DE RESIDUOS MUNICIPALES",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2554,
+                  "container_id": 2684,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 10367,
+      "agreement_id": 1042,
+      "pickup_id": 33435,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "192fb298808463b4"
+}

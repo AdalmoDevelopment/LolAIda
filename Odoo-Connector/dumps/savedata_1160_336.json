@@ -1,0 +1,49 @@
+{
+      "Titular": "Intercruises Port Operations Spain SLU",
+      "Contrato": "AA2403670",
+      "Lugar de recogida": "Intercruises Port Operations Spain SLU, Intercruises Port Operations Spain SLU",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[SMHORAR] MANIPULACIÓN RESIDUOS",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2680,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPEMAV] ENVASES DE AEROSOLES VACÍOS",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2486,
+                  "container_id": 2449,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPCYGU] CERAS Y GRASAS USADAS",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2386,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 17274,
+      "agreement_id": 4337,
+      "pickup_id": 57013,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "192f8f336d0e6b6a"
+}

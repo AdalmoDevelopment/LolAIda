@@ -1,0 +1,31 @@
+{
+      "Titular": "Aparthotel Bahia SLU",
+      "Contrato": "AA2402202",
+      "Lugar de recogida": "Aparthotel Bahia SLU, THB Ocean Beach",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TTB] TRANSPORTE BULTO",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 3123,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RFR5NPD] RAEE FR5 DOMÉSTICO NP",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 3104,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "",
+      "holder_id": 52235,
+      "agreement_id": 2799,
+      "pickup_id": 52237,
+      "category_fleet_id": null,
+      "Track_Gmail_Uid": "192f68bc4d2acf95"
+}

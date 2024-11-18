@@ -43,6 +43,7 @@ def query_format_du(json_du):
 	holder_name = json_du["Titular"].replace("'", "''")
 	num_contrato = json_du["Contrato"]
 	lugar_recogida = json_du["Lugar de recogida"]
+	json_du["Categoria de vehiculo"] = ""
 	categoria_vehiculo = (json_du["Categoria de vehiculo"].replace("/", " / ")).replace("Contenedor ", "Contenedores ")
 	lineas_du = json_du["Lineas del DU"]
 
@@ -202,17 +203,17 @@ def main():
 			except FileExistsError:
 				print(Fore.YELLOW + f"¡savedata{hilo_id}_{du_id}.json ya existe!" + Style.RESET_ALL)
 
-			# print( Fore.CYAN + 'Intentando crear DU para', json_du['Titular'] ,', con el contrato', json_du['Contrato'], Style.RESET_ALL)
+			print( Fore.CYAN + 'Intentando crear DU para', json_du['Titular'] ,', con el contrato', json_du['Contrato'], Style.RESET_ALL)
 			
-			# response, success = send_du_odoo(json_du)
+			response, success = send_du_odoo(json_du)
 
-			# print(f"UPDATE generated_dus_aida SET odoo_final_response = {response}, created = {success} WHERE id = {du_id}")
+			print(f"UPDATE generated_dus_aida SET odoo_final_response = {response}, created = {success} WHERE id = {du_id}")
 			
-			# try:
-			# 	response = mysql_execute_query(f'UPDATE generated_dus_aida SET odoo_final_response = {response}, created = {success} WHERE id = {du_id}')
-			# 	print('Metido en la mysql!!!', response)
-			# except:
-			# 	print(f"Error al conectar a MySQL: {e}")
+			try:
+				response = mysql_execute_query(f'UPDATE generated_dus_aida SET odoo_final_response = {response}, created = {success} WHERE id = {du_id}')
+				print('Metido en la mysql!!!', response)
+			except:
+				print(f"Error al conectar a MySQL: {e}")
 		time.sleep(3)
 
 if __name__ == "__main__":

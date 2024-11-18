@@ -1,0 +1,31 @@
+{
+      "Titular": "UTE Amer - Elecnor Nuevos Cargadores Aeropuerto de Palma UTE",
+      "Contrato": "AA2402346",
+      "Lugar de recogida": "CD13733 PREDIO SON CARRIO (T.M. FELANITX)",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPESF6] EQUIPOS CON SF6",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2411,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 13463,
+      "agreement_id": 2948,
+      "pickup_id": null,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "192f61b6dd4a91a4"
+}

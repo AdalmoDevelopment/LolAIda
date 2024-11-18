@@ -1,0 +1,31 @@
+{
+      "Titular": "Proa Premium, SL",
+      "Contrato": "AA2400001",
+      "Lugar de recogida": "Proa Premium, SL, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": 2399
+            },
+            {
+                  "Producto": "[RALCAR] ALUMINIO CARTER",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2399,
+                  "container_id": 2682,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 35540,
+      "agreement_id": 452,
+      "pickup_id": 35542,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "192f68813d742b20"
+}

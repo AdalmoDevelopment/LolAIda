@@ -1,0 +1,40 @@
+{
+      "Titular": "Stellantis & You España SAU",
+      "Contrato": "AA2400584",
+      "Lugar de recogida": "Stellantis & You España SAU, C/Aragón",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "product_id": 2679,
+                  "container_id": null,
+                  "waste_id": 2379
+            },
+            {
+                  "Producto": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "Unidades": 1,
+                  "Envase": "[EB220L] BIDÓN 220L",
+                  "Residuo": null,
+                  "product_id": 2379,
+                  "container_id": 2641,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB220L] BIDÓN 220L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2641,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Cisternas",
+      "holder_id": 12408,
+      "agreement_id": 1118,
+      "pickup_id": 12410,
+      "category_fleet_id": 13,
+      "Track_Gmail_Uid": "1932e7c97fa25635"
+}

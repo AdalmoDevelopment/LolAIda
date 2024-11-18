@@ -1,0 +1,31 @@
+{
+      "Titular": "Edistribucion Redes Digitales SLU-CM",
+      "Contrato": "AA2400757",
+      "Lugar de recogida": "Edistribucion Redes Digitales SLU-CM, Cobra Menorca MT BT",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RHCHA] HIERRO",
+                  "Unidades": 11,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2833,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 10264,
+      "agreement_id": 1298,
+      "pickup_id": 11880,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "192f613136d573ed"
+}

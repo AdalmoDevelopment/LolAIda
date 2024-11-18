@@ -1,0 +1,31 @@
+{
+      "Titular": "Stellantis & You España SAU",
+      "Contrato": "AA2400584",
+      "Lugar de recogida": "Stellantis & You España SAU, C/Aragón",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": "[RNPVIDC] VIDRIO VEHÍCULOS",
+                  "product_id": 2603,
+                  "container_id": 2688,
+                  "waste_id": 2474
+            },
+            {
+                  "Producto": "[RNPVIDC] VIDRIO VEHÍCULOS",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2474,
+                  "container_id": 2688,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12408,
+      "agreement_id": 1118,
+      "pickup_id": 12410,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1932e7c97fa25635"
+}

@@ -1,0 +1,22 @@
+{
+      "Titular": "AENA SME SA",
+      "Contrato": "AA2400508",
+      "Lugar de recogida": "AENA SME SA, Planta de Transferencia",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EAE] COMPACTADOR ESTÁTICO (30 m3)",
+                  "Residuo": "[RRSU] MEZCLAS DE RESIDUOS MUNICIPALES",
+                  "product_id": 2603,
+                  "container_id": 2697,
+                  "waste_id": ""
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 10367,
+      "agreement_id": 1042,
+      "pickup_id": 33435,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1932ed00bd4fac51"
+}

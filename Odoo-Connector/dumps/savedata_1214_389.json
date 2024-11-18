@@ -1,0 +1,31 @@
+{
+      "Titular": "Cobra Instalaciones y Servicios SA",
+      "Contrato": "AA2400761",
+      "Lugar de recogida": "Cobra Instalaciones y Servicios SA, Obras Varias",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EP] CONTENEDOR P (11 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2698,
+                  "waste_id": 2512
+            },
+            {
+                  "Producto": "[RH] HIERRO",
+                  "Unidades": 11,
+                  "Envase": "[EP] CONTENEDOR P (11 m3)",
+                  "Residuo": null,
+                  "product_id": 2512,
+                  "container_id": 2698,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 11233,
+      "agreement_id": 1302,
+      "pickup_id": 54794,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "192f6033433a591b"
+}

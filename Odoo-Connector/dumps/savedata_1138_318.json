@@ -1,0 +1,31 @@
+{
+      "Titular": "(Pamasa) Carretera Palma-Manacor, Concessionària Consell Insular Mallorca SA",
+      "Contrato": "AA2300087",
+      "Lugar de recogida": "(Pamasa) Carretera Palma-Manacor, Concessionària Consell Insular Mallorca SA, Centro Control",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EP] CONTENEDOR P (11 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2698,
+                  "waste_id": 2607
+            },
+            {
+                  "Producto": "[RVOLIOC] RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)",
+                  "Unidades": 1,
+                  "Envase": "[EP] CONTENEDOR P (11 m3)",
+                  "Residuo": null,
+                  "product_id": 2607,
+                  "container_id": 2698,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 27443,
+      "agreement_id": 332,
+      "pickup_id": 32409,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "192f6de5ec7a4761"
+}

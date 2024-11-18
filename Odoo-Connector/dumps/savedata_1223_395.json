@@ -1,0 +1,31 @@
+{
+      "Titular": "(Emaya) Empresa Municipal D'Aigües i Clavegueram SA",
+      "Contrato": "AA2400461",
+      "Lugar de recogida": "(Emaya) Empresa Municipal D'Aigües i Clavegueram SA, Amianto Vía Pública",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPAMPL] MATERIALES DE CONSTRUCCIÓN CON AMIANTO",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2540,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 10367,
+      "agreement_id": 995,
+      "pickup_id": 37498,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "192f5a0e06cd6ce8"
+}

@@ -1,0 +1,40 @@
+{
+      "Titular": "Limpiezas Munar Fullana SA",
+      "Contrato": "AA2401237",
+      "Lugar de recogida": "Limpiezas Munar Fullana SA, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": "[RH] HIERRO",
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": 2512
+            },
+            {
+                  "Producto": "[RFR5SPP] RAEE FR5 PEQUEÑOS CON S.P. PROFESIONAL",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2591,
+                  "container_id": 2449,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RH] HIERRO",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2512,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 12536,
+      "agreement_id": 1787,
+      "pickup_id": 48973,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "192f728efa44a08c"
+}
