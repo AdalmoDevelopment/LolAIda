@@ -294,8 +294,8 @@ def email_listener():
 				email_count = 0
 				for email_id in email_ids:
 					email_count += 1
-					msg, msg_id = fetch_email(mail, email_id)
 					print('Mail Numero', email_count)
+					msg, msg_id = fetch_email(mail, email_id)
 					if msg:
 						message_id, from_, subject, body, date, to_ = parse_email(msg, email_id)
 						if date is not None:
@@ -308,47 +308,47 @@ def email_listener():
 						if body:
 							if from_ and subject and body and "adalmo" not in from_:
 								mail_track_id = get_message_by_id(message_id)
-								# print(f"Nuevo correo id({mail_track_id}) de {from_}: {subject}\n\n")
+								print(f"Nuevo correo id({mail_track_id}) de {from_}: {subject}\n\n")
 								
-								# response = generate_response(from_, body)
+								response = generate_response(from_, body)
 								
-								# if response:
-								# 	print(response)
-								# try:
-								# #Extraer nombre de usuario o dominio del correo
-								# 	print(from_)
-								# 	if "adalmo" not in from_:
-								# 		if any(domain in from_ for domain in ["@gmail", "@hotmail"]):
-								# 			from_ = f"{from_.split('@')[0]}"
-								# 			print(from_)
-								# 		else:
-								# 			from_ = f"{from_.split('@')[1].split('.')[0]}"
-								# 			print(from_)
+								if response:
+									print(response)
+								try:
+								#Extraer nombre de usuario o dominio del correo
+									print(from_)
+									if "adalmo" not in from_:
+										if any(domain in from_ for domain in ["@gmail", "@hotmail"]):
+											from_ = f"{from_.split('@')[0]}"
+											print(from_)
+										else:
+											from_ = f"{from_.split('@')[1].split('.')[0]}"
+											print(from_)
 									
-								# 	if from_ == 'inpronet':
-								# 		from_ = 'leroymerlin'										
-								# 	if to_:
-								# 		for receiver in to_:
-								# 			print( "Ecubidubi", Fore.CYAN + receiver + Style.RESET_ALL )
+									if from_ == 'inpronet':
+										from_ = 'leroymerlin'										
+									if to_:
+										for receiver in to_:
+											print( "Ecubidubi", Fore.CYAN + receiver + Style.RESET_ALL )
 
-								# 			if 'aena' in from_ and 'emaya' in receiver:
-								# 				print("Se ha identificado que es es un pedido de Emaya para el lugar de recogida de Aena")
-								# 				from_  = 'emaya'
-								# 	print( "Mail para Aida:", Fore.CYAN + from_ + Style.RESET_ALL )
-								# 	# Guardar en la base de datos
-								# 	query = """
-								# 	INSERT INTO hilos(date, date_created, aida_correo, aida_response, aida_request, mail_track_id) 
-								# 	VALUES (%s, curdate(), CONCAT('Asunto:', '\n', %s,'\n', %s), %s, %s, %s)
-								# 	"""
-								# 	mycursor = mydb.cursor()
-								# 	mycursor.execute(query, (date, subject, response, response, from_, mail_track_id))
-								# 	mydb.commit()  # Confirmar los cambios
-								# 	print("Correo guardado en la base de datos")
+											if 'aena' in from_ and 'emaya' in receiver:
+												print("Se ha identificado que es es un pedido de Emaya para el lugar de recogida de Aena")
+												from_  = 'emaya'
+									print( "Mail para Aida:", Fore.CYAN + from_ + Style.RESET_ALL )
+									# Guardar en la base de datos
+									query = """
+									INSERT INTO hilos(date, date_created, aida_correo, aida_response, aida_request, mail_track_id) 
+									VALUES (%s, curdate(), CONCAT('Asunto:', '\n', %s,'\n', %s), %s, %s, %s)
+									"""
+									mycursor = mydb.cursor()
+									mycursor.execute(query, (date, subject, response, response, from_, mail_track_id))
+									mydb.commit()  # Confirmar los cambios
+									print("Correo guardado en la base de datos")
 									
-								# except pymysql.MySQLError as e:
-								# 	print(f"Error al ejecutar la consulta SQL: {e}")
-								# finally:
-								# 	mycursor.close()
+								except pymysql.MySQLError as e:
+									print(f"Error al ejecutar la consulta SQL: {e}")
+								finally:
+									mycursor.close()
 						else:
 							print('Ninguna palabra del diccionario en el cuerpo del mensaje')    
 

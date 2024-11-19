@@ -15,7 +15,7 @@ def get_pending_hilos(mysql_conn_params):
 		conn = pymysql.connect(**mysql_conn_params)
 		cursor = conn.cursor()
 		
-		query = "SELECT aida_correo, lola_response_json, aida_generated_du, user_for_wrong_examples FROM hilos WHERE approved AND lola_response_json IS NOT NULL "
+		query = "SELECT aida_correo, lola_response_json, aida_generated_du, user_for_wrong_examples, model_for_wrong_examples FROM hilos WHERE approved AND lola_response_json IS NOT NULL "
 		cursor.execute(query)
 		results = cursor.fetchall()
 		
@@ -29,7 +29,7 @@ def get_pending_hilos(mysql_conn_params):
 
 def finetuning_file_generator():
 	results = get_pending_hilos(mysql_conn_params)
-	for result in results:
+	for result in results:	
 		aida_correo, lola_response_json, aida_generated_du, user_for_wrong_examples, model_for_wrong_examples = result
 		
 		user_prompt = f"Me haces este/estos DU? Mail: {aida_correo}, Info: {lola_response_json}"
@@ -47,7 +47,7 @@ def finetuning_file_generator():
 				"messages": [
 					{"role": "user", "content": user_prompt},
 					{"role": "assistant", "content": gpt_response},
-					{"role": "user", "content": user_for_wrong_examples},
+					{"role": "user", "content": user_for_wrong_examples}, 	
 					{"role": "assistant", "content": model_for_wrong_examples}
 				]
 			}
