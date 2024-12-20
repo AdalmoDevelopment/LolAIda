@@ -1,0 +1,31 @@
+{
+      "Titular": "Tirme SA",
+      "Contrato": "AA2403955",
+      "Lugar de recogida": "Tirme SA, ET Alcudia",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2679,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2379,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Cisternas",
+      "holder_id": 10475,
+      "agreement_id": 4636,
+      "pickup_id": 11914,
+      "category_fleet_id": 13,
+      "Track_Gmail_Uid": "1933eb288e9ab8cc"
+}

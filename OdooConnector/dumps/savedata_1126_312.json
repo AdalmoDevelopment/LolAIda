@@ -1,0 +1,58 @@
+{
+      "Titular": null,
+      "Contrato": null,
+      "Lugar de recogida": null,
+      "Lineas del DU": [
+        {
+          "Producto": null,
+          "Unidades": null,
+          "Envase": null,
+          "Residuo": null,
+          "product_id": null,
+          "container_id": null,
+          "waste_id": null
+        }
+      ],
+      "Categoria de vehiculo": null,
+      "holder_id": null,
+      "agreement_id": null,
+      "pickup_id": null,
+      "category_fleet_id": null,
+      "Track_Gmail_Uid": null
+    }
+
+    {
+      "name": "content_compliance",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "violates": {
+            "type": "boolean",
+            "description": "Indicates whether the content violates policies."
+          },
+          "violation_categories": {
+            "type": "array",
+            "description": "Categories under which the content violates policies.",
+            "items": {
+              "type": "string",
+              "enum": [
+                "sexual",
+                "violence",
+                "self_harm"
+              ]
+            }
+          },
+          "violation_reason": {
+            "type": "string",
+            "description": "Explanation of why the content violates policies."
+          }
+        },
+        "required": [
+          "violates",
+          "violation_categories",
+          "violation_reason"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    }

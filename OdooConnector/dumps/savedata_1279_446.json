@@ -1,0 +1,46 @@
+{
+      "Titular": "Calvia 2000 SA",
+      "Contrato": "AA2400404",
+      "Lugar de recogida": "Calvia 2000 SA, Deixalleria",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null
+            },
+            {
+                  "Producto": "[RPAEE] RAEES",
+                  "Unidades": 6,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null
+            },
+            {
+                  "Producto": "[EJ] JAULA",
+                  "Unidades": 6,
+                  "Envase": null,
+                  "Residuo": null
+            },
+            {
+                  "Producto": "[RPAEE] RAEES",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": "[RPAEE] RAEES",
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": ""
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12100,
+      "agreement_id": 935,
+      "pickup_id": 12101,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "193ab60a44357e89"
+}

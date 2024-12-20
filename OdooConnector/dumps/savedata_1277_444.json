@@ -1,0 +1,58 @@
+{
+      "Titular": "Leroy Merlin España SL",
+      "Contrato": "AA2300023",
+      "Lugar de recogida": "Leroy Merlin España SL, 38 Palma 2 Ciudad",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RH] HIERRO",
+                  "Unidades": 2,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2512,
+                  "container_id": 2688,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EJ] JAULA",
+                  "Unidades": 2,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2688,
+                  "container_id": 2688,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPALET] MADERA PALET",
+                  "Unidades": 2,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2597,
+                  "container_id": 2681,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 2,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": ""
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 16695,
+      "agreement_id": 264,
+      "pickup_id": 33269,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "193919788ef0c8bf"
+}
