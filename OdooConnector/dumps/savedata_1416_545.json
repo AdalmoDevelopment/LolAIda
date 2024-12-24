@@ -1,0 +1,49 @@
+{
+      "Titular": "Fundación Ecolec",
+      "Contrato": "AA2400245",
+      "Lugar de recogida": "Fundació Deixalles, Inca",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": "[RFR1CFCD] RAEE FR1 CON CFC DOMÉSTICO",
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": 2575
+            },
+            {
+                  "Producto": "[RFR1CFCD] RAEE FR1 CON CFC DOMÉSTICO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2575,
+                  "container_id": 2681,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": "[RFR4GD] RAEE FR4 GRANDES DOMÉSTICO",
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": 2584
+            },
+            {
+                  "Producto": "[RFR4GD] RAEE FR4 GRANDES DOMÉSTICO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2584,
+                  "container_id": 2681,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 11485,
+      "agreement_id": 768,
+      "pickup_id": 37101,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "193f2976e7fadff7"
+}

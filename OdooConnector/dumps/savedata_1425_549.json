@@ -1,0 +1,31 @@
+{
+      "Titular": "Red Eléctrica de España SA",
+      "Contrato": "AA2400487",
+      "Lugar de recogida": "Red Eléctrica de España SA, Santanyí",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2688,
+                  "waste_id": 2839
+            },
+            {
+                  "Producto": "[RNPPLC] PLÁSTICO (ORIGEN CONSTRUCCIÓN)",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2839,
+                  "container_id": 2688,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 10683,
+      "agreement_id": 1021,
+      "pickup_id": 11704,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "193f26edba964c87"
+}

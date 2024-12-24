@@ -1,0 +1,40 @@
+{
+      "Titular": "Red Eléctrica de España SA",
+      "Contrato": "AA2400487",
+      "Lugar de recogida": "Red Eléctrica de España SA, Santanyí",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RVPC] PAPEL Y CARTÓN",
+                  "Unidades": 2,
+                  "Envase": "[EBB1M3] BIG BAG RNP 1 m3",
+                  "Residuo": null,
+                  "product_id": 2727,
+                  "container_id": 2642,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EBB1M3] BIG BAG RNP 1 m3",
+                  "Unidades": 2,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2642,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 10683,
+      "agreement_id": 1021,
+      "pickup_id": 11704,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "193f26edba964c87"
+}

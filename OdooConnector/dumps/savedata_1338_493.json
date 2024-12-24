@@ -1,0 +1,31 @@
+{
+      "Titular": "Hora Nova SA",
+      "Contrato": "AA2400448",
+      "Lugar de recogida": "Hora Nova SA, Planta de Impresión",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EAE] COMPACTADOR ESTÁTICO (30 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2697,
+                  "waste_id": 2728
+            },
+            {
+                  "Producto": "[RVPP] PAPEL PERIÓDICOS 2.01",
+                  "Unidades": 1,
+                  "Envase": "[EAE] COMPACTADOR ESTÁTICO (30 m3)",
+                  "Residuo": null,
+                  "product_id": 2728,
+                  "container_id": 2697,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 27376,
+      "agreement_id": 982,
+      "pickup_id": 29914,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "193f2bf3afc9fe4c"
+}

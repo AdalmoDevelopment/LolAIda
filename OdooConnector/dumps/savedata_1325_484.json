@@ -1,0 +1,31 @@
+{
+      "Titular": "(Endesa Generación) Gas y Electricidad Generación SAU",
+      "Contrato": "AA2400292",
+      "Lugar de recogida": "(Endesa Generación) Gas y Electricidad Generación SAU, CTCC Cas Tresorer",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": 2533
+            },
+            {
+                  "Producto": "[RMADC] MADERA (CONSTRUCCIÓN)",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2533,
+                  "container_id": 2681,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 11139,
+      "agreement_id": 819,
+      "pickup_id": 11892,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "193f30ac255d5292"
+}

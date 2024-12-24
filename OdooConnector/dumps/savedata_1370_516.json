@@ -1,0 +1,31 @@
+{
+      "Titular": "MAC Insular SL",
+      "Contrato": "AA2400378",
+      "Lugar de recogida": "MAC Insular SL, CTP4 Manacor",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EP] CONTENEDOR P (11 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2698,
+                  "waste_id": 2512
+            },
+            {
+                  "Producto": "[RH] HIERRO",
+                  "Unidades": 1,
+                  "Envase": "[EP] CONTENEDOR P (11 m3)",
+                  "Residuo": null,
+                  "product_id": 2512,
+                  "container_id": 2698,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12373,
+      "agreement_id": 909,
+      "pickup_id": 33730,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "193f3e30c34d3a7d"
+}

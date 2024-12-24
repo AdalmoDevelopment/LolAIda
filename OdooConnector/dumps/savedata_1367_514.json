@@ -1,0 +1,40 @@
+{
+      "Titular": "Promociones Puerto de Alcudia SL",
+      "Contrato": "AA2402986",
+      "Lugar de recogida": "Promociones Puerto de Alcudia SL, THB Bamboo Alcudia",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RNPPALC] PILAS ALCALINAS",
+                  "Unidades": 1,
+                  "Envase": "[EB60L] BIDÓN 60L",
+                  "Residuo": null,
+                  "product_id": 2560,
+                  "container_id": 2640,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB60L] BIDÓN 60L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2640,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 10180,
+      "agreement_id": 3622,
+      "pickup_id": 10965,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "193f3ed7955f3d93"
+}

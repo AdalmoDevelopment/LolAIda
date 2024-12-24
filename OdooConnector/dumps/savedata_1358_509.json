@@ -1,0 +1,31 @@
+{
+      "Titular": "Calvia 2000 SA",
+      "Contrato": "AA2400342",
+      "Lugar de recogida": "Calvia 2000 SA, Deixalleria",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RHMUN] HIERRO (MUNICIPAL)",
+                  "Unidades": 30,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2954,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 12100,
+      "agreement_id": 871,
+      "pickup_id": 12101,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "193f23382bde5254"
+}

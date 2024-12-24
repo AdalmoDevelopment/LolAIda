@@ -1,0 +1,31 @@
+{
+      "Titular": "AENA SME SA",
+      "Contrato": "AA2403673",
+      "Lugar de recogida": "AENA SME SA, Planta de Transferencia",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2707,
+                  "waste_id": 2482
+            },
+            {
+                  "Producto": "[RPECPLA] ENVASES VACÍOS PLÁSTICOS CONTAMINADOS",
+                  "Unidades": 4,
+                  "Envase": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                  "Residuo": null,
+                  "product_id": 2482,
+                  "container_id": 2707,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 10815,
+      "agreement_id": 4340,
+      "pickup_id": 33435,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "193f2b6a6fba12e0"
+}

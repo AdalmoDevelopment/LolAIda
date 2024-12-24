@@ -1,0 +1,31 @@
+{
+      "Titular": "Auto Vidal Balear, SL Unipersonal",
+      "Contrato": "AA2401278",
+      "Lugar de recogida": "Auto Vidal Balear, SL Unipersonal, Taller Stellantis",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "product_id": 2679,
+                  "container_id": null,
+                  "waste_id": 2379
+            },
+            {
+                  "Producto": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2379,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Cisternas",
+      "holder_id": 47662,
+      "agreement_id": 1830,
+      "pickup_id": 49497,
+      "category_fleet_id": 13,
+      "Track_Gmail_Uid": "193f276ea16387cc"
+}

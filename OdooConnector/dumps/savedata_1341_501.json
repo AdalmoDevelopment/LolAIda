@@ -1,0 +1,40 @@
+{
+      "Titular": "IDCQ Hospitales y Sanidad SL",
+      "Contrato": "AA2300085",
+      "Lugar de recogida": "IDCQ Hospitales y Sanidad SL, Centro Médico Nuredduna E913",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RVOLIOC] RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2607,
+                  "container_id": 2681,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": ""
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 13098,
+      "agreement_id": 330,
+      "pickup_id": 13105,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "193f2b893e599f37"
+}

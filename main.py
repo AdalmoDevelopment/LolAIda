@@ -19,17 +19,17 @@ def main(param):
             # if not interpretar_mails:
             #     raise ValueError("Error en el modulo email_listener.py")
             
-            # Paso 2: Se extrae la información de la DB del cliente de cada hilo y se inserta en dicha línea.
-            print('Paso 2')
-            extraer_info_cliente = data_provider()
-            if not extraer_info_cliente:
-                raise ValueError("Error en el modulo data_provider.py")
+            # # Paso 2: Se extrae la información de la DB del cliente de cada hilo y se inserta en dicha línea.
+            # print('Paso 2')
+            # extraer_info_cliente = data_provider()
+            # if not extraer_info_cliente:
+            #     raise ValueError("Error en el modulo data_provider.py")
             
-            # Paso 3: Si procede, el modelo crea los DU's para el pedido en base a los datos del paso 1-2.
+            # # Paso 3: Si procede, el modelo crea los DU's para el pedido en base a los datos del paso 1-2.
             
-            crear_dus = process_pending_hilos()
-            if not crear_dus:
-                raise ValueError("Error en el modulo process_pending_hilos.py")
+            # crear_dus = process_pending_hilos()
+            # if not crear_dus:
+            #     raise ValueError("Error en el modulo process_pending_hilos.py")
             
             # Paso 4: Se validan/formatean los DU's para asegurar su correcto formato y se envían a Odoo.
             

@@ -1,0 +1,31 @@
+{
+      "Titular": "Comercial Palmer d'Or SL",
+      "Contrato": "AA2402964",
+      "Lugar de recogida": "Comercial Palmer d'Or SL, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": "[RH] HIERRO",
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": 2512
+            },
+            {
+                  "Producto": "[RH] HIERRO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2512,
+                  "container_id": 2682,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 27233,
+      "agreement_id": 3597,
+      "pickup_id": 29771,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "193f29686ebcd214"
+}
