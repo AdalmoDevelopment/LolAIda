@@ -1,6 +1,5 @@
 from google_auth_oauthlib.flow import InstalledAppFlow
 
-# Definir los alcances y archivos necesarios
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 CREDENTIALS_FILE = 'AidaMailInterpreter/credentials.json'
 TOKEN_FILE = 'AidaMailInterpreter/token.json'
@@ -12,9 +11,15 @@ def obtain_token_console():
     """
     # Crear flujo de autenticación desde el archivo de credenciales
     flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
+    
+    # Obtener el URL de autorización
+    auth_url, _ = flow.authorization_url()
 
-    # Usar la autenticación de consola para entornos sin interfaz gráfica
-    creds = flow.run_console()
+    print("Ve a este URL en tu navegador para autorizar la aplicación:", auth_url)
+    auth_code = input("Introduce el código de autorización aquí: ")
+
+    # Intercambiar el código por el token
+    creds = flow.fetch_token(authorization_response=auth_code)
 
     # Guardar las credenciales en formato JSON en el archivo TOKEN_FILE
     with open(TOKEN_FILE, 'w') as token:
