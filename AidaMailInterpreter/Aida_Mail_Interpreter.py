@@ -19,7 +19,7 @@ from googleapiclient.discovery import build
 from colorama import Fore, Back, Style
 from AidaMailInterpreter.extract_msg_id import get_message_by_id
 from AidaMailInterpreter.diccionario import palabras
-
+from google.oauth2.credentials import Credentials
 
 CREDENTIALS_FILE = 'AidaMailInterpreter/credentials.json'
 TOKEN_PICKLE = 'AidaMailInterpreter/token.pickle'
@@ -29,23 +29,45 @@ SCOPES = ['https://mail.google.com/']
 
 # def lambda_handler(event, context):
 def obtener_credenciales():
-	"""
-		Autenticar y obtener credenciales OAuth2 para Gmail.
-		Si ya existen credenciales almacenadas, se usan; de lo contrario, se solicitan.
+	"""Shows basic usage of the Gmail API.
+	Lists the user's Gmail labels.
 	"""
 	creds = None
-	if os.path.exists(TOKEN_PICKLE):
-		with open(TOKEN_PICKLE, 'rb') as token:
-			creds = pickle.load(token)
-	
+	# The file token.json stores the user's access and refresh tokens, and is
+	# created automatically when the authorization flow completes for the first
+	# time.
+	if os.path.exists("token.json"):
+		creds = Credentials.from_authorized_user_file("token.json", SCOPES)
+	# If there are no (valid) credentials available, let the user log in.
 	if not creds or not creds.valid:
 		if creds and creds.expired and creds.refresh_token:
 			creds.refresh(Request())
 		else:
-			flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
-			creds = flow.run_local_server(port=0)
-		with open(TOKEN_PICKLE, 'wb') as token:
-			pickle.dump(creds, token)
+			flow = InstalledAppFlow.from_client_secrets_file(
+			"credentials.json", SCOPES
+		)
+		creds = flow.run_local_server(port=0)
+		# Save the credentials for the next run
+		with open("token.json", "w") as token:
+			token.write(creds.to_json())
+
+	try:
+		# Call the Gmail API
+		service = build("gmail", "v1", credentials=creds)
+		results = service.users().labels().list(userId="me").execute()
+		labels = results.get("labels", [])
+
+		if not labels:
+			print("No labels found.")
+		return
+		print("Labels:")
+		for label in labels:
+			print(label["name"])
+
+	except:
+		# TODO(developer) - Handle errors from gmail API.
+		print(f"An error occurred: ")
+
 	
 	return creds
 
