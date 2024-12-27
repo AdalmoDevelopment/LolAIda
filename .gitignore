@@ -1,6 +1,5 @@
 .env
 saved_model/
-FineTuning/
 credentials.json
 token
 token.json
