@@ -19,28 +19,36 @@ from googleapiclient.discovery import build
 from colorama import Fore, Back, Style
 from AidaMailInterpreter.extract_msg_id import get_message_by_id
 from AidaMailInterpreter.diccionario import palabras
-from google.oauth2.credentials import Credentials
 
 
 CREDENTIALS_FILE = 'AidaMailInterpreter/credentials.json'
-TOKEN_FILE = 'AidaMailInterpreter/token.json'
+TOKEN_PICKLE = 'AidaMailInterpreter/token.pickle'
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
-def obtener_credenciales():
-    """Carga las credenciales del archivo token.json si existen y son válidas."""
-    creds = None
-    if os.path.exists(TOKEN_FILE):
-        creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
+SCOPES = ['https://mail.google.com/']
 
-    # Si el token no es válido o ha caducado, se renueva
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())  # Refresca el token si ha caducado
-        else:
-            print("Token no válido o expirado. Necesitas volver a autorizar.")
-            return None
-    
-    return creds
+# def lambda_handler(event, context):
+def obtener_credenciales():
+	"""
+		Autenticar y obtener credenciales OAuth2 para Gmail.
+		Si ya existen credenciales almacenadas, se usan; de lo contrario, se solicitan.
+	"""
+	creds = None
+	if os.path.exists(TOKEN_PICKLE):
+		with open(TOKEN_PICKLE, 'rb') as token:
+			creds = pickle.load(token)
+	
+	if not creds or not creds.valid:
+		if creds and creds.expired and creds.refresh_token:
+			creds.refresh(Request())
+		else:
+			flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
+			creds = flow.run_local_server(port=0)
+		with open(TOKEN_PICKLE, 'wb') as token:
+			pickle.dump(creds, token)
+	
+	return creds
+
 
 load_dotenv()
 
