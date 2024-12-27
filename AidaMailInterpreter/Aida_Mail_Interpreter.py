@@ -29,36 +29,36 @@ SCOPES = ['https://mail.google.com/']
 
 # def lambda_handler(event, context):
 def obtener_credenciales():
-    """
-    Autenticar y obtener credenciales OAuth2 para Gmail.
-    Si ya existen credenciales almacenadas, se usan; de lo contrario, se solicitan.
-    """
-    creds = None
-    # Cargar credenciales existentes si están disponibles
-    if os.path.exists(TOKEN_PICKLE):
-        with open(TOKEN_PICKLE, 'rb') as token:
-            creds = pickle.load(token)
+	"""
+	Autenticar y obtener credenciales OAuth2 para Gmail.
+	Si ya existen credenciales almacenadas, se usan; de lo contrario, se solicitan.
+	"""
+	creds = None
+	# Cargar credenciales existentes si están disponibles
+	if os.path.exists(TOKEN_PICKLE):
+		with open(TOKEN_PICKLE, 'rb') as token:
+			creds = pickle.load(token)
 
-    # Si no hay credenciales o son inválidas, solicitar nuevas
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
-            auth_url, _ = flow.authorization_url(prompt='consent')
-            
-            print("Por favor, abre este enlace en tu navegador para autorizar la aplicación:")
-            print(auth_url)
-            
-            # Pedir al usuario que introduzca el código de autenticación
-            code = input("Introduce el código de autorización: ")
-            creds = flow.fetch_token(code=code)
+	# Si no hay credenciales o son inválidas, solicitar nuevas
+	if not creds or not creds.valid:
+		if creds and creds.expired and creds.refresh_token:
+			creds.refresh(Request())
+		else:
+			flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
+			auth_url, _ = flow.authorization_url(prompt='consent', redirect_uri='urn:ietf:wg:oauth:2.0:oob')
+			
+			print("Por favor, abre este enlace en tu navegador para autorizar la aplicación:")
+			print(auth_url)
+			
+			# Pedir al usuario que introduzca el código de autenticación
+			code = input("Introduce el código de autorización: ")
+			creds = flow.fetch_token(code=code)
 
-        # Guardar credenciales para uso futuro
-        with open(TOKEN_PICKLE, 'wb') as token:
-            pickle.dump(creds, token)
+		# Guardar credenciales para uso futuro
+		with open(TOKEN_PICKLE, 'wb') as token:
+			pickle.dump(creds, token)
 
-    return creds
+	return creds
 
 load_dotenv()
 
