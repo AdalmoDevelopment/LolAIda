@@ -21,7 +21,7 @@ from AidaMailInterpreter.extract_msg_id import get_message_by_id
 from AidaMailInterpreter.diccionario import palabras
 
 
-TOKEN_PICKLE = 'AidaMailInterpreter/credentials.json'
+TOKEN_PICKLE = 'token.pickle'
 CREDENTIALS_FILE = 'credentials.json'
 SCOPES = ['https://mail.google.com/']
 
