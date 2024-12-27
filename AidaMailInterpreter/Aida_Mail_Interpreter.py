@@ -23,7 +23,7 @@ from google.oauth2.credentials import Credentials
 
 
 CREDENTIALS_FILE = 'AidaMailInterpreter/credentials.json'
-TOKEN_FILE = 'AidaMailInterpreter/token.pickle'
+TOKEN_FILE = 'AidaMailInterpreter/token.json'
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
 SCOPES = ['https://mail.google.com/']
