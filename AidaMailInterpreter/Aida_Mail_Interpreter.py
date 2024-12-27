@@ -26,25 +26,21 @@ CREDENTIALS_FILE = 'AidaMailInterpreter/credentials.json'
 TOKEN_FILE = 'AidaMailInterpreter/token.json'
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
-SCOPES = ['https://mail.google.com/']
-
-# def lambda_handler(event, context):
 def obtener_credenciales():
     """Carga las credenciales del archivo token.json si existen y son válidas."""
     creds = None
     if os.path.exists(TOKEN_FILE):
-        with open(TOKEN_FILE, 'r') as token_file:
-            creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
-    
-    # Si el token no existe o ha caducado, vuelve a obtenerlo (pero si ya tienes un token válido, no es necesario).
+        creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
+
+    # Si el token no es válido o ha caducado, se renueva
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())  # Refresca el token si ha caducado.
+            creds.refresh(Request())  # Refresca el token si ha caducado
         else:
-            print("Token no válido o expirado, necesitarás autenticarte nuevamente.")
-            # Aquí podrías llamar a `obtain_token()` para obtener uno nuevo si es necesario.
+            print("Token no válido o expirado. Necesitas volver a autorizar.")
+            return None
+    
     return creds
-
 
 load_dotenv()
 
