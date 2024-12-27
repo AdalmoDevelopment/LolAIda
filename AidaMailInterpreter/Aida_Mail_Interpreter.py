@@ -21,17 +21,13 @@ from AidaMailInterpreter.extract_msg_id import get_message_by_id
 from AidaMailInterpreter.diccionario import palabras
 
 
-CREDENTIALS_FILE = 'AidaMailInterpreter/credentials.json'
-TOKEN_PICKLE = 'AidaMailInterpreter/token.pickle'
-SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
-
+TOKEN_PICKLE = 'token.pickle'
+CREDENTIALS_FILE = 'credentials.json'
 SCOPES = ['https://mail.google.com/']
 
-# def lambda_handler(event, context):
 def obtener_credenciales():
     """
-    Autenticar y obtener credenciales OAuth2 para Gmail.
-    Si ya existen credenciales almacenadas, se usan; de lo contrario, se solicitan.
+    Autenticar y obtener credenciales OAuth2 para Gmail utilizando el flujo de dispositivos.
     """
     creds = None
     # Cargar credenciales existentes si están disponibles
@@ -44,15 +40,10 @@ def obtener_credenciales():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
+            # Device Authorization Flow
             flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
-            # Utilizar el flujo de consola en lugar de abrir un navegador
-            auth_url, _ = flow.authorization_url(prompt='consent')
-            print("Por favor, abre este enlace en tu navegador para autorizar la aplicación:")
-            print(auth_url)
-            code = input("Introduce el código de autorización: ")  # Pide al usuario que copie el código manualmente
-            creds = flow.fetch_token(code=code)
-
-        # Guardar credenciales para uso futuro
+            creds = flow.run_console()  # Aquí solicita el código para autorizar desde otro dispositivo
+        # Guardar credenciales para reutilización futura
         with open(TOKEN_PICKLE, 'wb') as token:
             pickle.dump(creds, token)
 
