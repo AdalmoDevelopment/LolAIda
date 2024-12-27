@@ -19,34 +19,30 @@ from googleapiclient.discovery import build
 from colorama import Fore, Back, Style
 from AidaMailInterpreter.extract_msg_id import get_message_by_id
 from AidaMailInterpreter.diccionario import palabras
+from google.oauth2.credentials import Credentials
 
 
-TOKEN_PICKLE = 'AidaMailInterpreter/credentials.json'
-CREDENTIALS_FILE = 'credentials.json'
+CREDENTIALS_FILE = 'AidaMailInterpreter/credentials.json'
+TOKEN_FILE = 'AidaMailInterpreter/token.pickle'
+SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
+
 SCOPES = ['https://mail.google.com/']
 
+# def lambda_handler(event, context):
 def obtener_credenciales():
-    """
-    Autenticar y obtener credenciales OAuth2 para Gmail utilizando el flujo de dispositivos.
-    """
+    """Carga las credenciales del archivo token.json si existen y son válidas."""
     creds = None
-    # Cargar credenciales existentes si están disponibles
-    if os.path.exists(TOKEN_PICKLE):
-        with open(TOKEN_PICKLE, 'rb') as token:
-            creds = pickle.load(token)
-
-    # Si no hay credenciales o son inválidas, solicitar nuevas
+    if os.path.exists(TOKEN_FILE):
+        with open(TOKEN_FILE, 'r') as token_file:
+            creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
+    
+    # Si el token no existe o ha caducado, vuelve a obtenerlo (pero si ya tienes un token válido, no es necesario).
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
+            creds.refresh(Request())  # Refresca el token si ha caducado.
         else:
-            # Device Authorization Flow
-            flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
-            creds = flow.run_console()  # Aquí solicita el código para autorizar desde otro dispositivo
-        # Guardar credenciales para reutilización futura
-        with open(TOKEN_PICKLE, 'wb') as token:
-            pickle.dump(creds, token)
-
+            print("Token no válido o expirado, necesitarás autenticarte nuevamente.")
+            # Aquí podrías llamar a `obtain_token()` para obtener uno nuevo si es necesario.
     return creds
 
 
