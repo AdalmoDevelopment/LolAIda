@@ -308,7 +308,7 @@ def email_listener():
 							# 	break
 						# print(body)
 						
-							if body and date.strftime("%d/%m/%Y") == '23/12/2024':
+							if body and date.strftime("%d/%m/%Y") == '30/12/2024':
 								if from_ and subject and body and "adalmo" not in from_:
 									mail_track_id = get_message_by_id(message_id)
 									print(f"Nuevo correo id({mail_track_id}) de {from_}: {subject}\n\n")
