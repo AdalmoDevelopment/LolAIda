@@ -1,0 +1,31 @@
+{
+      "Titular": "Ajuntament Sa Pobla",
+      "Contrato": "AA2400660",
+      "Lugar de recogida": "Ajuntament Sa Pobla, PV Sa Pobla",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                  "Residuo": "[RPPINM] PINTURAS,ADHESIVOS Y RESINAS (MUNICIPALES)",
+                  "product_id": 2603,
+                  "container_id": 2707,
+                  "waste_id": 2564
+            },
+            {
+                  "Producto": "[RPPINM] PINTURAS,ADHESIVOS Y RESINAS (MUNICIPALES)",
+                  "Unidades": 1,
+                  "Envase": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                  "Residuo": null,
+                  "product_id": 2564,
+                  "container_id": 2707,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12284,
+      "agreement_id": 1197,
+      "pickup_id": 12285,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "19416c83675be6fc"
+}
