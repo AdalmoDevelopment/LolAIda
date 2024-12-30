@@ -264,10 +264,10 @@ def generate_response(from_, body):
 	try:
 		openai.api_key = OPENAI_API_KEY
 
-		if result[0] > 1:  
-			multiple_lugar_recogida = "y el lugar de recogida"
-		else:
-			multiple_lugar_recogida = ""
+		# if result[0] > 1:  
+		# 	multiple_lugar_recogida = "y el lugar de recogida"
+		# else:
+		# 	multiple_lugar_recogida = ""
 			
 		messages = [
 			{"role": "system", "content": f"Me llamo AIda, no haré nunca referencia a que soy un asistente AI. Reviso los datos de cada mail que me llega, si no interpreto que me están solicitando una entrega, cambio, o recogida de algun tipo de residuo/recipiente/contenedor o vaciado de alguno de estos, respondo 'No se ha detectado ninguna petición'. Una vez interprete algo de esto responderé 'Lola. Dame la información de {from_}' (siempre el mail del remitente). A su vez, me devolverás también el correo pero limpio con solo lo importante, borrando mensajes evidentemente predeterminados, plantillas, etc. y puntualizando la petición hecha.''"},
