@@ -1,0 +1,31 @@
+{
+      "Titular": "IBSalut - Hospital Comarcal de Inca",
+      "Contrato": "AA2403028",
+      "Lugar de recogida": "IBSalut - Hospital Comarcal de Inca, Hospital Comarcal de Inca",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2684,
+                  "waste_id": 2727
+            },
+            {
+                  "Producto": "[RVPC] PAPEL Y CARTÓN",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2727,
+                  "container_id": 2684,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12300,
+      "agreement_id": 3665,
+      "pickup_id": 36853,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "194172787684a78c"
+}

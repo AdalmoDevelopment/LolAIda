@@ -1,0 +1,40 @@
+{
+      "Titular": "Concesionaria Hosp Univ Son Espases SA",
+      "Contrato": "AA2400856",
+      "Lugar de recogida": "IBSalut - Hospital Universitari Son Espases App, H. Son Espases",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RNPTEX] RESIDUOS TEXTILES",
+                  "Unidades": 6,
+                  "Envase": "[EBB1M3] BIG BAG RNP 1 m3",
+                  "Residuo": null,
+                  "product_id": 2621,
+                  "container_id": 2642,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EBB1M3] BIG BAG RNP 1 m3",
+                  "Unidades": 6,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2642,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 12583,
+      "agreement_id": 1398,
+      "pickup_id": 53908,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "1941674af4efe7f4"
+}

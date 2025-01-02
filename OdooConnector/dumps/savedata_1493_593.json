@@ -1,0 +1,31 @@
+{
+      "Titular": "Club Náutico Santa Ponsa",
+      "Contrato": "AA2401085",
+      "Lugar de recogida": "Club Náutico Santa Ponsa, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "product_id": 2679,
+                  "container_id": null,
+                  "waste_id": 2379
+            },
+            {
+                  "Producto": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "Unidades": 1,
+                  "Envase": "[ECIST] CISTERNA",
+                  "Residuo": null,
+                  "product_id": 2379,
+                  "container_id": 2826,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Cisternas",
+      "holder_id": 12109,
+      "agreement_id": 1629,
+      "pickup_id": 48596,
+      "category_fleet_id": 13,
+      "Track_Gmail_Uid": "1941bbe5a0654296"
+}

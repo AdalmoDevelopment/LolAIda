@@ -1,0 +1,58 @@
+{
+      "Titular": "Awauto SL",
+      "Contrato": "AA2400714",
+      "Lugar de recogida": "Awauto SL, Volkswagen",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": "[RH] HIERRO",
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": 2512
+            },
+            {
+                  "Producto": "[RH] HIERRO",
+                  "Unidades": 1,
+                  "Envase": "[EGRGA] GRG 1000L ABIERTO",
+                  "Residuo": null,
+                  "product_id": 2512,
+                  "container_id": 2705,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EGRGA] GRG 1000L ABIERTO",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2705,
+                  "waste_id": 2567
+            },
+            {
+                  "Producto": "[RPBATPB] BATERÍAS DE PLOMO",
+                  "Unidades": 1,
+                  "Envase": "[ECUB] CUBETO",
+                  "Residuo": null,
+                  "product_id": 2567,
+                  "container_id": 2260,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[ECUB] CUBETO",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2260,
+                  "waste_id": ""
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 33350,
+      "agreement_id": 1252,
+      "pickup_id": 33351,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "1941836fd090d864"
+}

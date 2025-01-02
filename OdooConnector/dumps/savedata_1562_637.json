@@ -1,0 +1,40 @@
+{
+      "Titular": "El Corte Ingles SA",
+      "Contrato": "AA2300035",
+      "Lugar de recogida": "El Corte Ingles SA, C.C. Avenidas",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2679,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPLSEP] LODOS DE SEPARADORES DE AGUA/ACEITE",
+                  "Unidades": 1,
+                  "Envase": "[EGRG1000L] GRG 1000L",
+                  "Residuo": null,
+                  "product_id": 2532,
+                  "container_id": 2643,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EGRG1000L] GRG 1000L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2643,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Cisternas",
+      "holder_id": 12123,
+      "agreement_id": 277,
+      "pickup_id": 12125,
+      "category_fleet_id": 13,
+      "Track_Gmail_Uid": "194166fff0e1a7ff"
+}

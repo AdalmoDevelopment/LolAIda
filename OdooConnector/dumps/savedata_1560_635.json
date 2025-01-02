@@ -1,0 +1,31 @@
+{
+      "Titular": "Fundación Eco-RAEE'S",
+      "Contrato": "AA2401133",
+      "Lugar de recogida": "Ajuntament de Felanitx, Deixalleria de Felanitx",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": 2589
+            },
+            {
+                  "Producto": "[RFR4TER] RAEE FR4 TERMOS CON COMPONENTES PELIGROSOS",
+                  "Unidades": 20,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2589,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 14103,
+      "agreement_id": 1677,
+      "pickup_id": 12203,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1941682d7f8bc93c"
+}

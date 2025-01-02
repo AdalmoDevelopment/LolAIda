@@ -308,7 +308,7 @@ def email_listener():
 							# 	break
 						# print(body)
 						
-							if body and date.strftime("%d/%m/%Y") not in {'30/12/2024', '31/12/2024', '01/01/2025'}:
+							if body and date.strftime("%d/%m/%Y") not in {datetime.now().strftime("%d/%m/%Y")}:
 								break
     
 							if from_ and subject and body and "adalmo" not in from_:

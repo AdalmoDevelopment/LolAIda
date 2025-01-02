@@ -1,0 +1,85 @@
+{
+      "Titular": "Hogrup Instalaciones Integrales SL",
+      "Contrato": "AA2400680",
+      "Lugar de recogida": "Hogrup Instalaciones Integrales SL, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPTON] TÓNER DE IMPRESIÓN CON S.P.",
+                  "Unidades": 1,
+                  "Envase": "[EB60L] BIDÓN 60L",
+                  "Residuo": null,
+                  "product_id": 2678,
+                  "container_id": 2640,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RFR3FLD] RAEE FR3 FLUORESCENTES",
+                  "Unidades": 1,
+                  "Envase": "[EB220L] BIDÓN 220L",
+                  "Residuo": null,
+                  "product_id": 2498,
+                  "container_id": 2641,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RFR5SPP] RAEE FR5 PEQUEÑOS CON S.P. PROFESIONAL",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2591,
+                  "container_id": 2449,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPAMTUB] MATERIALES DE CONSTRUCCIÓN CON AMIANTO",
+                  "Unidades": 1,
+                  "Envase": "[EBBA1M3] BIG BAG AMIANTO 1 m3",
+                  "Residuo": null,
+                  "product_id": 2541,
+                  "container_id": 2708,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB60L] BIDÓN 60L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2640,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB220L] BIDÓN 220L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2641,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EBBA1M3] BIG BAG AMIANTO 1 m3",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2708,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 12446,
+      "agreement_id": 1218,
+      "pickup_id": 38055,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "1941c3a118ff2574"
+}

@@ -1,0 +1,49 @@
+{
+      "Titular": "Saica Natur SL",
+      "Contrato": "AA2404343",
+      "Lugar de recogida": "Saica Natur SL, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[ECFL] COFRE FLUORESCENTES",
+                  "Residuo": "[RFR3FLD] RAEE FR3 FLUORESCENTES",
+                  "product_id": 2603,
+                  "container_id": null,
+                  "waste_id": 2498
+            },
+            {
+                  "Producto": "[RFR3FLD] RAEE FR3 FLUORESCENTES",
+                  "Unidades": 1,
+                  "Envase": "[ECFL] COFRE FLUORESCENTES",
+                  "Residuo": null,
+                  "product_id": 2498,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[ECFL] COFRE FLUORESCENTES",
+                  "Residuo": "[RFR5NPD] RAEE FR5 DOMÉSTICO NP",
+                  "product_id": 2603,
+                  "container_id": null,
+                  "waste_id": 3104
+            },
+            {
+                  "Producto": "[RFR5NPD] RAEE FR5 DOMÉSTICO NP",
+                  "Unidades": 1,
+                  "Envase": "[ECFL] COFRE FLUORESCENTES",
+                  "Residuo": null,
+                  "product_id": 3104,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 13901,
+      "agreement_id": 5050,
+      "pickup_id": 13902,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1941bb3666afbec4"
+}

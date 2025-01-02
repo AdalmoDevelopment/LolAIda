@@ -1,0 +1,31 @@
+{
+      "Titular": "Leroy Merlin España SL",
+      "Contrato": "AA2300023",
+      "Lugar de recogida": "Leroy Merlin España SL, 6 Palma Marratxí",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2684,
+                  "waste_id": 2727
+            },
+            {
+                  "Producto": "[RVPC] PAPEL Y CARTÓN",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2727,
+                  "container_id": 2684,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 16695,
+      "agreement_id": 264,
+      "pickup_id": 33268,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1941ac10d6eb61b4"
+}

@@ -1,0 +1,31 @@
+{
+      "Titular": "Fundación Ecolec",
+      "Contrato": "AA2400245",
+      "Lugar de recogida": "Merkur Doshina, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": "[RFR4GP] RAEE FR4 GRANDES PROFESIONAL",
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": 2585
+            },
+            {
+                  "Producto": "[RFR4GP] RAEE FR4 GRANDES PROFESIONAL",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2585,
+                  "container_id": 2681,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 11485,
+      "agreement_id": 768,
+      "pickup_id": 38254,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1941c839287d8a6c"
+}

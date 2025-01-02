@@ -1,0 +1,40 @@
+{
+      "Titular": "MAC Insular SL",
+      "Contrato": "AA2400378",
+      "Lugar de recogida": "MAC Insular SL, CTP2 Llucmajor",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RH] HIERRO",
+                  "Unidades": 2,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2512,
+                  "container_id": 2682,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 2,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": ""
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 12373,
+      "agreement_id": 909,
+      "pickup_id": 33728,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "19416d29dfa433ad"
+}

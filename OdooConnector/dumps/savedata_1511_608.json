@@ -1,0 +1,31 @@
+{
+      "Titular": "Sagales-Caldentey SL",
+      "Contrato": "AA2401200",
+      "Lugar de recogida": "Sagales-Caldentey SL, Artà",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": 2379
+            },
+            {
+                  "Producto": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2379,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12566,
+      "agreement_id": 1750,
+      "pickup_id": 12567,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "194189f3dce7d768"
+}

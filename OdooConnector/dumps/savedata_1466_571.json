@@ -1,0 +1,40 @@
+{
+      "Titular": "Fundació Deixalles",
+      "Contrato": "AA2400532",
+      "Lugar de recogida": "Ajuntament d'Esporles, PV Esporles",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RCUAIS] COBRE AISLADO",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2856,
+                  "container_id": 2449,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EGRA] GRANEL",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2449,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 12177,
+      "agreement_id": 1066,
+      "pickup_id": 12184,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "1941cd355ed7e8ec"
+}

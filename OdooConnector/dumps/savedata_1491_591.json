@@ -1,0 +1,31 @@
+{
+      "Titular": "(Emaya) Empresa Municipal D'Aigües i Clavegueram SA",
+      "Contrato": "AA2400461",
+      "Lugar de recogida": "Amianto Vía Pública",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPAMPL] MATERIALES DE CONSTRUCCIÓN CON AMIANTO",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2540,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 10367,
+      "agreement_id": 995,
+      "pickup_id": 37498,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "1941bd2f0f1a37bc"
+}
