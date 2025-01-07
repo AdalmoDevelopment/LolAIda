@@ -15,9 +15,9 @@ def main(param):
         if param != '-f':
             # Paso 1: Se interpreta y resume cada mail con AI y se crea un hilo(una línea en la base de datos).
             
-            # interpretar_mails = email_listener()
-            # if not interpretar_mails:
-            #     raise ValueError("Error en el modulo email_listener.py")
+            interpretar_mails = email_listener()
+            if not interpretar_mails:
+                raise ValueError("Error en el modulo email_listener.py")
             
             # Paso 2: Se extrae la información de la DB del cliente de cada hilo y se inserta en dicha línea.
             print('Paso 2')
