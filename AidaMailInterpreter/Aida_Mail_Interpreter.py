@@ -336,7 +336,7 @@ def email_listener():
 										if to_:
 											for receiver in to_:
 												print( "Ecubidubi", Fore.CYAN + receiver + Style.RESET_ALL )
-												
+
 												if 'aena' in from_ and 'emaya' in receiver:
 													print("Se ha identificado que es es un pedido de Emaya para el lugar de recogida de Aena")
 													from_  = 'emaya'
@@ -355,7 +355,9 @@ def email_listener():
 										print(f"Error al ejecutar la consulta SQL: {e}")
 									finally:
 										mycursor.close()
-		# Cerrar la conexión IMAP después de procesar
+							else:
+								break
+  		# Cerrar la conexión IMAP después de procesar
 		mail.logout()
 		print( Fore.CYAN + "Exitoooo" + Style.RESET_ALL )
 		time.sleep(60)  # Esperar 1 minuto antes de revisar nuevamente
