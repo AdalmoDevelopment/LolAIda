@@ -1,0 +1,31 @@
+{
+      "Titular": "(Ocimax Sor Catalina Maura) Parc D Oci Cas Capiscol SL",
+      "Contrato": "AA2401285",
+      "Lugar de recogida": "(Ocimax Sor Catalina Maura) Parc D Oci Cas Capiscol SL, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2684,
+                  "waste_id": 2727
+            },
+            {
+                  "Producto": "[RVPC] PAPEL Y CARTÓN",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2727,
+                  "container_id": 2684,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 27800,
+      "agreement_id": 1837,
+      "pickup_id": 30338,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1941c31affd1ca5c"
+}

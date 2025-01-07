@@ -1,0 +1,31 @@
+{
+      "Titular": "(COMABE) Comercial Mallorquina de Begudes SL",
+      "Contrato": "AA2400341",
+      "Lugar de recogida": "(COMABE) Comercial Mallorquina de Begudes SL, COMABE",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": 2754
+            },
+            {
+                  "Producto": "[RVFILM] PLÁSTICO PEBD/LDPE FILM",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2754,
+                  "container_id": 2681,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 17249,
+      "agreement_id": 870,
+      "pickup_id": 33610,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1941ca01eccf85a7"
+}

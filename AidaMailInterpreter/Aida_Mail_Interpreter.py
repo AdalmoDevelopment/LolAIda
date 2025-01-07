@@ -138,8 +138,10 @@ def parse_email(msg, email_id):
 	"""Analizar el correo y extraer el remitente, el cuerpo sin etiquetas HTML, y el Message-ID."""
 	try:
 		subject = decode_header(msg["Subject"])[0][0]
+		
 		if isinstance(subject, bytes):
-			subject = subject.decode()
+			print(subject)
+			subject = subject.decode('latin-1')
 		
 		from_ = msg.get("From")
 		if "<" in from_ and ">" in from_:
@@ -168,7 +170,7 @@ def parse_email(msg, email_id):
 		# Obtener el Message-ID
 		message_id = msg.get("Message-ID", email_id)  # Si no hay Message-ID, usar el ID de IMAP
 
-		print(f"Message-ID: {message_id}")  # Imprimir el Message-ID
+		print(f"Message-ID: \n {message_id}")  # Imprimir el Message-ID
 
 		body = ""
 		if msg.is_multipart():
@@ -259,7 +261,7 @@ def execute_query(from_, conn_params):
 		return str(e)
 
 def generate_response(from_, body):
-	"""Generar una respuesta utilizando gpt-4."""
+	#Generar una respuesta utilizando gpt-4.
 	result = execute_query( from_, postgres_conn_params)
 	try:
 		openai.api_key = OPENAI_API_KEY
@@ -319,7 +321,7 @@ def email_listener():
 									if response:
 										print(response)
 									try:
-									#Extraer nombre de usuario o dominio del correo
+									# Extraer nombre de usuario o dominio del correo
 										print(from_)
 										if "adalmo" not in from_:
 											if any(domain in from_ for domain in ["@gmail", "@hotmail"]):
@@ -334,15 +336,15 @@ def email_listener():
 										if to_:
 											for receiver in to_:
 												print( "Ecubidubi", Fore.CYAN + receiver + Style.RESET_ALL )
-
+												
 												if 'aena' in from_ and 'emaya' in receiver:
 													print("Se ha identificado que es es un pedido de Emaya para el lugar de recogida de Aena")
 													from_  = 'emaya'
 										print( "Mail para Aida:", Fore.CYAN + from_ + Style.RESET_ALL )
 										# Guardar en la base de datos
 										query = """
-										INSERT INTO hilos(date, date_created, aida_correo, aida_response, aida_request, mail_track_id) 
-										VALUES (%s, curdate(), CONCAT('Asunto:', '\n', %s,'\n', %s), %s, %s, %s)
+											INSERT INTO hilos(date, date_created, aida_correo, aida_response, aida_request, mail_track_id) 
+											VALUES (%s, curdate(), CONCAT('Asunto:', '\n', %s,'\n', %s), %s, %s, %s)
 										"""
 										mycursor = mydb.cursor()
 										mycursor.execute(query, (date, subject, response, response, from_, mail_track_id))
@@ -353,8 +355,6 @@ def email_listener():
 										print(f"Error al ejecutar la consulta SQL: {e}")
 									finally:
 										mycursor.close()
-							else:
-								break
 		# Cerrar la conexión IMAP después de procesar
 		mail.logout()
 		print( Fore.CYAN + "Exitoooo" + Style.RESET_ALL )

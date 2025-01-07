@@ -1,0 +1,31 @@
+{
+      "Titular": "Audax Marina, SL.",
+      "Contrato": "AA2400921",
+      "Lugar de recogida": "Audax Marina, SL., Dirección de entrega",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2679,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "Unidades": 1,
+                  "Envase": "[ECIST] CISTERNA",
+                  "Residuo": null,
+                  "product_id": 2379,
+                  "container_id": 2826,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Cisternas",
+      "holder_id": 27437,
+      "agreement_id": 1463,
+      "pickup_id": 33959,
+      "category_fleet_id": 13,
+      "Track_Gmail_Uid": "1944121994b20169"
+}

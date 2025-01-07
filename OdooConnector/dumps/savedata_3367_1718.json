@@ -1,0 +1,31 @@
+{
+      "Titular": "Auto Vidal Balear, SL Unipersonal",
+      "Contrato": "AA2401278",
+      "Lugar de recogida": "Auto Vidal Balear, SL Unipersonal, Taller Stellantis",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2688,
+                  "waste_id": 2727
+            },
+            {
+                  "Producto": "[RVPC] PAPEL Y CARTÓN",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2727,
+                  "container_id": 2688,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 47662,
+      "agreement_id": 1830,
+      "pickup_id": 49497,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "194405fdeb14191b"
+}

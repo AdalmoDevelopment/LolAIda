@@ -1,0 +1,25 @@
+{
+      "Titular": "Auto Vidal Balear, SL Unipe",
+      "Contrato": "AA2401319",
+      "Lugar de recogida": "Auto Vidal Balear, SL Unipe, Base de Manacor",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "CONTENEDOR K (5 m3)",
+                  "Residuo": "[RPCART] PAPEL Y CARTÓN"
+            },
+            {
+                  "Producto": "[RPCART] PAPEL Y CARTÓN",
+                  "Unidades": 1,
+                  "Envase": "CONTENEDOR K (5 m3)",
+                  "Residuo": null
+            }
+      ],
+      "Categoria de vehiculo": "",
+      "holder_id": 27385,
+      "agreement_id": 1873,
+      "pickup_id": null,
+      "category_fleet_id": null,
+      "Track_Gmail_Uid": "194405fdeb14191b"
+}

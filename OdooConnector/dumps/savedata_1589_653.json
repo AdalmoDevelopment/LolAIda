@@ -1,0 +1,31 @@
+{
+      "Titular": "Saica Natur SL",
+      "Contrato": "AA2404342",
+      "Lugar de recogida": "Mercadona SA, Poici 4154",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": "[RFR3FLD] RAEE FR3 FLUORESCENTES",
+                  "product_id": 2603,
+                  "container_id": 2449,
+                  "waste_id": 2498
+            },
+            {
+                  "Producto": "[RFR3FLD] RAEE FR3 FLUORESCENTES",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2498,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 13901,
+      "agreement_id": 5049,
+      "pickup_id": 11389,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1941c22974f05d26"
+}

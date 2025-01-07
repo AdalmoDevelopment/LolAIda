@@ -182,7 +182,7 @@ def query_format_du(json_du):
 		print(f"Error al ejecutar la consulta: {e}")
 
 def du_fixer():
-	pending_hilos = mysql_execute_query("SELECT gda.id, id_hilo, du , h.mail_track_id FROM generated_dus_aida gda, hilos h WHERE id_hilo = h.id AND odoo_final_response IS NULL AND date_created >= '2024-11-04' ", None)
+	pending_hilos = mysql_execute_query("SELECT gda.id, id_hilo, du , h.mail_track_id FROM generated_dus_aida gda, hilos h WHERE id_hilo = h.id AND odoo_final_response IS NULL AND date_created = CURDATE() ", None)
 	
 	for du_id, hilo_id, aida_generated, mail_track_id in pending_hilos: 
 		print(hilo_id)

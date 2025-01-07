@@ -1,0 +1,25 @@
+{
+      "Titular": "El Corte Ingles SA",
+      "Contrato": "AA230",
+      "Lugar de recogida": "ZonaAlmacenPalmadeMallorca@elcorteingles.es",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "COMPACTADORA",
+                  "Residuo": "[RCARTON] CARTÓN"
+            },
+            {
+                  "Producto": "[RCARTON] CARTÓN",
+                  "Unidades": 1,
+                  "Envase": "COMPACTADORA",
+                  "Residuo": null
+            }
+      ],
+      "Categoria de vehiculo": "",
+      "holder_id": null,
+      "agreement_id": null,
+      "pickup_id": null,
+      "category_fleet_id": null,
+      "Track_Gmail_Uid": "19440739b27842d1"
+}
