@@ -1,0 +1,31 @@
+{
+      "Titular": "Delegación del Gobierno en Illes Balears",
+      "Contrato": "AA2402970",
+      "Lugar de recogida": "Delegación del Gobierno en Illes Balears, Pateras",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RHMVFU] HIERRO MOTORES VFU DESCONTAMINADOS",
+                  "Unidades": 3,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2519,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 10788,
+      "agreement_id": 3605,
+      "pickup_id": 54686,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "1944a565199811ad"
+}

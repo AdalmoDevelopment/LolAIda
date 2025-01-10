@@ -1,0 +1,40 @@
+{
+      "Titular": "Sociedad Cooperativa Jovent",
+      "Contrato": "AA2404273",
+      "Lugar de recogida": "Sociedad Cooperativa Jovent, Escola Jovent",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPDNH] DISOLVENTES NO HALOGENADOS",
+                  "Unidades": 1,
+                  "Envase": "[EB220L] BIDÓN 220L",
+                  "Residuo": null,
+                  "product_id": 2477,
+                  "container_id": 2641,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB220L] BIDÓN 220L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2641,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 27026,
+      "agreement_id": 4975,
+      "pickup_id": 29564,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "19440576f7c0a83b"
+}

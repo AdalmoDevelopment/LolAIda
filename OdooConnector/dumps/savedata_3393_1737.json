@@ -1,0 +1,67 @@
+{
+      "Titular": "(AMEBA) Agrupacion Médica Balear SA",
+      "Contrato": "AA2300089",
+      "Lugar de recogida": "(AMEBA) Agrupacion Médica Balear SA, Hospital Juaneda Miramar",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[ES60LN] DEPÓSITO 60L (negro)",
+                  "Residuo": "[RSGIII] SANITARIO GRUPO III",
+                  "product_id": 2603,
+                  "container_id": 2442,
+                  "waste_id": 2259
+            },
+            {
+                  "Producto": "[RSGIII] SANITARIO GRUPO III",
+                  "Unidades": 100,
+                  "Envase": "[ES60LN] DEPÓSITO 60L (negro)",
+                  "Residuo": null,
+                  "product_id": 2259,
+                  "container_id": 2442,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[ES30LN] DEPÓSITO 30L (negro)",
+                  "Residuo": "[RSGIII] SANITARIO GRUPO III",
+                  "product_id": 2603,
+                  "container_id": 2441,
+                  "waste_id": 2259
+            },
+            {
+                  "Producto": "[RSGIII] SANITARIO GRUPO III",
+                  "Unidades": 100,
+                  "Envase": "[ES30LN] DEPÓSITO 30L (negro)",
+                  "Residuo": null,
+                  "product_id": 2259,
+                  "container_id": 2441,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[ES3L] DEPÓSITO 3L",
+                  "Residuo": "[RSGIII] SANITARIO GRUPO III",
+                  "product_id": 2603,
+                  "container_id": 2435,
+                  "waste_id": 2259
+            },
+            {
+                  "Producto": "[RSGIII] SANITARIO GRUPO III",
+                  "Unidades": 200,
+                  "Envase": "[ES3L] DEPÓSITO 3L",
+                  "Residuo": null,
+                  "product_id": 2259,
+                  "container_id": 2435,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 27028,
+      "agreement_id": 334,
+      "pickup_id": 29566,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "19440fb81f5b3ef6"
+}

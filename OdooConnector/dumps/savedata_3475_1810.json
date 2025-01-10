@@ -1,0 +1,40 @@
+{
+      "Titular": "DRA Balear SL",
+      "Contrato": "AA2400938",
+      "Lugar de recogida": "DRA Balear SL, Manacor",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": "[RPLHC] LODOS CON HIDROCARBUROS",
+                  "product_id": 2679,
+                  "container_id": null,
+                  "waste_id": 2506
+            },
+            {
+                  "Producto": "[RPLHC] LODOS CON HIDROCARBUROS",
+                  "Unidades": 4,
+                  "Envase": "[EGRG1000L] GRG 1000L",
+                  "Residuo": null,
+                  "product_id": 2506,
+                  "container_id": 2643,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EGRG1000L] GRG 1000L",
+                  "Unidades": 4,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2643,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Cisternas",
+      "holder_id": 33338,
+      "agreement_id": 1480,
+      "pickup_id": 33341,
+      "category_fleet_id": 13,
+      "Track_Gmail_Uid": "1943fb9a9d40011c"
+}

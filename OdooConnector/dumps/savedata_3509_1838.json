@@ -1,0 +1,31 @@
+{
+      "Titular": "Fundación Ecolec",
+      "Contrato": "AA2400245",
+      "Lugar de recogida": "Centros Comerciales Carrefour SA, Coll d'en Rebassa",
+      "Lineas del DU": [
+            {
+                  "Producto": "[SREEXP] REEXPEDICIÓN",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": "[RFR4TER] RAEE FR4 TERMOS CON COMPONENTES PELIGROSOS",
+                  "product_id": 2828,
+                  "container_id": 2449,
+                  "waste_id": 2589
+            },
+            {
+                  "Producto": "[RFR4TER] RAEE FR4 TERMOS CON COMPONENTES PELIGROSOS",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2589,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "",
+      "holder_id": 11485,
+      "agreement_id": 768,
+      "pickup_id": 12159,
+      "category_fleet_id": null,
+      "Track_Gmail_Uid": "1944aaa6c502067d"
+}

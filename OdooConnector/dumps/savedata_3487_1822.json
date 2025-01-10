@@ -1,0 +1,31 @@
+{
+      "Titular": "Elecnor Servicios y Proyectos SAU",
+      "Contrato": "AA2400685",
+      "Lugar de recogida": "Elecnor Servicios y Proyectos SAU, Obra Alcudia",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": "[RVPC] PAPEL Y CARTÓN",
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": 2727
+            },
+            {
+                  "Producto": "[RVPC] PAPEL Y CARTÓN",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2727,
+                  "container_id": 2682,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 10408,
+      "agreement_id": 1223,
+      "pickup_id": 10721,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1944b4325950053d"
+}

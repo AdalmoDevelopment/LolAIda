@@ -1,0 +1,31 @@
+{
+      "Titular": "DRA Balear SL",
+      "Contrato": "AA2400032",
+      "Lugar de recogida": "DRA Balear SL, Manacor",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[ECUB] CUBETO",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2260,
+                  "waste_id": 2567
+            },
+            {
+                  "Producto": "[RPBATPB] BATERÍAS DE PLOMO",
+                  "Unidades": 1,
+                  "Envase": "[ECUB] CUBETO",
+                  "Residuo": null,
+                  "product_id": 2567,
+                  "container_id": 2260,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 33338,
+      "agreement_id": 484,
+      "pickup_id": 33341,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1943fb9a9d40011c"
+}

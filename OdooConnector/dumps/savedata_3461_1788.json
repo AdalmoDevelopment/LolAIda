@@ -1,0 +1,31 @@
+{
+      "Titular": "Ferrimet Muro SL",
+      "Contrato": "AA2400018",
+      "Lugar de recogida": null,
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 4,
+                  "Envase": "[ECUB] CUBETO",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2260,
+                  "waste_id": 2567
+            },
+            {
+                  "Producto": "[RPBATPB] BATERÍAS DE PLOMO",
+                  "Unidades": 4,
+                  "Envase": "[ECUB] CUBETO",
+                  "Residuo": null,
+                  "product_id": 2567,
+                  "container_id": 2260,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 9,
+      "agreement_id": 470,
+      "pickup_id": null,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "19440089d9f737ae"
+}

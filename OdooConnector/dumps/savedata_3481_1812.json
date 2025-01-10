@@ -1,0 +1,40 @@
+{
+      "Titular": "(Arecafe) Alianza Para El Reciclaje de Capsulas De Café",
+      "Contrato": "AA2401337",
+      "Lugar de recogida": "Ajuntament de Binissalem, PV Binissalem",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RNPCAFE] CÁPSULAS CAFÉ MEZCLA",
+                  "Unidades": 6,
+                  "Envase": "[EBB1M3] BIG BAG RNP 1 m3",
+                  "Residuo": null,
+                  "product_id": 2455,
+                  "container_id": 2642,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EBB1M3] BIG BAG RNP 1 m3",
+                  "Unidades": 6,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2642,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 37117,
+      "agreement_id": 1892,
+      "pickup_id": 11966,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "1943fa52118af646"
+}

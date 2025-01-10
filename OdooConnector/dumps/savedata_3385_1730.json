@@ -1,0 +1,40 @@
+{
+      "Titular": "VIABAL Manteniment i Conservació SA",
+      "Contrato": "AA2400579",
+      "Lugar de recogida": "VIABAL Manteniment i Conservació SA, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2795,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPDNH] DISOLVENTES NO HALOGENADOS",
+                  "Unidades": 1,
+                  "Envase": "[EGRG1000L] GRG 1000L",
+                  "Residuo": null,
+                  "product_id": 2477,
+                  "container_id": 2643,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EGRG1000L] GRG 1000L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2643,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Recolectores",
+      "holder_id": 27416,
+      "agreement_id": 1113,
+      "pickup_id": 37796,
+      "category_fleet_id": 15,
+      "Track_Gmail_Uid": "194414b5c4905d81"
+}

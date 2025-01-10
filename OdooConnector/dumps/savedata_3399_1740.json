@@ -1,0 +1,31 @@
+{
+      "Titular": "Concesionaria Hosp Univ Son Espases SA",
+      "Contrato": "AA2402576",
+      "Lugar de recogida": "IBSalut - Hospital Universitari Son Espases App, H. Son Espases",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2684,
+                  "waste_id": 2487
+            },
+            {
+                  "Producto": "[REMEZ] ENVASES MEZCLADOS",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2487,
+                  "container_id": 2684,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12583,
+      "agreement_id": 3189,
+      "pickup_id": 53908,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "19440ec030337532"
+}

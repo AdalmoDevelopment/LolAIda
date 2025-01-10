@@ -1,0 +1,31 @@
+{
+      "Titular": "Diba Swiss Systems SLU",
+      "Contrato": "AA2403889",
+      "Lugar de recogida": "Diba Swiss Systems SLU, Obras varias",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2679,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPHCA] AGUAS CON HIDROCARBUROS",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2505,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Cisternas",
+      "holder_id": 52281,
+      "agreement_id": 4564,
+      "pickup_id": 56959,
+      "category_fleet_id": 13,
+      "Track_Gmail_Uid": "19441066ea54915b"
+}

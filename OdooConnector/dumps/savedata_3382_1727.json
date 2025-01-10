@@ -1,0 +1,40 @@
+{
+      "Titular": "Ca Na Negreta SA",
+      "Contrato": "AA2300083",
+      "Lugar de recogida": "Ca Na Negreta SA, Cas Serres",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RSGIII] SANITARIO GRUPO III",
+                  "Unidades": 8,
+                  "Envase": "[ES30LN] DEPÓSITO 30L (negro)",
+                  "Residuo": null,
+                  "product_id": 2259,
+                  "container_id": 2441,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[ES30LN] DEPÓSITO 30L (negro)",
+                  "Unidades": 8,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2441,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 12076,
+      "agreement_id": 328,
+      "pickup_id": 14239,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "194415faee98f8ee"
+}
