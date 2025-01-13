@@ -1,0 +1,31 @@
+{
+      "Titular": "ACSA Obras e Infraestructuras SAU",
+      "Contrato": "AA2400789",
+      "Lugar de recogida": "ACSA Obras e Infraestructuras SAU, ACSA - Camp de Futbol V de Lluc - 94710",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": "[RVOLMYO] RESIDUOS VOLUMINOSOS (ORIGEN MUNICIPAL Y OBRAS)",
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": 2608
+            },
+            {
+                  "Producto": "[RVOLMYO] RESIDUOS VOLUMINOSOS (ORIGEN MUNICIPAL Y OBRAS)",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2608,
+                  "container_id": 2682,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 11105,
+      "agreement_id": 1330,
+      "pickup_id": 11110,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1944a870b37b93db"
+}

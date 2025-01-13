@@ -1,0 +1,40 @@
+{
+      "Titular": "(GESDOBRA) Gestión de la documentación en obra SL",
+      "Contrato": "AA2401680",
+      "Lugar de recogida": "(GESDOBRA) Gestión de la documentación en obra SL, Pla de na Tesa",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPFILA] FILTROS DE ACEITE",
+                  "Unidades": 1,
+                  "Envase": "[EB220L] BIDÓN 220L",
+                  "Residuo": null,
+                  "product_id": 2493,
+                  "container_id": 2641,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB220L] BIDÓN 220L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2641,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 27592,
+      "agreement_id": 2251,
+      "pickup_id": 59838,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "1944a07eb981b9af"
+}

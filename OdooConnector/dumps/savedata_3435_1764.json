@@ -1,0 +1,40 @@
+{
+      "Titular": "Dibautoplus SA",
+      "Contrato": "AA2400533",
+      "Lugar de recogida": "Dibautoplus SA, Llucmajor",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "product_id": 2679,
+                  "container_id": null,
+                  "waste_id": 2379
+            },
+            {
+                  "Producto": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "Unidades": 2,
+                  "Envase": "[EGRG1000L] GRG 1000L",
+                  "Residuo": null,
+                  "product_id": 2379,
+                  "container_id": 2643,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 2,
+                  "Envase": "[EGRG1000L] GRG 1000L",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2643,
+                  "waste_id": ""
+            }
+      ],
+      "Categoria de vehiculo": "Cisternas",
+      "holder_id": 13209,
+      "agreement_id": 1067,
+      "pickup_id": 13210,
+      "category_fleet_id": 13,
+      "Track_Gmail_Uid": "194406c53643949b"
+}

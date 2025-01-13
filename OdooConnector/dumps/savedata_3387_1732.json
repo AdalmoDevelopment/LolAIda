@@ -1,0 +1,40 @@
+{
+      "Titular": "DRA Balear SL",
+      "Contrato": "AA2400938",
+      "Lugar de recogida": "DRA Balear SL, Palma",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "product_id": 2679,
+                  "container_id": null,
+                  "waste_id": 2379
+            },
+            {
+                  "Producto": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "Unidades": 1,
+                  "Envase": "[ECIST] CISTERNA",
+                  "Residuo": null,
+                  "product_id": 2379,
+                  "container_id": 2826,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[ECIST] CISTERNA",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2826,
+                  "waste_id": ""
+            }
+      ],
+      "Categoria de vehiculo": "Cisternas",
+      "holder_id": 33338,
+      "agreement_id": 1480,
+      "pickup_id": 33340,
+      "category_fleet_id": 13,
+      "Track_Gmail_Uid": "1944138331b295fd"
+}

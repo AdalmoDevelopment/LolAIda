@@ -1,0 +1,31 @@
+{
+      "Titular": "Acteco Productos y Servicios SL",
+      "Contrato": "AA2401119",
+      "Lugar de recogida": "Sonepar Spain SA, Sonepar Palma",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": 2607
+            },
+            {
+                  "Producto": "[RVOLIOC] RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2607,
+                  "container_id": 2682,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 10348,
+      "agreement_id": 1663,
+      "pickup_id": 48137,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1944a048cc6675e2"
+}

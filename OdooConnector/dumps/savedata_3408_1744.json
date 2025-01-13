@@ -1,0 +1,31 @@
+{
+      "Titular": "Indumetal Mallorca",
+      "Contrato": "AA2400624",
+      "Lugar de recogida": "Indumetal Mallorca, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": "[RNPVIDM] VIDRIO (MUNICIPAL)",
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": 2475
+            },
+            {
+                  "Producto": "[RNPVIDM] VIDRIO (MUNICIPAL)",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2475,
+                  "container_id": 2682,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 27086,
+      "agreement_id": 1159,
+      "pickup_id": 37866,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "19440ce5d2add444"
+}

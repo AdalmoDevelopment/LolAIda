@@ -1,0 +1,31 @@
+{
+      "Titular": "(Emaya) Empresa Municipal D'Aigües i Clavegueram SA",
+      "Contrato": "AA2400461",
+      "Lugar de recogida": "(Emaya) Empresa Municipal D'Aigües i Clavegueram SA, Amianto Vía Pública",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EBBPA] BIG BAG PLACAS AMIANTO (320x120x30cm)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2711,
+                  "waste_id": 2541
+            },
+            {
+                  "Producto": "[RPAMTUB] MATERIALES DE CONSTRUCCIÓN CON AMIANTO",
+                  "Unidades": 1,
+                  "Envase": "[EBBPA] BIG BAG PLACAS AMIANTO (320x120x30cm)",
+                  "Residuo": null,
+                  "product_id": 2541,
+                  "container_id": 2711,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 10367,
+      "agreement_id": 995,
+      "pickup_id": 37498,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "19449f516c05915f"
+}

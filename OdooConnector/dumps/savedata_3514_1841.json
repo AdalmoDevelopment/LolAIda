@@ -1,0 +1,31 @@
+{
+      "Titular": "El Corte Ingles SA",
+      "Contrato": "AA2300035",
+      "Lugar de recogida": "El Corte Ingles SA, Can Valero",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EAE] COMPACTADOR ESTÁTICO (30 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2697,
+                  "waste_id": 2727
+            },
+            {
+                  "Producto": "[RVPC] PAPEL Y CARTÓN",
+                  "Unidades": 1,
+                  "Envase": "[EAE] COMPACTADOR ESTÁTICO (30 m3)",
+                  "Residuo": null,
+                  "product_id": 2727,
+                  "container_id": 2697,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12123,
+      "agreement_id": 277,
+      "pickup_id": 12124,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1944a772f242ab87"
+}

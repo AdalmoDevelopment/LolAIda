@@ -1,0 +1,31 @@
+{
+      "Titular": "El Corte Ingles SA",
+      "Contrato": "AA2300035",
+      "Lugar de recogida": "El Corte Ingles SA, Can Valero",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": 2768
+            },
+            {
+                  "Producto": "[RVPLPOR] PLÁSTICO PS POREXPAN",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2768,
+                  "container_id": 2681,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12123,
+      "agreement_id": 277,
+      "pickup_id": 12124,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1943fae7d7eda151"
+}

@@ -1,0 +1,31 @@
+{
+      "Titular": "Isleña De Motores SL",
+      "Contrato": "AA2400713",
+      "Lugar de recogida": "Isleña De Motores SL, Son Castelló",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2688,
+                  "waste_id": 2727
+            },
+            {
+                  "Producto": "[RVPC] PAPEL Y CARTÓN",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2727,
+                  "container_id": 2688,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 27354,
+      "agreement_id": 1251,
+      "pickup_id": 33326,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1943fdecbfcceeb8"
+}

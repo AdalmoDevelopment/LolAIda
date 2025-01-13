@@ -1,0 +1,31 @@
+{
+      "Titular": "Amadip Esment Fundación",
+      "Contrato": "AA2400543",
+      "Lugar de recogida": "Amadip Esment Fundación, Imprenta",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2684,
+                  "waste_id": 2727
+            },
+            {
+                  "Producto": "[RVPC] PAPEL Y CARTÓN",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2727,
+                  "container_id": 2684,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12154,
+      "agreement_id": 1077,
+      "pickup_id": 34989,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1944a6e5dec3c892"
+}

@@ -1,0 +1,40 @@
+{
+      "Titular": "Amer e Hijos SA",
+      "Contrato": "AA2401105",
+      "Lugar de recogida": "Amer e Hijos SA, Lloseta",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPEMAV] ENVASES DE AEROSOLES VACÍOS",
+                  "Unidades": 1,
+                  "Envase": "[EB220L] BIDÓN 220L",
+                  "Residuo": null,
+                  "product_id": 2486,
+                  "container_id": 2641,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB220L] BIDÓN 220L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2641,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 12104,
+      "agreement_id": 1649,
+      "pickup_id": 12107,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "1943fdb94bcc822e"
+}

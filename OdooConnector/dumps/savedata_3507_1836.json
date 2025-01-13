@@ -1,0 +1,31 @@
+{
+      "Titular": "MAC Insular SL",
+      "Contrato": "AA2400555",
+      "Lugar de recogida": "MAC Insular SL, CTP4 Manacor",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2449,
+                  "waste_id": 2612
+            },
+            {
+                  "Producto": "[RRCD] RESIDUOS DE CONSTRUCCIÓN Y DEMOLICIÓN",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2612,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12373,
+      "agreement_id": 1089,
+      "pickup_id": null,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1944aae848db9595"
+}

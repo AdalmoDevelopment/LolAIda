@@ -1,0 +1,31 @@
+{
+      "Titular": "Ajuntament de Porreres",
+      "Contrato": "AA2400773",
+      "Lugar de recogida": "Ajuntament de Porreres, PV Porreres",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 3,
+                  "Envase": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                  "Residuo": "[RPPINT] RESIDUOS DE PINTURA Y BARNIZ CON DISOLVENTES",
+                  "product_id": 2603,
+                  "container_id": 2707,
+                  "waste_id": 2623
+            },
+            {
+                  "Producto": "[RPPINT] RESIDUOS DE PINTURA Y BARNIZ CON DISOLVENTES",
+                  "Unidades": 3,
+                  "Envase": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                  "Residuo": null,
+                  "product_id": 2623,
+                  "container_id": 2707,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12279,
+      "agreement_id": 1314,
+      "pickup_id": 12280,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "1944038d3e1afd05"
+}

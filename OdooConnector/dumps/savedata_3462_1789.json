@@ -1,0 +1,31 @@
+{
+      "Titular": "Crafted in Mallorca S.L.U.",
+      "Contrato": "AA2403705",
+      "Lugar de recogida": "Crafted in Mallorca S.L.U., Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EB60L] BIDÓN 60L",
+                  "Residuo": "[RPPQI] PRODUCTOS QUÍMICOS INORGÁNICOS",
+                  "product_id": 2603,
+                  "container_id": 2640,
+                  "waste_id": 2572
+            },
+            {
+                  "Producto": "[RPPQI] PRODUCTOS QUÍMICOS INORGÁNICOS",
+                  "Unidades": 1,
+                  "Envase": "[EB60L] BIDÓN 60L",
+                  "Residuo": null,
+                  "product_id": 2572,
+                  "container_id": 2640,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 56884,
+      "agreement_id": 4373,
+      "pickup_id": 57094,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "19440085fa3f02ba"
+}
