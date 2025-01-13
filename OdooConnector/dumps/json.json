@@ -1,20 +1,420 @@
 {
-    "Titular": "Multiauto Palma SL",
-    "Contrato": "AA2400131",
-    "Lugar de recogida": "Multiauto Palma SL, Dirección de Recogida",
-    "Categoria de vehiculo": "Cisternas",
-    "Lineas del DU": [
-      {
-        "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
-        "Unidades": 1,
-        "Envase": null,
-        "Residuo": null
-      },
-      {
-        "Producto": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
-        "Unidades": 1,
-        "Envase": "[EGRA] GRANEL",
-        "Residuo": null
+  "Titulares": {
+      "El Corte Ingles SA": {
+          "Contratos": {
+              "AA2300035": {
+                  "Productos": [
+                      {
+                          "Producto": "[RPABS] ABSORBENTES Y TRAPOS RP",
+                          "Envase": "[EB220L] BIDÓN 220L",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RNPVIDM] VIDRIO (MUNICIPAL)",
+                          "Envase": "[EK] CONTENEDOR K (5 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[EB220L] BIDÓN 220L",
+                          "Envase": null,
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPTON] TÓNER DE IMPRESIÓN CON S.P.",
+                          "Envase": "[EB60L] BIDÓN 60L",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RVPCONF] PAPEL CONFIDENCIAL",
+                          "Envase": "[EGRA] GRANEL",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPGAS] GASES EN RECIPIENTES A PRESIÓN",
+                          "Envase": "[EGRA] GRANEL",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[ECUB] CUBETO",
+                          "Envase": null,
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPECPLA] ENVASES VACÍOS PLÁSTICOS CONTAMINADOS",
+                          "Envase": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPFILA] FILTROS DE ACEITE",
+                          "Envase": "[EB220L] BIDÓN 220L",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPRLAB] REACTIVOS DE LABORATORIO",
+                          "Envase": "[EGRA] GRANEL",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RRCD] RESIDUOS DE CONSTRUCCIÓN Y DEMOLICIÓN",
+                          "Envase": "[EK] CONTENEDOR K (5 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                          "Envase": null,
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPADYS] ADHESIVOS Y SELLANTES CON S.P.",
+                          "Envase": "[EBB1M3] BIG BAG RNP 1 m3",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RFR3FLD] RAEE FR3 FLUORESCENTES",
+                          "Envase": "[EBAUL] BAÚL PARA FLUORESCENTES",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                          "Envase": null,
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RVOLIOC] RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)",
+                          "Envase": "[EC] CONTENEDOR C (28 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[EB60L] BIDÓN 60L",
+                          "Envase": null,
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[EGRG1000L] GRG 1000L",
+                          "Envase": null,
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                          "Envase": null,
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[TT] TRANSPORTE",
+                          "Envase": null,
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[TC] CAMBIO",
+                          "Envase": "[EAE] COMPACTADOR ESTÁTICO (30 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[TC] CAMBIO",
+                          "Envase": "[EK] CONTENEDOR K (5 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[TC] CAMBIO",
+                          "Envase": "[EC] CONTENEDOR C (28 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[TC] CAMBIO",
+                          "Envase": "[EAM1000] CONTENEDOR AMARILLO 1000L",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[TC] CAMBIO",
+                          "Envase": "[EPV] PRENSA VERTICAL",
+                          "Residuo": "[RVPC] PAPEL Y CARTÓN",
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[TC] CAMBIO",
+                          "Envase": "[ECT] CONTENEDOR TAPADO C (28 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPECMET] ENVASES VACÍOS METÁLICOS CONTAMINADOS",
+                          "Envase": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[TC] CAMBIO",
+                          "Envase": "[EC] CONTENEDOR C (28 m3)",
+                          "Residuo": "[RH] HIERRO",
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RMEDM] MEDICAMENTOS CADUCADOS (MUNICIPALES)",
+                          "Envase": "[EGRA] GRANEL",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RH] HIERRO",
+                          "Envase": "[EGRA] GRANEL",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RH] HIERRO",
+                          "Envase": "[EP] CONTENEDOR P (11 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RCUAIS] COBRE AISLADO",
+                          "Envase": "[EBB1M3] BIG BAG RNP 1 m3",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RH] HIERRO",
+                          "Envase": "[EK] CONTENEDOR K (5 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                          "Envase": null,
+                          "Residuo": "[RH] HIERRO",
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                          "Envase": "[EB220L] BIDÓN 220L",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPEMAV] ENVASES DE AEROSOLES VACÍOS",
+                          "Envase": "[EB220L] BIDÓN 220L",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RVFILM] PLÁSTICO PEBD/LDPE FILM",
+                          "Envase": "[EC] CONTENEDOR C (28 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RMMUN] METALES (MUNICIPALES)",
+                          "Envase": "[EC] CONTENEDOR C (28 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RVPL] PAPELOTE 1.01",
+                          "Envase": "[EC] CONTENEDOR C (28 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RVFILMC] PLÁSTICO PEBD/LDPE FILM",
+                          "Envase": "[EC] CONTENEDOR C (28 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RVPLPOR] PLÁSTICO PS POREXPAN",
+                          "Envase": "[EC] CONTENEDOR C (28 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RVPC] PAPEL Y CARTÓN",
+                          "Envase": "[EC] CONTENEDOR C (28 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[TC] CAMBIO",
+                          "Envase": "[EC] CONTENEDOR C (28 m3)",
+                          "Residuo": "[RMMUN] METALES (MUNICIPALES)",
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RMADM] MADERA (MUNICIPAL)",
+                          "Envase": "[EC] CONTENEDOR C (28 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPPINT] RESIDUOS DE PINTURA Y BARNIZ CON DISOLVENTES",
+                          "Envase": "[EB220L] BIDÓN 220L",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[REMEZ] ENVASES MEZCLADOS",
+                          "Envase": "[EAM1000] CONTENEDOR AMARILLO 1000L",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RNPMAIS] MATERIAL ALIMENTACIÓN INADECUADO CONSUMO",
+                          "Envase": "[EGRA] GRANEL",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RNPMAIL] MATERIAL ALIMENTACIÓN INADECUADO CONSUMO",
+                          "Envase": "[EB220L] BIDÓN 220L",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RNPMAIL] MATERIAL ALIMENTACIÓN INADECUADO CONSUMO",
+                          "Envase": "[EGRA] GRANEL",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RNPSAN3] SANDACH CATEGORÍA 3",
+                          "Envase": "[EB220L] BIDÓN 220L",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPLSEP] LODOS DE SEPARADORES DE AGUA/ACEITE",
+                          "Envase": "[EGRG1000L] GRG 1000L",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPLSEP] LODOS DE SEPARADORES DE AGUA/ACEITE",
+                          "Envase": "[EGRA] GRANEL",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPAMPL] MATERIALES DE CONSTRUCCIÓN CON AMIANTO",
+                          "Envase": "[EBBPA] BIG BAG PLACAS AMIANTO (320x120x30cm)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[SREF] OTROS SERVICIOS",
+                          "Envase": null,
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[EGRGA] GRG 1000L ABIERTO",
+                          "Envase": null,
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RVPL] PAPELOTE 1.01",
+                          "Envase": "[EGRA] GRANEL",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RRSU] MEZCLAS DE RESIDUOS MUNICIPALES",
+                          "Envase": "[EGRA] GRANEL",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPESPCB] EQUIPOS SIN PCB",
+                          "Envase": "[EGRA] GRANEL",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)",
+                          "Envase": null,
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RFR4GRP] RAEE FR4 GRANDES CON S.P. PROFESIONAL",
+                          "Envase": "[EGRA] GRANEL",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPODISO] OTROS DISOLVENTES Y LÍQUIDOS LIMPIEZA ORGÁNICOS",
+                          "Envase": "[EB220L] BIDÓN 220L",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RNPPLAS] PLÁSTICOS (ORIGEN MUNICIPAL)",
+                          "Envase": "[EC] CONTENEDOR C (28 m3)",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[TC] CAMBIO",
+                          "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RVPC] PAPEL Y CARTÓN",
+                          "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[TC] CAMBIO",
+                          "Envase": "[EJ] JAULA",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      },
+                      {
+                          "Producto": "[RPBATPB] BATERÍAS DE PLOMO",
+                          "Envase": "[EB220L] BIDÓN 220L",
+                          "Residuo": null,
+                          "Categoria producto": null
+                      }
+                  ]
+              }
+          }
       }
-    ]
+  },
+  "Lugares de recogida": {
+      "Contratos": [
+          {
+              "Contrato": "AA2300035",
+              "Lugares_de_recogida": [
+                  "El Corte Ingles SA, Can Valero",
+                  "El Corte Ingles SA, C.C. Avenidas",
+                  "El Corte Ingles SA, Jaime III"
+              ]
+          }
+      ]
   }
+}

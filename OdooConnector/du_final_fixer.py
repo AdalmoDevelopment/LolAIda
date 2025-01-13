@@ -59,7 +59,7 @@ def query_format_du(json_du):
 		and paa.name = %s
 	"""
 	query_pickup_id = """
-		SELECT rprecog.id FROM public.pnt_agreement_agreement paa
+		SELECT rprecog.id FROM public.p 	nt_agreement_agreement paa
 		left join res_partner rp on paa.pnt_holder_id = rp.id
 		left join pnt_agreement_partner_pickup_rel pappr on paa.id = pappr.pnt_agreement_id
 		left join res_partner rprecog on pappr.partner_id = rprecog.id
