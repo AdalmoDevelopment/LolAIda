@@ -6,6 +6,7 @@ import json
 from decimal import Decimal
 from OdooConnector.conn_params import postgres_conn_params, mysql_conn_params
 from OdooConnector.send_du_odoo import send_du_odoo
+from AidaMailInterpreter.set_label_mail import set_label_gmail
 
 def execute_query(query, params):
 	try:
@@ -59,7 +60,7 @@ def query_format_du(json_du):
 		and paa.name = %s
 	"""
 	query_pickup_id = """
-		SELECT rprecog.id FROM public.p 	nt_agreement_agreement paa
+		SELECT rprecog.id FROM public.pnt_agreement_agreement paa
 		left join res_partner rp on paa.pnt_holder_id = rp.id
 		left join pnt_agreement_partner_pickup_rel pappr on paa.id = pappr.pnt_agreement_id
 		left join res_partner rprecog on pappr.partner_id = rprecog.id
@@ -216,6 +217,10 @@ def du_fixer():
 			print('Metido en la mysql!!!', response)
 		except Exception as e:
 			print(f"Error al conectar a MySQL: {e}")
+		
+		if success:
+			set_label_gmail(mail_track_id, 'Label_5337764771777216081')
+	
 	return(True)
 
 if __name__ == "__main__":
