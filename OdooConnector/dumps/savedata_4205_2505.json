@@ -1,0 +1,31 @@
+{
+      "Titular": "Medea Motor SL",
+      "Contrato": "AA2400494",
+      "Lugar de recogida": "Medea Motor SL, Audi Center Palma",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EB60L] BIDÓN 60L",
+                  "Residuo": "[RPANT] ANTICONGELANTE CON SUSTANCIAS PELIGROSAS",
+                  "product_id": 2603,
+                  "container_id": 2640,
+                  "waste_id": 2409
+            },
+            {
+                  "Producto": "[RPANT] ANTICONGELANTE CON SUSTANCIAS PELIGROSAS",
+                  "Unidades": 2,
+                  "Envase": "[EB60L] BIDÓN 60L",
+                  "Residuo": null,
+                  "product_id": 2409,
+                  "container_id": 2640,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 17229,
+      "agreement_id": 1028,
+      "pickup_id": 33386,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "194d190865c8a7a9"
+}

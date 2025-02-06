@@ -1,0 +1,31 @@
+{
+      "Titular": "Ajuntament de Puigpunyent",
+      "Contrato": "AA2400530",
+      "Lugar de recogida": "Ajuntament de Puigpunyent, PV Puigpunyent",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2684,
+                  "waste_id": 2487
+            },
+            {
+                  "Producto": "[REMEZ] ENVASES MEZCLADOS",
+                  "Unidades": 1,
+                  "Envase": "[EAUTO] AUTOCOMPACTADOR",
+                  "Residuo": null,
+                  "product_id": 2487,
+                  "container_id": 2684,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 12290,
+      "agreement_id": 1064,
+      "pickup_id": 12291,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": null
+}

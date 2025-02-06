@@ -62,7 +62,7 @@ def check_inbox(mail):
 	"""Revisar la bandeja de entrada en busca de correos no leídos."""
 	try:
 		mail.select("inbox")
-		status, messages = mail.search(None, '(SEEN)')
+		status, messages = mail.search(None, '(UNSEEN)')
 		if status != "OK":
 			print("No hay mensajes nuevos.")
 			return []
@@ -74,22 +74,25 @@ def check_inbox(mail):
 		return []
 
 def fetch_email(mail, email_id):
-	"""Recuperar un correo específico."""
-	try:
-		status, msg_data = mail.fetch(email_id, "(RFC822)")
-		if status != "OK":
-			print("No se pudo recuperar el correo.")
-			return None
-		msg = email.message_from_bytes(msg_data[0][1])
-		
-		msg_id = msg.get("Message-ID")
-		
-		# mail.uid('STORE', msg_id, '-FLAGS', '\\UNSEEN')
-		
-		return msg, msg_id
-	except Exception as e:
-		print(f"Error al recuperar el correo: {e}")
-		return None
+    """Recuperar un correo específico sin cambiar su estado de no leído."""
+    try:
+        status, msg_data = mail.fetch(email_id, "(RFC822)")
+        if status != "OK":
+            print("No se pudo recuperar el correo.")
+            return None
+
+        msg = email.message_from_bytes(msg_data[0][1])
+        msg_id = msg.get("Message-ID")
+
+        # Mantener el correo como no leído
+        print('El id de mail es:', msg_id)
+        mail.store(email_id, '-FLAGS', '(\Seen)')
+
+        return msg, msg_id
+    except Exception as e:
+        print(f"Error al recuperar el correo: {e}")
+        return None
+
 
 def parse_email(msg, email_id):
 	"""Analizar el correo y extraer el remitente, el cuerpo sin etiquetas HTML, y el Message-ID."""
@@ -261,6 +264,8 @@ def email_listener():
 					if msg:
 						message_id, from_, subject, body, date, to_ = parse_email(msg, email_id)
 						if date is not None:
+							print(from_)
+							print(subject)
 							print("Fecha correo: ", date.strftime("%d/%m/%Y"), " Fecha python: ", datetime.now().strftime("%d/%m/%Y") )
 							# if date.strftime("%d/%m/%Y") != datetime.now().strftime("%d/%m/%Y"):
 							# 	print( Fore.CYAN + "Todos los correos de hoy leidos jeje xd" + Style.RESET_ALL )
@@ -271,7 +276,7 @@ def email_listener():
 								print('Si es')
 								if from_ and subject and body and "adalmo" not in from_:
 									mail_track_id = get_message_by_id(message_id)
-									print(f"Nuevo correo id({mail_track_id}) de {from_}: {subject}\n\n")
+									print(f"Nuevo msg_track_id({mail_track_id}) del id ({message_id}) de {from_}: {subject}\n\n")
 									
 									response = generate_response(from_, body)
 									

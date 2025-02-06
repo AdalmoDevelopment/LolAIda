@@ -1,0 +1,31 @@
+{
+      "Titular": "Autos Socias Perelló SL",
+      "Contrato": "AA2400703",
+      "Lugar de recogida": "Autos Socias Perelló SL, Renault Santa Margalida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2679,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPAMIN] ACEITE MINERAL NO CLORADO DE MOTOR",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2379,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Cisternas",
+      "holder_id": 27625,
+      "agreement_id": 1241,
+      "pickup_id": 33449,
+      "category_fleet_id": 13,
+      "Track_Gmail_Uid": "194d0aa9636c7180"
+}

@@ -1,0 +1,58 @@
+{
+      "Titular": "Medimotors Gestión SL",
+      "Contrato": "AA2400426",
+      "Lugar de recogida": "Medimotors Gestión SL, Toyota Manacor",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2795,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPANT] ANTICONGELANTE CON SUSTANCIAS PELIGROSAS",
+                  "Unidades": 1,
+                  "Envase": "[EB60L] BIDÓN 60L",
+                  "Residuo": null,
+                  "product_id": 2409,
+                  "container_id": 2640,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RFR5SPD] RAEE FR5 PEQUEÑOS CON S.P. DOMÉSTICO",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2590,
+                  "container_id": 2688,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB60L] BIDÓN 60L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2640,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EJ] JAULA",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2688,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Recolectores",
+      "holder_id": 14309,
+      "agreement_id": 958,
+      "pickup_id": 17278,
+      "category_fleet_id": 15,
+      "Track_Gmail_Uid": "194da9d74cab4612"
+}

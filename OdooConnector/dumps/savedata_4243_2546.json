@@ -1,0 +1,31 @@
+{
+      "Titular": "La Union Imprenta SL",
+      "Contrato": "AA2401889",
+      "Lugar de recogida": "La Union Imprenta SL, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2688,
+                  "waste_id": 2727
+            },
+            {
+                  "Producto": "[RVPC] PAPEL Y CARTÓN",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2727,
+                  "container_id": 2688,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 33921,
+      "agreement_id": 2476,
+      "pickup_id": 33922,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "194da5a1007bfd02"
+}

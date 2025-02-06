@@ -34,9 +34,9 @@ def main(param):
             
             # Paso 4: Se validan/formatean los DU's para asegurar su correcto formato y se envían a Odoo.
             
-            formatear_y_enviar_dus = du_fixer()
-            if not formatear_y_enviar_dus:
-                raise ValueError("Error en el modulo du_fixer.py")
+            # formatear_y_enviar_dus = du_fixer()
+            # if not formatear_y_enviar_dus:
+            #     raise ValueError("Error en el modulo du_fixer.py")
         else:
             ft_process_pending_hilos()
         

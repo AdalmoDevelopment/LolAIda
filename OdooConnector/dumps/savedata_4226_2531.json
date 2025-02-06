@@ -1,0 +1,40 @@
+{
+      "Titular": "CTR Mediterráneo SL",
+      "Contrato": "AA2401361",
+      "Lugar de recogida": "SCL Agrícola de San Antonio, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPEPCA] ENVASE AGRARIO VACÍO PLÁSTICO CONTAMINADO",
+                  "Unidades": 1,
+                  "Envase": "[EBSIGFI] BOLSA TRANSPARENTE SIGFITO",
+                  "Residuo": null,
+                  "product_id": 2489,
+                  "container_id": 2714,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EBSIGFI] BOLSA TRANSPARENTE SIGFITO",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2714,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 13886,
+      "agreement_id": 1918,
+      "pickup_id": 38195,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "194d046fd1553fed"
+}

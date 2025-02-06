@@ -1,0 +1,31 @@
+{
+      "Titular": "Motonàutica Balear SL",
+      "Contrato": "AA2401101",
+      "Lugar de recogida": "Motonàutica Balear SL, Teixidors",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": "[RPECPLA] ENVASES VACÍOS PLÁSTICOS CONTAMINADOS",
+                  "product_id": 2603,
+                  "container_id": null,
+                  "waste_id": 2482
+            },
+            {
+                  "Producto": "[RPECPLA] ENVASES VACÍOS PLÁSTICOS CONTAMINADOS",
+                  "Unidades": 1,
+                  "Envase": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                  "Residuo": null,
+                  "product_id": 2482,
+                  "container_id": 2707,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 48437,
+      "agreement_id": 1645,
+      "pickup_id": 48439,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "194d188d836c0e6e"
+}

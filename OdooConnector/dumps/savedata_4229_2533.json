@@ -1,0 +1,40 @@
+{
+      "Titular": "Auto Vidal y Talleres, S.L.",
+      "Contrato": "AA2401283",
+      "Lugar de recogida": "Auto Vidal y Talleres, S.L., Taller Kia",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RH] HIERRO",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2512,
+                  "container_id": 2688,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2688,
+                  "waste_id": ""
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 49493,
+      "agreement_id": 1835,
+      "pickup_id": 49494,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "194cfe64c85faf1a"
+}

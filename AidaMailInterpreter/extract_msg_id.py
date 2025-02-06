@@ -4,7 +4,7 @@ from google.oauth2.credentials import Credentials
 def get_message_by_id( message_id ):
     
     # Configura las credenciales y el servicio de Gmail
-    creds = Credentials.from_authorized_user_file('AidaMailInterpreter/token.json', ['https://www.googleapis.com/auth/gmail.readonly'])
+    creds = Credentials.from_authorized_user_file('AidaMailInterpreter/token.json', ['https://mail.google.com/'])
     service = build('gmail', 'v1', credentials=creds)
     
     try:

@@ -1,0 +1,94 @@
+{
+      "Titular": "Novaturistica SA",
+      "Contrato": "AA2402288",
+      "Lugar de recogida": "THB Niagara",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPABS] ABSORBENTES Y TRAPOS RP",
+                  "Unidades": 1,
+                  "Envase": "[EB220L] BIDÓN 220L",
+                  "Residuo": null,
+                  "product_id": 2257,
+                  "container_id": 2641,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPEMAV] ENVASES DE AEROSOLES VACÍOS",
+                  "Unidades": 1,
+                  "Envase": "[EB220L] BIDÓN 220L",
+                  "Residuo": null,
+                  "product_id": 2486,
+                  "container_id": 2641,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPPINT] RESIDUOS DE PINTURA Y BARNIZ CON DISOLVENTES",
+                  "Unidades": 1,
+                  "Envase": "[EB220L] BIDÓN 220L",
+                  "Residuo": null,
+                  "product_id": 2623,
+                  "container_id": 2641,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RVOLIOC] RESIDUOS BANALES (INDUSTRIAL O COMERCIAL)",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2607,
+                  "container_id": 2449,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPTON] TÓNER DE IMPRESIÓN CON S.P.",
+                  "Unidades": 1,
+                  "Envase": "[EB220L] BIDÓN 220L",
+                  "Residuo": null,
+                  "product_id": 2678,
+                  "container_id": 2641,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPANICD] ACUMULADORES DE Ni-Cd",
+                  "Unidades": 1,
+                  "Envase": "[EB60L] BIDÓN 60L",
+                  "Residuo": null,
+                  "product_id": 2392,
+                  "container_id": 2640,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB220L] BIDÓN 220L",
+                  "Unidades": 3,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2641,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB60L] BIDÓN 60L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2640,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 10181,
+      "agreement_id": 2888,
+      "pickup_id": 10963,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "194d14d24cdfd8c9"
+}

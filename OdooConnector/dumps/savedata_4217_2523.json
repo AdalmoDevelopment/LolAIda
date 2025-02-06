@@ -1,0 +1,40 @@
+{
+      "Titular": "Fundació Deixalles",
+      "Contrato": "AA2400532",
+      "Lugar de recogida": "Fundació Deixalles, Felanitx",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RH] HIERRO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2512,
+                  "container_id": 2681,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EC] CONTENEDOR C (28 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2681,
+                  "waste_id": ""
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 12177,
+      "agreement_id": 1066,
+      "pickup_id": 36690,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "194d0fed5c4f788d"
+}

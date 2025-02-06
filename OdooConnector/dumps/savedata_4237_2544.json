@@ -1,0 +1,31 @@
+{
+      "Titular": "Multiservicios Aeroportuarios SA",
+      "Contrato": "AA2401025",
+      "Lugar de recogida": "Multiservicios Aeroportuarios SA, Maero Ibiza 13005",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[ECUB] CUBETO",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2260,
+                  "waste_id": 2260
+            },
+            {
+                  "Producto": "[ECUB] CUBETO",
+                  "Unidades": 7,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2260,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 48387,
+      "agreement_id": 1568,
+      "pickup_id": 48389,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "194da9bac1307dcd"
+}

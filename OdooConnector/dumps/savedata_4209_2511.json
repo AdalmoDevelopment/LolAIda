@@ -1,0 +1,40 @@
+{
+      "Titular": "Indumetal Recycling SA",
+      "Contrato": "AA2401892",
+      "Lugar de recogida": "Consorci de Residus Urbans i Energia de Menorca, Deixalleria Maó Menorca",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TT] TRANSPORTE",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2601,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RFR4LUMP] RAEE FR4 LUMINARIAS PROFESIONAL",
+                  "Unidades": 1,
+                  "Envase": "[EJ] JAULA",
+                  "Residuo": null,
+                  "product_id": 2587,
+                  "container_id": 2688,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EJ] JAULA",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2688,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "RPs",
+      "holder_id": 50739,
+      "agreement_id": 2479,
+      "pickup_id": 10431,
+      "category_fleet_id": 14,
+      "Track_Gmail_Uid": "194d17c1417a6ff6"
+}

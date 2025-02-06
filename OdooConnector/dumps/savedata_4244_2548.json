@@ -1,0 +1,31 @@
+{
+      "Titular": "Edistribucion Redes Digitales SLU-CM",
+      "Contrato": "AA2400293",
+      "Lugar de recogida": "Edistribucion Redes Digitales SLU-CM, Elecnor Marratxi",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPCABSP] CABLES CON HIDROCARBUROS Y OTRAS S.P.",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2453,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 10264,
+      "agreement_id": 820,
+      "pickup_id": 11864,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "194da5615879f6e2"
+}

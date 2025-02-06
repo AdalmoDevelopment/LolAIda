@@ -1,0 +1,31 @@
+{
+      "Titular": "Elecnor Servicios y Proyectos SAU",
+      "Contrato": "AA2401365",
+      "Lugar de recogida": "Edistribucion Redes Digitales SLU-CM, Elecnor Almacén TET Marratxí",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RMADC] MADERA (CONSTRUCCIÓN)",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2533,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 10408,
+      "agreement_id": 1925,
+      "pickup_id": 36511,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": null
+}

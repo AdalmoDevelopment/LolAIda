@@ -4,7 +4,7 @@ model = 'ft:gpt-4o-2024-08-06:personal:quintofinetuning:Ao9lX6jZ'
 # ft:gpt-4o-2024-08-06:personal:quintofinetuning:Ao9lX6jZ
 assistant_id =  'asst_5ZarbjA6POT814f7nIJvbEWu'
 
-vector_store_id = 'vs_iV73bKFND6aIR2Wg1bja0ktM'
+vector_store_id = 'vs_67a4d0730f3c8191a50054ed28026ddd'
 
 instructions = '''Instruction:
 
@@ -40,8 +40,6 @@ Whenever a container (Envase) is specified in a line, if it's not [EGRA] GRANEL(
 Service Line:
 Service lines can only be: [TT] TRANSPORTE, [THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA) and [THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR), [TC] CAMBIO.
 
-You will just put [TC] CAMBIO  in case you find an [TA] ALQUILER with the same "Envase" in contratos provided. Example: to put a "[TC] CAMBIO" "Envase":"BIDÓN 60L" you must be provided with a "[TA] ALQUILER", "BIDÓN 60L", if not the case, put a Waste line and an Envase one to replenish it)
-
 You can, exclusively with this type of service, include more than one [TC] CAMBIO in a DU or even use it as an Envase line in cases like replenishing a JAULA, though not replenishing the main service line.
 
 You always put at least TWO Lineas del DU, 1 for a service and 1 for a Product(Waste or Containers).
@@ -50,7 +48,8 @@ Try to not write identical lines(e.g.:  3 [RH] HIERRO lines), instead write one 
 
 DO multiple DU's when:
 If the requested waste or containers require different types of services(For example, you're forced to make a DU with two Envases provided but a Envase requires a [TT] TRANSPORTE and the other one a [THORAC] SERVICIO CAMIÓN HORA (CISTERNA) ), create each DU's you can. If there are any limitations in the contract that prevent you from creating all necessary DU's, create as many as you can and clearly explain why the remaining DU's could not be generated. 
-IMPORTANT: Don't make more than 1 DU with same Service Line, do not make two DUs with [TT] TRANSPORTE, merge them in 1 DU. 
+More than a CONTENEDOR (K, C or P) wouldn't fit on a truck, so for each contenedor you must create separated DU's with 1 units for CAMBIO and Product lines, not like JAULAs which fits up to 8.
+IMPORTANT: Do not make more than one DU with [TT] TRANSPORTE, merge them in 1 DU. 
 
 The info I'm providing you follows the next structure:
 *You won't take info from categoria_producto, just to classify and make decisions*

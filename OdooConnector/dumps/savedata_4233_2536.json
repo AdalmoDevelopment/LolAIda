@@ -1,0 +1,40 @@
+{
+      "Titular": "El Corte Ingles SA",
+      "Contrato": "AA2300035",
+      "Lugar de recogida": "El Corte Ingles SA, Jaime III",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2795,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RNPMAIL] MATERIAL ALIMENTACIÓN INADECUADO CONSUMO",
+                  "Unidades": 1,
+                  "Envase": "[EB220L] BIDÓN 220L",
+                  "Residuo": null,
+                  "product_id": 2537,
+                  "container_id": 2641,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[EB220L] BIDÓN 220L",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2641,
+                  "container_id": null,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Recolectores",
+      "holder_id": 12123,
+      "agreement_id": 277,
+      "pickup_id": 12126,
+      "category_fleet_id": 15,
+      "Track_Gmail_Uid": "194daa85faff4821"
+}

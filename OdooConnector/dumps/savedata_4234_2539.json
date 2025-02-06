@@ -1,0 +1,31 @@
+{
+      "Titular": "Awauto SL",
+      "Contrato": "AA2400714",
+      "Lugar de recogida": "Awauto SL, Volkswagen",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                  "Residuo": "[RPABS] ABSORBENTES Y TRAPOS RP",
+                  "product_id": 2603,
+                  "container_id": 2707,
+                  "waste_id": 2257
+            },
+            {
+                  "Producto": "[RPABS] ABSORBENTES Y TRAPOS RP",
+                  "Unidades": 5,
+                  "Envase": "[EBBH1M3] BIG BAG HOMOLOGADO RP 1 m3",
+                  "Residuo": null,
+                  "product_id": 2257,
+                  "container_id": 2707,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 33350,
+      "agreement_id": 1252,
+      "pickup_id": 33351,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "194daa218d08e721"
+}

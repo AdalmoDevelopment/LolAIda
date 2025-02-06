@@ -34,7 +34,7 @@ def get_pending_hilos(mysql_conn_params):
 			SELECT id, CONCAT('¿Me haces este/estos DU? Mail:', aida_correo , ', "Info:": ', lola_response_json)
 			FROM hilos
 			WHERE lola_generated = 1 AND aida_generated = 0
-			AND lola_response != '{ "Contratos": [], "Lugares de recogida": [] }' AND CONCAT('¿Me haces este DU? Mail:', aida_correo , ', "Info:": ', lola_response,' }') IS NOT NULL and date_created = CURDATE()
+			AND lola_response != '{ "Contratos": [], "Lugares de recogida": [] }' AND CONCAT('¿Me haces este DU? Mail:', aida_correo , ', "Info:": ', lola_response,' }') IS NOT NULL and DATE(date_created) = CURDATE()
 		""")
 		hilos = cursor.fetchall()
 		

@@ -1,0 +1,31 @@
+{
+      "Titular": "Prezero Gestión de Residuos",
+      "Contrato": "AA2401395",
+      "Lugar de recogida": "Centros Comerciales Carrefour SA, Coll d'en Rebassa",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2606,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RMADM] MADERA (MUNICIPAL)",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2534,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Pulpos",
+      "holder_id": 11483,
+      "agreement_id": 1956,
+      "pickup_id": 12159,
+      "category_fleet_id": 8,
+      "Track_Gmail_Uid": "194d10070b06c0c9"
+}
