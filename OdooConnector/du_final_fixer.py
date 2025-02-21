@@ -28,8 +28,8 @@ def mysql_execute_query(query, params):
 		conn = pymysql.connect(**mysql_conn_params)
 		cursor = conn.cursor()
 		if params:
-			response, success, du_id  = params
-			cursor.execute(query, [response, success, du_id])
+			json_du, response, success, du_id  = params
+			cursor.execute(query, [json_du, response, success, du_id])
 		else:
 			cursor.execute(query)
 		hilos = cursor.fetchall()
@@ -112,15 +112,18 @@ def query_format_du(json_du):
 		residuo_cache = ''
 		
 		for linea in reversed(lineas_du):
+			
 			print('residuo cache actual:',residuo_cache)
 			results4 = execute_query(query_product_ids, ( linea['Producto'], linea['Producto'], linea['Producto'],))
 			results5 = execute_query(query_product_ids, ( linea['Envase'], linea['Envase'], linea['Envase'],))
 			results6 = execute_query(query_product_ids, ( linea['Residuo'], linea['Residuo'], linea['Residuo'],))
-			
+
+			# Para poner el residuo en las lineas de TC CAMBIO que vengan sin Residuo
 			if du_cambio and linea['Producto'] != '[TC] CAMBIO':
 				residuo_cache = results4[0][0]
 				print(Fore.YELLOW + 'se ha guardado el id', results4, 'en cache' + Style.RESET_ALL)
 			print("\n", linea['Producto'])
+
 			print(f"\____product_id:{results4} \n")
 			linea["product_id"] = results4[0][0] if results4 else None
 			
@@ -139,7 +142,14 @@ def query_format_du(json_du):
 				linea["waste_id"] = results6[0][0] if results6 else None
 				
 			cat_vehiculo_aida = json_du["Categoria de vehiculo"]
-				
+			
+			linea["Tipo_Producto"] = results4[0][1]
+
+			# Si viene un DU de estructura TT pero con el transporte equivocado(THORA/C/R)
+			if 'THORA' in linea['Producto'] and any(linea["Tipo_Producto"] == "ENVASE" for linea in lineas_du):
+				print(f"Debería ser TT porque es {linea['Producto']} y tiene reposiciones \n")
+				linea['Producto'] = '[TT] TRANSPORTE'
+
 			# Si la línea actual es de transporte, la usamos para condicionar la Categoría de Vehículo
 			if results4[0][1] == 'TRANSPORTE':
 				if linea['Producto'] == '[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)':
@@ -147,12 +157,19 @@ def query_format_du(json_du):
 					json_du["category_fleet_id"] = 13
 					
 				elif linea['Producto'] == '[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)':
-					json_du["Categoria de vehiculo"] = "Pulpos"
-					json_du["category_fleet_id"] = 8
+					hay_big_bag = any('BIG BAG' in linea['Producto'] and linea['Tipo_Producto'] == 'Envase' for linea in json_du["Lineas del DU"])
+					solo_big_bag = all(('BIG BAG' in linea['Producto']) for linea in json_du["Lineas del DU"] if linea['Tipo_Producto'] == 'Envase')
+
+					if hay_big_bag and solo_big_bag:
+						json_du["Categoria de vehiculo"] = "Gruas"
+						json_du["category_fleet_id"] = 16
+					else:
+						json_du["Categoria de vehiculo"] = "Pulpos" 	
+						json_du["category_fleet_id"] = 8
 					
 				elif linea['Producto'] == '[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)':
 					json_du["Categoria de vehiculo"] = "Recolectores"
-					json_du["category_fleet_id"] = 15
+					json_du["category_fleet_id"] = 15 
 					
 				elif linea['Producto'] == '[TC] CAMBIO':
 					if linea["container_id"] in [2672, 2668, 2926]:
@@ -163,65 +180,139 @@ def query_format_du(json_du):
 						json_du["category_fleet_id"] = 6
 					
 				elif linea['Producto'] == '[TT] TRANSPORTE':
-					for linea in reversed(lineas_du):
-						#Para saber si hay un envase sanitario, 
-						if '[ES' in linea['Producto'] or 'SANITARIO' in linea['Producto'] or linea['Producto'] == "[EUHF] UNIDAD HIGIENE FEMENINA":
-							json_du["Categoria de vehiculo"] = "Sanitarios"
-							json_du["category_fleet_id"] = 4
-						else:
-							json_du["Categoria de vehiculo"] = "RPs"
-							json_du["category_fleet_id"] = 14
+					es_sanitario = any('[ES' in linea['Producto'] or 'SANITARIO' in linea['Producto'] or linea['Producto'] == "[EUHF] UNIDAD HIGIENE FEMENINA" for linea in json_du["Lineas del DU"])
+
+					if es_sanitario:
+						json_du["Categoria de vehiculo"] = "Sanitarios"
+						json_du["category_fleet_id"] = 4
+					else:
+						json_du["Categoria de vehiculo"] = "RPs"
+						json_du["category_fleet_id"] = 14
 				
 				if linea['Producto'] != '[TC] CAMBIO':
 					linea["container_id"] = None
 					linea["Envase"] = None
-				
+
 				if cat_vehiculo_aida != json_du["Categoria de vehiculo"]:
 					print(Fore.MAGENTA + "Se ha modificado la categoría vehículo a " + json_du["Categoria de vehiculo"] + Style.RESET_ALL)
 			print("-------------------------------------------------------------------------------------------------------")
+	
 	except Exception as e:
 		print(f"Error al ejecutar la consulta: {e}")
 
 def du_fixer():
 	pending_hilos = mysql_execute_query("SELECT gda.id, id_hilo, du , h.mail_track_id FROM generated_dus_aida gda, hilos h WHERE id_hilo = h.id AND odoo_final_response IS NULL AND DATE(date_created) = CURDATE() ", None)
+
+	#Hilos con al menos un DU de [TT]:
+	dus_tt_unidos = []
 	
 	for du_id, hilo_id, aida_generated, mail_track_id in pending_hilos: 
-		print(hilo_id)
-		try:
-			json_du = json.loads(aida_generated)
-			print("JSON cargado con éxito")
-		except json.JSONDecodeError as e:
-			print(f"Error al decodificar el JSON en el hilo {hilo_id}: {e}")
-			print(f"Contenido de 'aida_generated': {aida_generated}")
-			continue
-		
-		query_format_du(json_du)
-		
-		try:
-			json_du["Track_Gmail_Uid"] = mail_track_id
-			save_file = open(f"./OdooConnector/dumps/savedata_{hilo_id}_{du_id}.json", "x", encoding="utf-8")  
-			json.dump(json_du, save_file, ensure_ascii= False, indent = 6)
-			save_file.close()
-		except FileExistsError:
-			print(Fore.YELLOW + f"¡savedata{hilo_id}_{du_id}.json ya existe!" + Style.RESET_ALL)
-
-		print( Fore.CYAN + 'Intentando crear DU para', json_du['Titular'] ,', con el contrato', json_du['Contrato'], Style.RESET_ALL)
-		
-		response, success = send_du_odoo(json_du)
-
-		print(f"UPDATE generated_dus_aida SET odoo_final_response = {response}, created = {success} WHERE id = {du_id}")
-		
-		query = 'UPDATE generated_dus_aida SET odoo_final_response = %s, created = %s WHERE id = %s'
-		try:
-			response = mysql_execute_query(query, params = [response, success, du_id])
-			print('Metido en la mysql!!!', response)
-		except Exception as e:
-			print(f"Error al conectar a MySQL: {e}")
-		
-		if success:
-			set_label_gmail(mail_track_id, 'Label_5337764771777216081')
+		if du_id not in dus_tt_unidos:
+			try:
+				json_du = json.loads(aida_generated)
+				print("JSON cargado con éxito")
+			except json.JSONDecodeError as e:
+				print(f"Error al decodificar el JSON en el hilo {hilo_id}: {e}")
+				print(f"Contenido de 'aida_generated': {aida_generated}")
+				continue
 			
-	
+			lineas_du = json_du["Lineas del DU"]
+
+			query_format_du(json_du)
+
+			for linea in lineas_du:
+				# Se cambian los [TC] CAMBIO que deberían ser [TT] TRANSPORTE
+				if linea['Producto'] == '[TC] CAMBIO' and linea['Envase'] in [
+						'[EGRGA] GRG 1000L ABIERTO', '[EGRG1000L] GRG 1000L',
+						'[ECUB] CUBETO', '[EJ] JAULA'
+					]:
+					print(f"Es un cambio de un Envase({linea['Envase']}) que debería ser TT")
+					linea["Producto"] = linea["Envase"]
+					linea["Envase"] = None
+					linea["Residuo"] = None
+
+					nueva_linea = {
+						"Producto": "[TT] TRANSPORTE",
+						"Envase": None,
+						"Residuo": None
+					}
+					lineas_du.insert(0, nueva_linea)
+				
+				# Sí hay uno de estos envases, se aplica una de las siguientes reglas
+				if any(word in linea['Producto'] for word in [
+						'SANDACH',
+						'MATERIAL ALIMENTACIÓN INADECUADO'
+	  				]):
+					for linea in lineas_du:
+						if linea['Producto'] in ['[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)', '[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)', '[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)']:
+							print('Por sus residuos debería ser TT, en cambio es: ', linea['Producto'])
+							linea['Producto'] = '[TT] TRANSPORTE'
+							break
+
+			print(f'Du antes de comprobar si se puede unificar: {json_du}')
+
+			print(f'Estado hilo: {hilo_id}')
+
+			# Si se está tratando un TT, une las lineas del resto de DUs de TT de la misma petición, si los hay.
+			if any(linea["Producto"] == "[TT] TRANSPORTE" for linea in lineas_du):
+				for du_id_merge, hilo_id_merge, aida_generated_merge, mail_track_id in pending_hilos:
+					json_du["Track_Gmail_Uid"] = mail_track_id
+     
+					if hilo_id_merge == hilo_id and du_id_merge != du_id and any(linea["Producto"] == "[TT] TRANSPORTE" for linea in lineas_du): 
+						try:
+							json_du_merge = json.loads(aida_generated_merge)
+						except json.JSONDecodeError as e:
+							print(f"Error al decodificar el JSON en el hilo {hilo_id_merge}: {e}")
+							continue
+						if json_du_merge["Lugar de recogida"] == json_du["Lugar de recogida"]:
+							print(f"Se van a unir porque tienen el mismo lugar de recogida, {json_du['Lugar de recogida']} y {json_du_merge['Lugar de recogida']}")
+							
+							for linea_merge in json_du_merge["Lineas del DU"]:
+								if linea_merge["Producto"] != "[TT] TRANSPORTE":
+
+									# Buscar si ya existe una línea igual en el DU principal
+									encontrada = False
+									for linea in reversed(json_du["Lineas del DU"]):
+										if linea["Producto"] == linea_merge["Producto"]:
+											print(f"Se suman las cantidades de {linea['Producto']}: {linea['Unidades']} y {linea_merge['Unidades']}")
+											linea["Unidades"] += linea_merge["Unidades"]
+											encontrada = True
+											break
+
+									# Si no existe, agregar la línea
+									if not encontrada:
+										json_du["Lineas del DU"].append(linea_merge)
+						dus_tt_unidos.append(du_id_merge)
+
+			query_format_du(json_du)
+			print("LLega a formatearse")
+			
+			print(Fore.BLUE + f"el du definitivo id {du_id} del hilo id {hilo_id} sería {json.dumps(json_du, indent=2)}" + Style.RESET_ALL)
+			print("DU-------------------------------------------------------------------------------------------------------")
+   
+			# try:
+			# 	save_file = open(f"./OdooConnector/dumps/savedata_{hilo_id}_{du_id}.json", "x", encoding="utf-8")  
+			# 	json.dump(json_du, save_file, ensure_ascii= False, indent = 6)
+			# 	save_file.close()
+			# except FileExistsError:
+			# 	print(Fore.YELLOW + f"¡savedata{hilo_id}_{du_id}.json ya existe!" + Style.RESET_ALL)
+
+			print( Fore.CYAN + 'Intentando crear DU para', json_du['Titular'] ,', con el contrato', json_du['Contrato'], Style.RESET_ALL)
+			
+			response, success = send_du_odoo(json_du)
+
+			print(f"UPDATE generated_dus_aida SET odoo_final_response = {response}, created = {success} WHERE id = {du_id}")
+			
+			query = 'UPDATE generated_dus_aida SET du_sended = %s, odoo_final_response = %s, created = %s WHERE id = %s'
+			try:
+				response = mysql_execute_query(query , params = [json.dumps(json_du), response, success, du_id])
+				print('Metido en la mysql!!!', response)
+			except Exception as e:
+				print(f"Error al conectar a MySQL: {e}")
+			
+			# if success:
+			# 	set_label_gmail(mail_track_id, 'Label_5337764771777216081')
+		
 	return(True)
 
 if __name__ == "__main__":

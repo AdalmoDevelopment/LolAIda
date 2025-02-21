@@ -7,7 +7,7 @@ import pymysql
 import json
 import re
 from colorama import Fore, Back, Style
-from AidaDUMaker.HyperParams import model, instructions, vector_store_id, assistant_id
+from AidaDUMaker.HyperParams import model, aida_instructions, vector_store_id, aida_assistant_id
 
 load_dotenv()
 
@@ -124,10 +124,10 @@ def ft_process_pending_hilos():
 
 			run = client.beta.threads.runs.create(
 				thread_id=thread.id,
-				assistant_id=assistant_id,
+				assistant_id=aida_assistant_id,
 				temperature=0.1,
 				model= model,
-				instructions= instructions,
+				instructions= aida_instructions,
 				tools=[{"type": "file_search"}]
 			)
 

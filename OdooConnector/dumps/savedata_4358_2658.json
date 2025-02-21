@@ -1,0 +1,31 @@
+{
+      "Titular": "Ports de les Illes Balears",
+      "Contrato": "AA2400455",
+      "Lugar de recogida": "Ports de les Illes Balears, Port de Ciutadella",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2679,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RPASENT] ACEITE DE SENTINAS RECOGIDOS EN MUELLES",
+                  "Unidades": 1,
+                  "Envase": "[EGRA] GRANEL",
+                  "Residuo": null,
+                  "product_id": 2384,
+                  "container_id": 2449,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Cisternas",
+      "holder_id": 12305,
+      "agreement_id": 989,
+      "pickup_id": 12319,
+      "category_fleet_id": 13,
+      "Track_Gmail_Uid": "194fa01164fb6f47"
+}

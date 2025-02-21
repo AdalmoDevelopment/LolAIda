@@ -1,0 +1,31 @@
+{
+      "Titular": "Maderas Delta SLU",
+      "Contrato": "AA2401488",
+      "Lugar de recogida": "Maderas Delta SLU, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": "[RMADC] MADERA (CONSTRUCCIÓN)",
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": 2533
+            },
+            {
+                  "Producto": "[RMADC] MADERA (CONSTRUCCIÓN)",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2533,
+                  "container_id": 2682,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 27793,
+      "agreement_id": 2052,
+      "pickup_id": 30331,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "194f9f3afccc2bd0"
+}

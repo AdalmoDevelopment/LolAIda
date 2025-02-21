@@ -1,0 +1,31 @@
+{
+      "Titular": "(UTE Palma II) Técnicas de Desalinización de Aguas SA - SA de Obras y Servicios Copasa- Lantania SA UTE Ley 18/1982",
+      "Contrato": "AA2401497",
+      "Lugar de recogida": "(UTE Palma II) Técnicas de Desalinización de Aguas SA - SA de Obras y Servicios Copasa- Lantania SA UTE Ley 18/1982, UTE Edar Palma II",
+      "Lineas del DU": [
+            {
+                  "Producto": "[TC] CAMBIO",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2603,
+                  "container_id": 2682,
+                  "waste_id": 2533
+            },
+            {
+                  "Producto": "[RMADC] MADERA (CONSTRUCCIÓN)",
+                  "Unidades": 1,
+                  "Envase": "[EK] CONTENEDOR K (5 m3)",
+                  "Residuo": null,
+                  "product_id": 2533,
+                  "container_id": 2682,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Contenedores/Ganchos",
+      "holder_id": 50027,
+      "agreement_id": 2061,
+      "pickup_id": 50028,
+      "category_fleet_id": 6,
+      "Track_Gmail_Uid": "194f9c27170be07d"
+}

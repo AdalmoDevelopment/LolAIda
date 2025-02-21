@@ -18,7 +18,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from colorama import Fore, Back, Style
 from AidaMailInterpreter.extract_msg_id import get_message_by_id
-from AidaMailInterpreter.diccionario import palabras
+from AidaMailInterpreter.diccionario import white_list, black_list
 from AidaMailInterpreter.gmail_api import obtener_credenciales, connect_imap_oauth2
 
 load_dotenv()
@@ -178,51 +178,52 @@ def get_pending_hilos(mysql_conn_params):
 		print(f"Error al conectar a MySQL: {e}")
 		return []
 
-def execute_query(from_, conn_params):
-	try:
-		# Establecer la conexión con la base de datos
-		conn = psycopg2.connect(**conn_params)
-		cursor = conn.cursor()
-		print(from_)
-		# Modificar el valor de 'from_' para que funcione con LIKE
+# def execute_query(from_, conn_params):
+# 	try:
+# 		# Establecer la conexión con la base de datos
+# 		conn = psycopg2.connect(**conn_params)
+# 		cursor = conn.cursor()
+# 		print(from_)
+# 		# Modificar el valor de 'from_' para que funcione con LIKE
 		
-		if "@gmail" in from_:
-			from_ = f"{from_.split('@')[0]}"
-			from_ = f"%{from_}%"
-		else:
-			from_ = f"{from_.split('@')[1]}"
-			from_ = f"{from_.split('.')[0]}"    
-			from_ = f"%{from_}%"                                                    
+# 		if "@gmail" in from_:
+# 			from_ = f"{from_.split('@')[0]}"
+# 			from_ = f"%{from_}%"
+# 		else:
+# 			from_ = f"{from_.split('@')[1]}"
+# 			from_ = f"{from_.split('.')[0]}"    
+# 			from_ = f"%{from_}%"                                                    
 				
-		print(from_)
+# 		print(from_)
 
-		query = """
-			SELECT count(*)
-			FROM public.pnt_agreement_agreement paa
-			INNER JOIN res_partner rp ON paa.pnt_holder_id = rp.id
-			INNER JOIN pnt_agreement_partner_pickup_rel pappr ON paa.id = pappr.pnt_agreement_id
-			INNER JOIN res_partner rprecog ON pappr.partner_id = rprecog.id
-			WHERE paa.state = 'done'
-			AND paa.pnt_holder_id IN (
-				SELECT id FROM res_partner WHERE email ILIKE %s AND is_company = true
-			)
-			AND rprecog.type = 'delivery'
-		"""
-		# Ejecutar la consulta con el parámetro correctamente (como tupla)
-		cursor.execute(query, (from_,) )  # El parámetro from_ debe estar dentro de una tupla
+# 		query = """
+# 			SELECT count(*)
+# 			FROM public.pnt_agreement_agreement paa
+# 			INNER JOIN res_partner rp ON paa.pnt_holder_id = rp.id
+# 			INNER JOIN pnt_agreement_partner_pickup_rel pappr ON paa.id = pappr.pnt_agreement_id
+# 			INNER JOIN res_partner rprecog ON pappr.partner_id = rprecog.id
+# 			WHERE paa.state = 'done'
+# 			AND paa.pnt_holder_id IN (
+# 				SELECT id FROM res_partner WHERE email ILIKE %s AND is_company = true
+# 			)
+# 			AND rprecog.type = 'delivery'
+# 		"""
+# 		# Ejecutar la consulta con el parámetro correctamente (como tupla)
+# 		cursor.execute(query, (from_,) )  # El parámetro from_ debe estar dentro de una tupla
 		
-		result = cursor.fetchone()  # Solo obtendremos un resultad
-		# Cerrar la conexión
-		cursor.close()
-		conn.close()
+# 		result = cursor.fetchone()  # Solo obtendremos un resultad
+# 		# Cerrar la conexión
+# 		cursor.close()
+# 		conn.close()
 		
-		return result
-	except Exception as e:
-		return str(e)
+# 		return result
+# 	except Exception as e:
+# 		return str(e)
 
 def generate_response(from_, body):
-	#Generar una respuesta utilizando gpt-4.
-	result = execute_query( from_, postgres_conn_params)
+	# Para sacar la cantidad de contratos del cliente en cuestión
+	# result = execute_query( from_, postgres_conn_params)
+
 	try:
 		openai.api_key = OPENAI_API_KEY
 
@@ -230,16 +231,19 @@ def generate_response(from_, body):
 		# 	multiple_lugar_recogida = "y el lugar de recogida"
 		# else:
 		# 	multiple_lugar_recogida = ""
-			
-		messages = [
-			{"role": "system", "content": f"Me llamo AIda, no haré nunca referencia a que soy un asistente AI. Reviso los datos de cada mail que me llega, si no interpreto que me están solicitando una entrega, cambio, o recogida de algun tipo de residuo/recipiente/contenedor o vaciado de alguno de estos, respondo 'No se ha detectado ninguna petición'. Una vez interprete algo de esto responderé 'Lola. Dame la información de {from_}' (siempre el mail del remitente). A su vez, me devolverás también el correo pero limpio con solo lo importante, borrando mensajes evidentemente predeterminados, plantillas, etc. y puntualizando la petición hecha.''"},
-			{"role": "user", "content": f"{from_}\n {body}\n "}
-		]
 		
 		response = openai.chat.completions.create(
 			model="gpt-4o",
-			messages=messages,
-			max_tokens=200,
+			messages=[
+				{"role": "system", "content": f"""
+					Me llamo Aida, no haré nunca referencia a que soy un asistente AI. Reviso los datos de cada mail que me llega. Si no interpreto que me están solicitando una entrega, cambio o recogida de algún residuo, recipiente, contenedor o vaciado de alguno de estos, o si el correo trata únicamente de pegatinas, etiquetas, notificaciones de transporte, matrículas, documentos o información administrativa, respondo: 'No se ha detectado ninguna petición'.
+
+					Solo cuando haya una petición clara de recogida/entrega de residuos/contenedores, responderé: 'Lola. Dame la información de {from_}' (siempre el mail del remitente).
+
+					A su vez, y sin olvidarte nunca de cualquier residuo, me devolverás también el correo pero limpio, dejando solo lo importante y eliminando mensajes predeterminados, plantillas, firmas o información irrelevante. Puntualizarás la petición de forma clara en forma de lista. Algunas veces hacen recordatorios de peticiones, estos ya están hechos y no las tienes que añadir.				"""},
+				{"role": "user", "content": f"{from_}\n {body}\n "}
+         	],
+			max_tokens=2048,
 			temperature= 1
 		)
 		return response.choices[0].message.content
@@ -263,7 +267,7 @@ def email_listener():
 					msg, msg_id = fetch_email(mail, email_id)
 					if msg:
 						message_id, from_, subject, body, date, to_ = parse_email(msg, email_id)
-						if date is not None:
+						if date is not None and any(words in body.lower() for words in white_list) and not any(words in body.lower() for words in black_list):
 							print(from_)
 							print(subject)
 							print("Fecha correo: ", date.strftime("%d/%m/%Y"), " Fecha python: ", datetime.now().strftime("%d/%m/%Y") )

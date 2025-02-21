@@ -120,7 +120,7 @@ def data_provider():
     
     for hilo_id, aida_request in pending_hilos:
         # Usamos el valor de `aida_request` para formar las consultas
-        email_pattern = f"%{aida_request}%"
+        email_pattern = f'%{aida_request}%'
 
         print(f"Obteniendo contratos para: {aida_request}")
         query_contratos = """

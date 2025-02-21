@@ -1,0 +1,31 @@
+{
+      "Titular": "Policlínica Nuestra Señora del Rosario SL",
+      "Contrato": "AA2400167",
+      "Lugar de recogida": "Policlínica Nuestra Señora del Rosario SL, Dirección de Recogida",
+      "Lineas del DU": [
+            {
+                  "Producto": "[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)",
+                  "Unidades": 1,
+                  "Envase": null,
+                  "Residuo": null,
+                  "product_id": 2795,
+                  "container_id": null,
+                  "waste_id": null
+            },
+            {
+                  "Producto": "[RSGIII] SANITARIO GRUPO III",
+                  "Unidades": 1,
+                  "Envase": "[ES10L] DEPÓSITO 10L",
+                  "Residuo": null,
+                  "product_id": 2259,
+                  "container_id": 2439,
+                  "waste_id": null
+            }
+      ],
+      "Categoria de vehiculo": "Recolectores",
+      "holder_id": 27047,
+      "agreement_id": 649,
+      "pickup_id": 35780,
+      "category_fleet_id": 15,
+      "Track_Gmail_Uid": "194fa092e81d84ba"
+}

@@ -18,7 +18,6 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from colorama import Fore, Back, Style
 from AidaMailInterpreter.extract_msg_id import get_message_by_id
-from AidaMailInterpreter.diccionario import palabras
 
 load_dotenv()
 
