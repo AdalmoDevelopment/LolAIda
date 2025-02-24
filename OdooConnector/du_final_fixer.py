@@ -206,7 +206,8 @@ def du_fixer():
 	#Hilos con al menos un DU de [TT]:
 	dus_tt_unidos = []
 	
-	for du_id, hilo_id, aida_generated, mail_track_id in pending_hilos: 
+	for du_id, hilo_id, aida_generated, mail_track_id in pending_hilos:
+
 		if du_id not in dus_tt_unidos:
 			try:
 				json_du = json.loads(aida_generated)
@@ -215,6 +216,9 @@ def du_fixer():
 				print(f"Error al decodificar el JSON en el hilo {hilo_id}: {e}")
 				print(f"Contenido de 'aida_generated': {aida_generated}")
 				continue
+			
+			json_du["Track_Gmail_Uid"] = mail_track_id
+			print(Fore.BLUE + f"EL MAIL TRACK ID DE ESTE CORREO ES: {mail_track_id}, en el du : {json_du['Track_Gmail_Uid']}" + Style.RESET_ALL)
 			
 			lineas_du = json_du["Lineas del DU"]
 
@@ -256,8 +260,6 @@ def du_fixer():
 			# Si se está tratando un TT, une las lineas del resto de DUs de TT de la misma petición, si los hay.
 			if any(linea["Producto"] == "[TT] TRANSPORTE" for linea in lineas_du):
 				for du_id_merge, hilo_id_merge, aida_generated_merge, mail_track_id in pending_hilos:
-					json_du["Track_Gmail_Uid"] = mail_track_id
-     
 					if hilo_id_merge == hilo_id and du_id_merge != du_id and any(linea["Producto"] == "[TT] TRANSPORTE" for linea in lineas_du): 
 						try:
 							json_du_merge = json.loads(aida_generated_merge)
@@ -269,7 +271,6 @@ def du_fixer():
 							
 							for linea_merge in json_du_merge["Lineas del DU"]:
 								if linea_merge["Producto"] != "[TT] TRANSPORTE":
-
 									# Buscar si ya existe una línea igual en el DU principal
 									encontrada = False
 									for linea in reversed(json_du["Lineas del DU"]):
@@ -287,7 +288,7 @@ def du_fixer():
 			query_format_du(json_du)
 			print("LLega a formatearse")
 			
-			print(Fore.BLUE + f"el du definitivo id {du_id} del hilo id {hilo_id} sería {json.dumps(json_du, indent=2)}" + Style.RESET_ALL)
+			# print(Fore.BLUE + f"el du definitivo id {du_id} del hilo id {hilo_id} sería {json.dumps(json_du, indent=2)}" + Style.RESET_ALL)
 			print("DU-------------------------------------------------------------------------------------------------------")
    
 			# try:
