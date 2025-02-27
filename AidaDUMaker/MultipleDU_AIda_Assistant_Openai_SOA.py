@@ -76,7 +76,9 @@ def process_pending_hilos():
 			
 			# Se llama a la función correct_dus para reforzar los DU's generados
 			print(f"Mensaje Du inicial: {json_content}")
-			json_content = correct_dus(json_content)
+
+			# json_content = correct_dus(json_content)
+
 			matches = re.findall(r'```json\s*(.*?)\s*```',json_content, re.DOTALL)
 			mark_as_processed(mysql_conn_params, hilo_id, None, None)            
 			if matches:

@@ -33,7 +33,7 @@ def get_pending_hilos(mysql_conn_params):
 	try:
 		conn = pymysql.connect(**mysql_conn_params)
 		cursor = conn.cursor()
-		print("buscando nose")
+		print("Buscando hilos no aceptados")
 		cursor.execute("""
 			SELECT 
 				id,
@@ -78,10 +78,9 @@ def mark_as_processed(mysql_conn_params, hilo_id, du, user_reponse, assistant_re
 		cursor.close()  
 		conn.close()
 	except:
-		print('Nose')
+		print('Error')
 
 def ft_process_pending_hilos():
-	print(assistant_id)
 	
 	hilos = get_pending_hilos(mysql_conn_params)
 	

@@ -180,9 +180,9 @@ def data_provider():
         result_json = json_formatter(results, results2)
         
         if isinstance(results, str):
-            print(f"Error ejecutando la consulta: {results}\n")
+            print(f"Error ejecutando la consulta: {results2}\n")
         else:
-            print(f"Resultados obtenidos: {results}")
+            print(f"Resultados obtenidos: {results2}")
         
         mark_as_processed(mysql_conn_params, hilo_id, results, results2, result_json)
     return(True)

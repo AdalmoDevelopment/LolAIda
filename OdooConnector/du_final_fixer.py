@@ -146,7 +146,7 @@ def query_format_du(json_du):
 			linea["Tipo_Producto"] = results4[0][1]
 
 			# Si viene un DU de estructura TT pero con el transporte equivocado(THORA/C/R)
-			if 'THORA' in linea['Producto'] and any(linea["Tipo_Producto"] == "ENVASE" for linea in lineas_du):
+			if 'THORA' in linea['Producto'] or 'CAMBIO' in linea['Producto'] and any(linea["Tipo_Producto"] == "ENVASE" for linea in lineas_du):
 				print(f"Debería ser TT porque es {linea['Producto']} y tiene reposiciones \n")
 				linea['Producto'] = '[TT] TRANSPORTE'
 
@@ -229,7 +229,13 @@ def du_fixer():
 				if linea['Producto'] == '[TC] CAMBIO' and linea['Envase'] in [
 						'[EGRGA] GRG 1000L ABIERTO', '[EGRG1000L] GRG 1000L',
 						'[ECUB] CUBETO', '[EJ] JAULA'
-					]:
+					] and linea["Envase"] not in [
+         				'[EC] CONTENEDOR C (28 m3)', '[EK] CONTENEDOR K (5 m3)', '[EKT] CONTENEDOR TAPADO K (5 m3)', '[EP] CONTENEDOR P (11 m3)',
+						'CONTENEDOR K PEQUEÑO (1.5 m3)',
+						'[EAZ1000] CONTENEDOR AZUL 1000L', '[EV1000] CONTENEDOR VERDE 1000L', '[EAM1000] CONTENEDOR AMARILLO 1000L'
+						'[EAUTO] AUTOCOMPACTADOR',
+						'[EAE] COMPACTADOR ESTÁTICO (30 m3)'
+                    ]:
 					print(f"Es un cambio de un Envase({linea['Envase']}) que debería ser TT")
 					linea["Producto"] = linea["Envase"]
 					linea["Envase"] = None
@@ -286,6 +292,7 @@ def du_fixer():
 						dus_tt_unidos.append(du_id_merge)
 
 			query_format_du(json_du)
+
 			print("LLega a formatearse")
 			
 			# print(Fore.BLUE + f"el du definitivo id {du_id} del hilo id {hilo_id} sería {json.dumps(json_du, indent=2)}" + Style.RESET_ALL)

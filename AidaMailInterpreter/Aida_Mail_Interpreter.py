@@ -162,21 +162,16 @@ def parse_email(msg, email_id):
 		print(f"Error al analizar el correo: {e}")
 		return email_id, None, None, None, None, None
 
-def get_pending_hilos(mysql_conn_params):
-	try:
-		conn = pymysql.connect(**mysql_conn_params)
-		cursor = conn.cursor()
-		
-		cursor.execute("SELECT id, aida_request FROM hilos WHERE lola_generated = 0 AND aida_response LIKE 'Lola%'")
-		hilos = cursor.fetchall()
-		
-		cursor.close()
-		conn.close()
-		
-		return hilos
-	except pymysql.MySQLError as e:
-		print(f"Error al conectar a MySQL: {e}")
-		return []
+def get_pending_hilos():
+    try:
+        with mydb.cursor() as cursor:
+            cursor.execute("SELECT mail_track_id FROM hilos")
+            hilos = {hilo[0] for hilo in cursor.fetchall()}  # Convertimos en set para búsquedas rápidas
+        return hilos
+    except pymysql.MySQLError as e:
+        print(f"Error al conectar a MySQL: {e}")
+        return set()  # Devolvemos un set vacío en caso de error
+
 
 # def execute_query(from_, conn_params):
 # 	try:
@@ -267,6 +262,8 @@ def email_listener():
 					msg, msg_id = fetch_email(mail, email_id)
 					if msg:
 						message_id, from_, subject, body, date, to_ = parse_email(msg, email_id)
+						mail_track_id = get_message_by_id(message_id)
+
 						if date is not None and any(words in body.lower() for words in white_list) and not any(words in body.lower() for words in black_list):
 							print(from_)
 							print(subject)
@@ -278,8 +275,9 @@ def email_listener():
 						
 							if body and date.strftime("%d/%m/%Y") == datetime.now().strftime("%d/%m/%Y"):
 								print('Si es')
-								if from_ and subject and body and "adalmo" not in from_:
-									mail_track_id = get_message_by_id(message_id)
+		
+								if from_ and subject and body and "adalmo" not in from_ and mail_track_id not in get_pending_hilos():
+									
 									print(f"Nuevo msg_track_id({mail_track_id}) del id ({message_id}) de {from_}: {subject}\n\n")
 									
 									response = generate_response(from_, body)
@@ -290,7 +288,7 @@ def email_listener():
 									# Extraer nombre de usuario o dominio del correo
 										print(from_)
 										if "adalmo" not in from_:
-											if any(domain in from_ for domain in ["@gmail", "@hotmail"]):
+											if any(domain in from_ for domain in ["@gmail", "@hotmail",  "@telefonica"]):
 												from_ = f"{from_.split('@')[0]}"
 												print(from_)
 											else:

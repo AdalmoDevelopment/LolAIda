@@ -17,7 +17,7 @@ Generate each DU in the following JSON format:
 ```json
 {
   "Titular": "",
-  "Contrato": "",
+  "Contrato": "",  
   "Lugar de recogida": (declare from email or choose from contracts)
   "Lineas del DU": [
     {
