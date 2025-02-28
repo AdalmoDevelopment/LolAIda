@@ -11,6 +11,6 @@ white_list = [
 black_list = ["Anotamos petición", "Anotamos la petición", "Anotamos la solicitud", "Anotamos su solicitud", "Anotamos su petición",
     "adjunto", "adjuntamos",
     "pegatina", "etiqueta",
-    "retirada",
+    "definitiva",
     "entrega"
 ]

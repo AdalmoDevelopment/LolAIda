@@ -272,9 +272,11 @@ def email_listener():
 							# 	print( Fore.CYAN + "Todos los correos de hoy leidos jeje xd" + Style.RESET_ALL )
 							# 	break
 						# print(body)
-						
+					
 							if body and date.strftime("%d/%m/%Y") == datetime.now().strftime("%d/%m/%Y"):
 								print('Si es')
+								if mail_track_id in get_pending_hilos():
+										print('Ya se ha procesado este mail')
 		
 								if from_ and subject and body and "adalmo" not in from_ and mail_track_id not in get_pending_hilos():
 									
