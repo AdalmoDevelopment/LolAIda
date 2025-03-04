@@ -201,7 +201,7 @@ def query_format_du(json_du):
 		print(f"Error al ejecutar la consulta: {e}")
 
 def du_fixer():
-	pending_hilos = mysql_execute_query("SELECT gda.id, id_hilo, du , h.mail_track_id FROM generated_dus_aida gda, hilos h WHERE id_hilo = h.id AND odoo_final_response IS NULL AND DATE(date_created) = CURDATE() ", None)
+	pending_hilos = mysql_execute_query("SELECT gda.id, id_hilo, du , h.mail_track_id FROM generated_dus_aida gda, hilos h WHERE id_hilo = h.id AND odoo_final_response IS NULL AND DATE(date_created) = CURDATE() AND odoo_processed = 0", None)
 
 	#Hilos con al menos un DU de [TT]:
 	dus_tt_unidos = []
@@ -232,7 +232,7 @@ def du_fixer():
 					] and linea["Envase"] not in [
          				'[EC] CONTENEDOR C (28 m3)', '[EK] CONTENEDOR K (5 m3)', '[EKT] CONTENEDOR TAPADO K (5 m3)', '[EP] CONTENEDOR P (11 m3)',
 						'CONTENEDOR K PEQUEÑO (1.5 m3)',
-						'[EAZ1000] CONTENEDOR AZUL 1000L', '[EV1000] CONTENEDOR VERDE 1000L', '[EAM1000] CONTENEDOR AMARILLO 1000L'
+						'[EAZ1000] CONTENEDOR AZUL 1000L', '[EV1000] CONTENEDOR VERDE 1000L', '[EAM1000] CONTENEDOR AMARILLO 1000L',
 						'[EAUTO] AUTOCOMPACTADOR',
 						'[EAE] COMPACTADOR ESTÁTICO (30 m3)'
                     ]:
@@ -312,8 +312,13 @@ def du_fixer():
 			print(f"UPDATE generated_dus_aida SET odoo_final_response = {response}, created = {success} WHERE id = {du_id}")
 			
 			query = 'UPDATE generated_dus_aida SET du_sended = %s, odoo_final_response = %s, created = %s WHERE id = %s'
+			query_hilo = f'UPDATE hilos SET odoo_processed = 1 WHERE id = {hilo_id}'
+
 			try:
 				response = mysql_execute_query(query , params = [json.dumps(json_du), response, success, du_id])
+				print('Metido en la mysql!!!', response)
+    
+				response = mysql_execute_query(query_hilo, None)
 				print('Metido en la mysql!!!', response)
 			except Exception as e:
 				print(f"Error al conectar a MySQL: {e}")
