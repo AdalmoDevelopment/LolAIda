@@ -7,6 +7,7 @@ from decimal import Decimal
 from OdooConnector.conn_params import postgres_conn_params, mysql_conn_params
 from OdooConnector.send_du_odoo import send_du_odoo
 from AidaMailInterpreter.set_label_mail import set_label_gmail
+from OdooConnector.product_groups import envases_tc_cambio, tipos_thora, tipos_servicio
 
 def execute_query(query, params):
 	try:
@@ -110,10 +111,11 @@ def query_format_du(json_du):
 				print("Es un du de cambio")
 		
 		residuo_cache = ''
+		envase_cache = ''
 		
 		for linea in reversed(lineas_du):
 			
-			print('residuo cache actual:',residuo_cache)
+			print('residuo y envase cache actual:',residuo_cache, envase_cache)
 			results4 = execute_query(query_product_ids, ( linea['Producto'], linea['Producto'], linea['Producto'],))
 			results5 = execute_query(query_product_ids, ( linea['Envase'], linea['Envase'], linea['Envase'],))
 			results6 = execute_query(query_product_ids, ( linea['Residuo'], linea['Residuo'], linea['Residuo'],))
@@ -121,6 +123,7 @@ def query_format_du(json_du):
 			# Para poner el residuo en las lineas de TC CAMBIO que vengan sin Residuo
 			if du_cambio and linea['Producto'] != '[TC] CAMBIO':
 				residuo_cache = results4[0][0]
+				envase_cache = results5[0][0]
 				print(Fore.YELLOW + 'se ha guardado el id', results4, 'en cache' + Style.RESET_ALL)
 			print("\n", linea['Producto'])
 
@@ -135,6 +138,8 @@ def query_format_du(json_du):
 				print(linea['Residuo'])
 				print(f"\____waste_id:{residuo_cache} \n")
 				linea["waste_id"] = residuo_cache
+				if linea["container_id"] == None:
+					linea["container_id"] = envase_cache
 				print("Se ha colocado el residuo en caché")
 			else:
 				print(linea['Residuo'])
@@ -143,12 +148,11 @@ def query_format_du(json_du):
 				
 			cat_vehiculo_aida = json_du["Categoria de vehiculo"]
 			
-			linea["Tipo_Producto"] = results4[0][1]
-
-			# Si viene un DU de estructura TT pero con el transporte equivocado(THORA/C/R)
-			if 'THORA' in linea['Producto'] or 'CAMBIO' in linea['Producto'] and any(linea["Tipo_Producto"] == "ENVASE" for linea in lineas_du):
-				print(f"Debería ser TT porque es {linea['Producto']} y tiene reposiciones \n")
-				linea['Producto'] = '[TT] TRANSPORTE'
+			try:
+				linea["Tipo_Producto"] = results4[0][1]
+				print(f"Tipo producto es {linea['Tipo_Producto']}")
+			except:
+				print("No se ha podido extraer Tipo_Producto")	
 
 			# Si la línea actual es de transporte, la usamos para condicionar la Categoría de Vehículo
 			if results4[0][1] == 'TRANSPORTE':
@@ -157,8 +161,8 @@ def query_format_du(json_du):
 					json_du["category_fleet_id"] = 13
 					
 				elif linea['Producto'] == '[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)':
-					hay_big_bag = any('BIG BAG' in linea['Producto'] and linea['Tipo_Producto'] == 'Envase' for linea in json_du["Lineas del DU"])
-					solo_big_bag = all(('BIG BAG' in linea['Producto']) for linea in json_du["Lineas del DU"] if linea['Tipo_Producto'] == 'Envase')
+					hay_big_bag = any('BIG BAG' in linea['Producto'] and linea['Tipo_Producto'] == 'ENVASE' for linea in json_du["Lineas del DU"])
+					solo_big_bag = all(('BIG BAG' in linea['Producto']) for linea in json_du["Lineas del DU"] if linea['Tipo_Producto'] == 'ENVASE')
 
 					if hay_big_bag and solo_big_bag:
 						json_du["Categoria de vehiculo"] = "Gruas"
@@ -199,6 +203,62 @@ def query_format_du(json_du):
 	
 	except Exception as e:
 		print(f"Error al ejecutar la consulta: {e}")
+  
+def change_du_type(json_du, lineas_du):
+    
+	for linea in lineas_du:
+		# Se cambian los [TC] CAMBIO que deberían ser [TT] TRANSPORTE
+		if linea['Producto'] == '[TC] CAMBIO' and linea['Envase'] in [
+				'[EGRGA] GRG 1000L ABIERTO', '[EGRG1000L] GRG 1000L',
+				'[ECUB] CUBETO', '[EJ] JAULA'
+			] and linea["Envase"] not in [
+				'[EC] CONTENEDOR C (28 m3)', '[EK] CONTENEDOR K (5 m3)', '[EKT] CONTENEDOR TAPADO K (5 m3)', '[EP] CONTENEDOR P (11 m3)',
+				'CONTENEDOR K PEQUEÑO (1.5 m3)',
+				'[EAZ1000] CONTENEDOR AZUL 1000L', '[EV1000] CONTENEDOR VERDE 1000L', '[EAM1000] CONTENEDOR AMARILLO 1000L',
+				'[EAUTO] AUTOCOMPACTADOR',
+				'[EAE] COMPACTADOR ESTÁTICO (30 m3)'
+			]:
+			print(f"Es un cambio de un Envase({linea['Envase']}) que debería ser TT")
+			linea["Producto"] = linea["Envase"]
+			linea["Envase"] = None
+			linea["Residuo"] = None
+
+			nueva_linea = {
+				"Producto": "[TT] TRANSPORTE",
+				"Envase": None,
+				"Residuo": None
+			} 	
+			lineas_du.insert(0, nueva_linea)
+		
+		# Si viene un DU de estructura TT pero con el transporte equivocado(THORA/C/R)
+		if ('THORA' in linea['Producto'] or 'CAMBIO' in linea['Producto']) and any(linea["Tipo_Producto"] == "ENVASE" for linea in lineas_du) and all(linea["Producto"] not in envases_tc_cambio for linea in lineas_du):
+			print(f"Debería ser TT porque es {linea['Producto']} y tiene reposiciones \n")
+			linea['Producto'] = '[TT] TRANSPORTE'
+
+		for linea in lineas_du[:]:  # Iterar con copia para eliminar elementos de la lista
+			if linea['Producto'] == '[TC] CAMBIO':
+				lineas_du = [l for l in reversed(lineas_du) if l['Producto'] not in tipos_thora]
+				json_du["Lineas del DU"] = lineas_du
+				print("Se ha eliminado la línea de THORA porque había un TC CAMBIO")
+			if any(linea["Producto"] in envases_tc_cambio for linea in lineas_du):
+				if linea['Producto'] in tipos_servicio:
+					linea['Producto'] = '[TC] CAMBIO'
+				lineas_du = [l for l in lineas_du if l['Producto'] not in envases_tc_cambio or (l['Producto'] != '[TC] CAMBIO' and l["Tipo_Producto"] == "TRANSPORTE")]
+				json_du["Lineas del DU"] = lineas_du
+		
+		print("Líneas del DU después de la eliminación de THORA:", lineas_du)
+
+		# Sí hay uno de estos envases, se aplica una de las siguientes reglas
+		if any(word in linea['Producto'] for word in [
+				'SANDACH',
+				'MATERIAL ALIMENTACIÓN INADECUADO'
+			]):
+			for linea in lineas_du:
+				if linea['Producto'] in ['[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)', '[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)', '[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)']:
+					print('Por sus residuos debería ser TT, en cambio es: ', linea['Producto'])
+					linea['Producto'] = '[TT] TRANSPORTE'
+					break
+	return json_du
 
 def du_fixer():
 	pending_hilos = mysql_execute_query("SELECT gda.id, id_hilo, du , h.mail_track_id FROM generated_dus_aida gda, hilos h WHERE id_hilo = h.id AND odoo_final_response IS NULL AND DATE(date_created) = CURDATE() AND odoo_processed = 0", None)
@@ -207,7 +267,7 @@ def du_fixer():
 	dus_tt_unidos = []
 	
 	for du_id, hilo_id, aida_generated, mail_track_id in pending_hilos:
-
+		print(f"Se está tratanto el DU {du_id}")
 		if du_id not in dus_tt_unidos:
 			try:
 				json_du = json.loads(aida_generated)
@@ -224,40 +284,7 @@ def du_fixer():
 
 			query_format_du(json_du)
 
-			for linea in lineas_du:
-				# Se cambian los [TC] CAMBIO que deberían ser [TT] TRANSPORTE
-				if linea['Producto'] == '[TC] CAMBIO' and linea['Envase'] in [
-						'[EGRGA] GRG 1000L ABIERTO', '[EGRG1000L] GRG 1000L',
-						'[ECUB] CUBETO', '[EJ] JAULA'
-					] and linea["Envase"] not in [
-         				'[EC] CONTENEDOR C (28 m3)', '[EK] CONTENEDOR K (5 m3)', '[EKT] CONTENEDOR TAPADO K (5 m3)', '[EP] CONTENEDOR P (11 m3)',
-						'CONTENEDOR K PEQUEÑO (1.5 m3)',
-						'[EAZ1000] CONTENEDOR AZUL 1000L', '[EV1000] CONTENEDOR VERDE 1000L', '[EAM1000] CONTENEDOR AMARILLO 1000L',
-						'[EAUTO] AUTOCOMPACTADOR',
-						'[EAE] COMPACTADOR ESTÁTICO (30 m3)'
-                    ]:
-					print(f"Es un cambio de un Envase({linea['Envase']}) que debería ser TT")
-					linea["Producto"] = linea["Envase"]
-					linea["Envase"] = None
-					linea["Residuo"] = None
-
-					nueva_linea = {
-						"Producto": "[TT] TRANSPORTE",
-						"Envase": None,
-						"Residuo": None
-					}
-					lineas_du.insert(0, nueva_linea)
-				
-				# Sí hay uno de estos envases, se aplica una de las siguientes reglas
-				if any(word in linea['Producto'] for word in [
-						'SANDACH',
-						'MATERIAL ALIMENTACIÓN INADECUADO'
-	  				]):
-					for linea in lineas_du:
-						if linea['Producto'] in ['[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)', '[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)', '[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)']:
-							print('Por sus residuos debería ser TT, en cambio es: ', linea['Producto'])
-							linea['Producto'] = '[TT] TRANSPORTE'
-							break
+			json_du = change_du_type(json_du, lineas_du)
 
 			print(f'Du antes de comprobar si se puede unificar: {json_du}')
 
@@ -265,15 +292,20 @@ def du_fixer():
 
 			# Si se está tratando un TT, une las lineas del resto de DUs de TT de la misma petición, si los hay.
 			if any(linea["Producto"] == "[TT] TRANSPORTE" for linea in lineas_du):
+				print("Es un DU de TT y se intentara mergear")
 				for du_id_merge, hilo_id_merge, aida_generated_merge, mail_track_id in pending_hilos:
-					if hilo_id_merge == hilo_id and du_id_merge != du_id and any(linea["Producto"] == "[TT] TRANSPORTE" for linea in lineas_du): 
+					if hilo_id_merge == hilo_id and du_id_merge != du_id and any(linea["Producto"] == "[TT] TRANSPORTE" for linea in lineas_du):
+						print("chekpoint 1")
 						try:
 							json_du_merge = json.loads(aida_generated_merge)
 						except json.JSONDecodeError as e:
 							print(f"Error al decodificar el JSON en el hilo {hilo_id_merge}: {e}")
 							continue
-						if json_du_merge["Lugar de recogida"] == json_du["Lugar de recogida"]:
-							print(f"Se van a unir porque tienen el mismo lugar de recogida, {json_du['Lugar de recogida']} y {json_du_merge['Lugar de recogida']}")
+						
+						json_du_merge = change_du_type(json_du_merge, json_du_merge["Lineas del DU"])
+							
+						if json_du_merge["Lugar de recogida"] == json_du["Lugar de recogida"] and any(linea["Producto"] == "[TT] TRANSPORTE" for linea in json_du_merge["Lineas del DU"]):
+							print(f"Se va a unir al du ({du_id}) el du({du_id_merge}) porque tienen el mismo lugar de recogida, {json_du['Lugar de recogida']} y {json_du_merge['Lugar de recogida']}")
 							
 							for linea_merge in json_du_merge["Lineas del DU"]:
 								if linea_merge["Producto"] != "[TT] TRANSPORTE":
@@ -289,13 +321,13 @@ def du_fixer():
 									# Si no existe, agregar la línea
 									if not encontrada:
 										json_du["Lineas del DU"].append(linea_merge)
-						dus_tt_unidos.append(du_id_merge)
+							dus_tt_unidos.append(du_id_merge)
 
 			query_format_du(json_du)
 
 			print("LLega a formatearse")
 			
-			# print(Fore.BLUE + f"el du definitivo id {du_id} del hilo id {hilo_id} sería {json.dumps(json_du, indent=2)}" + Style.RESET_ALL)
+			print(Fore.BLUE + f"el du definitivo id {du_id} del hilo id {hilo_id} sería {json.dumps(json_du, indent=2)}" + Style.RESET_ALL)
 			print("DU-------------------------------------------------------------------------------------------------------")
    
 			# try:
