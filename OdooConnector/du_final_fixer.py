@@ -114,17 +114,19 @@ def query_format_du(json_du):
 		envase_cache = ''
 		
 		for linea in reversed(lineas_du):
-			
+			checkpoint = 1
 			print('residuo y envase cache actual:',residuo_cache, envase_cache)
-			results4 = execute_query(query_product_ids, ( linea['Producto'], linea['Producto'], linea['Producto'],))
-			results5 = execute_query(query_product_ids, ( linea['Envase'], linea['Envase'], linea['Envase'],))
-			results6 = execute_query(query_product_ids, ( linea['Residuo'], linea['Residuo'], linea['Residuo'],))
-
+			results4 = execute_query(query_product_ids, (linea['Producto'], linea['Producto'], linea['Producto'],))
+			results5 = execute_query(query_product_ids, (linea['Envase'], linea['Envase'], linea['Envase'],)) or [('', '')]
+			results6 = execute_query(query_product_ids, (linea['Residuo'], linea['Residuo'], linea['Residuo'],)) or [('', '')]
+   
+			print(f"estado de la linea: {linea}, resultado 1: {results4}, resultado 2: {results5}, resultado 3: {results6}")
 			# Para poner el residuo en las lineas de TC CAMBIO que vengan sin Residuo
 			if du_cambio and linea['Producto'] != '[TC] CAMBIO':
 				residuo_cache = results4[0][0]
 				envase_cache = results5[0][0]
 				print(Fore.YELLOW + 'se ha guardado el id', results4, 'en cache' + Style.RESET_ALL)
+    
 			print("\n", linea['Producto'])
 
 			print(f"\____product_id:{results4} \n")
@@ -202,7 +204,7 @@ def query_format_du(json_du):
 			print("-------------------------------------------------------------------------------------------------------")
 	
 	except Exception as e:
-		print(f"Error al ejecutar la consulta: {e}")
+		print(f"Error al ejecutar la consulta: {e} {checkpoint}")
   
 def change_du_type(json_du, lineas_du):
     
@@ -281,7 +283,7 @@ def du_fixer():
 			print(Fore.BLUE + f"EL MAIL TRACK ID DE ESTE CORREO ES: {mail_track_id}, en el du : {json_du['Track_Gmail_Uid']}" + Style.RESET_ALL)
 			
 			lineas_du = json_du["Lineas del DU"]
-
+			print(f'DU ante de formatear las lineas {json.dumps(json_du, indent=2)}')
 			query_format_du(json_du)
 
 			json_du = change_du_type(json_du, lineas_du)
@@ -295,13 +297,15 @@ def du_fixer():
 				print("Es un DU de TT y se intentara mergear")
 				for du_id_merge, hilo_id_merge, aida_generated_merge, mail_track_id in pending_hilos:
 					if hilo_id_merge == hilo_id and du_id_merge != du_id and any(linea["Producto"] == "[TT] TRANSPORTE" for linea in lineas_du):
-						print("chekpoint 1")
+						print("chekpoint 1 ")
 						try:
 							json_du_merge = json.loads(aida_generated_merge)
 						except json.JSONDecodeError as e:
 							print(f"Error al decodificar el JSON en el hilo {hilo_id_merge}: {e}")
 							continue
 						
+						query_format_du(json_du_merge)
+      
 						json_du_merge = change_du_type(json_du_merge, json_du_merge["Lineas del DU"])
 							
 						if json_du_merge["Lugar de recogida"] == json_du["Lugar de recogida"] and any(linea["Producto"] == "[TT] TRANSPORTE" for linea in json_du_merge["Lineas del DU"]):
