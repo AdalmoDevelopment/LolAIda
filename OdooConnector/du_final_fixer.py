@@ -210,10 +210,12 @@ def change_du_type(json_du, lineas_du):
     
 	for linea in lineas_du:
 		# Se cambian los [TC] CAMBIO que deberían ser [TT] TRANSPORTE
-		if linea['Producto'] == '[TC] CAMBIO' and linea['Envase'] in [
-				'[EGRGA] GRG 1000L ABIERTO', '[EGRG1000L] GRG 1000L',
-				'[ECUB] CUBETO', '[EJ] JAULA'
-			] and linea["Envase"] not in [
+		#Se ha extraido esta línea para que cualquier CAMBIO de un envase que no esté en la lista no se haga
+		# and linea['Envase'] in [
+		# 		'[EGRGA] GRG 1000L ABIERTO', '[EGRG1000L] GRG 1000L',
+		# 		'[ECUB] CUBETO', '[EJ] JAULA'
+		# 	]
+		if linea['Producto'] == '[TC] CAMBIO' and linea["Envase"] not in [
 				'[EC] CONTENEDOR C (28 m3)', '[EK] CONTENEDOR K (5 m3)', '[EKT] CONTENEDOR TAPADO K (5 m3)', '[EP] CONTENEDOR P (11 m3)',
 				'CONTENEDOR K PEQUEÑO (1.5 m3)',
 				'[EAZ1000] CONTENEDOR AZUL 1000L', '[EV1000] CONTENEDOR VERDE 1000L', '[EAM1000] CONTENEDOR AMARILLO 1000L',
