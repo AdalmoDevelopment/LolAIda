@@ -223,20 +223,35 @@ def change_du_type(json_du, lineas_du):
 				'[EAE] COMPACTADOR ESTÁTICO (30 m3)'
 			]:
 			print(f"Es un cambio de un Envase({linea['Envase']}) que debería ser TT")
-			linea["Producto"] = linea["Envase"]
-			linea["Envase"] = None
-			linea["Residuo"] = None
+			
+			if any(l["Producto"] == linea["Envase"] for l in lineas_du):
+				# Eliminar la línea con el Producto "[TC] CAMBIO"
+				lineas_du = [l for l in lineas_du if l['Producto'] != "[TC] CAMBIO"]
+				json_du["Lineas del DU"] = lineas_du
+				print("Se ha eliminado la línea de TC CAMBIO porque debería ser TT")
+			else:
+				linea["Producto"] = linea["Envase"]
+				linea["Envase"] = None
+				linea["Residuo"] = None
+				linea["Tipo_Producto"] = 'TRANSPORTE'
+				linea["Unidades"] = 1
 
-			if not any(linea["Producto"] == "[TT] TRANSPORTE" for linea in lineas_du):
+	
+			print(f'Lineas hasta aqui: {json.dumps(json_du["Lineas del DU"] , indent=2)}')
+
+			if not any(l["Producto"] == "[TT] TRANSPORTE" for l in lineas_du):
+				print("Se añade linea de TT")
 				nueva_linea = {
 					"Producto": "[TT] TRANSPORTE",
 					"Envase": None,
-					"Residuo": None
+					"Residuo": None,
+					"Tipo_Producto": 'TRANSPORTE',
+					"Unidades": 1
 				} 	
 				lineas_du.insert(0, nueva_linea)
 		
 		# Si viene un DU de estructura TT pero con el transporte equivocado(THORA/C/R)
-		if ('THORA' in linea['Producto'] or 'CAMBIO' in linea['Producto']) and any(linea["Tipo_Producto"] == "ENVASE" for linea in lineas_du) and all(linea["Producto"] not in envases_tc_cambio for linea in lineas_du):
+		if not any(l["Producto"] == "[TT] TRANSPORTE" for l in lineas_du) and ('THORA' in linea['Producto'] or 'CAMBIO' in linea['Producto']) and any(linea["Tipo_Producto"] == "ENVASE" for linea in lineas_du) and all(linea["Producto"] not in envases_tc_cambio for linea in lineas_du):
 			print(f"Debería ser TT porque es {linea['Producto']} y tiene reposiciones \n")
 			linea['Producto'] = '[TT] TRANSPORTE'
 
@@ -315,13 +330,15 @@ def du_fixer():
 							print(f"Se va a unir al du ({du_id}) el du({du_id_merge}) porque tienen el mismo lugar de recogida, {json_du['Lugar de recogida']} y {json_du_merge['Lugar de recogida']}")
 							
 							for linea_merge in json_du_merge["Lineas del DU"]:
-								if linea_merge["Producto"] != "[TT] TRANSPORTE":
 									# Buscar si ya existe una línea igual en el DU principal
 									encontrada = False
 									for linea in reversed(json_du["Lineas del DU"]):
 										if linea["Producto"] == linea_merge["Producto"]:
 											print(f"Se suman las cantidades de {linea['Producto']}: {linea['Unidades']} y {linea_merge['Unidades']}")
-											linea["Unidades"] += linea_merge["Unidades"]
+											if linea_merge["Producto"] != "[TT] TRANSPORTE":
+												linea["Unidades"] += linea_merge["Unidades"]
+											else:
+												linea["Unidades"] = 1
 											encontrada = True
 											break
 
@@ -346,21 +363,21 @@ def du_fixer():
 
 			print( Fore.CYAN + 'Intentando crear DU para', json_du['Titular'] ,', con el contrato', json_du['Contrato'], Style.RESET_ALL)
 			
-			response, success = send_du_odoo(json_du)
+			# response, success = send_du_odoo(json_du)
 
-			print(f"UPDATE generated_dus_aida SET odoo_final_response = {response}, created = {success} WHERE id = {du_id}")
+			# print(f"UPDATE generated_dus_aida SET odoo_final_response = {response}, created = {success} WHERE id = {du_id}")
 			
-			query = 'UPDATE generated_dus_aida SET du_sended = %s, odoo_final_response = %s, created = %s WHERE id = %s'
-			query_hilo = f'UPDATE hilos SET odoo_processed = 1 WHERE id = {hilo_id}'
+			# query = 'UPDATE generated_dus_aida SET du_sended = %s, odoo_final_response = %s, created = %s WHERE id = %s'
+			# query_hilo = f'UPDATE hilos SET odoo_processed = 1 WHERE id = {hilo_id}'
 
-			try:
-				response = mysql_execute_query(query , params = [json.dumps(json_du), response, success, du_id])
-				print('Metido en la mysql!!!', response)
+			# try:
+			# 	response = mysql_execute_query(query , params = [json.dumps(json_du), response, success, du_id])
+			# 	print('Metido en la mysql!!!', response)
     
-				response = mysql_execute_query(query_hilo, None)
-				print('Metido en la mysql!!!', response)
-			except Exception as e:
-				print(f"Error al conectar a MySQL: {e}")
+			# 	response = mysql_execute_query(query_hilo, None)
+			# 	print('Metido en la mysql!!!', response)
+			# except Exception as e:
+			# 	print(f"Error al conectar a MySQL: {e}")
 			
 			# if success:
 			# 	set_label_gmail(mail_track_id, 'Label_5337764771777216081')
