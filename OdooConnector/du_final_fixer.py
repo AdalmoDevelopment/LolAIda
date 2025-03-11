@@ -363,21 +363,21 @@ def du_fixer():
 
 			print( Fore.CYAN + 'Intentando crear DU para', json_du['Titular'] ,', con el contrato', json_du['Contrato'], Style.RESET_ALL)
 			
-			# response, success = send_du_odoo(json_du)
+			response, success = send_du_odoo(json_du)
 
-			# print(f"UPDATE generated_dus_aida SET odoo_final_response = {response}, created = {success} WHERE id = {du_id}")
+			print(f"UPDATE generated_dus_aida SET odoo_final_response = {response}, created = {success} WHERE id = {du_id}")
 			
-			# query = 'UPDATE generated_dus_aida SET du_sended = %s, odoo_final_response = %s, created = %s WHERE id = %s'
-			# query_hilo = f'UPDATE hilos SET odoo_processed = 1 WHERE id = {hilo_id}'
+			query = 'UPDATE generated_dus_aida SET du_sended = %s, odoo_final_response = %s, created = %s WHERE id = %s'
+			query_hilo = f'UPDATE hilos SET odoo_processed = 1 WHERE id = {hilo_id}'
 
-			# try:
-			# 	response = mysql_execute_query(query , params = [json.dumps(json_du), response, success, du_id])
-			# 	print('Metido en la mysql!!!', response)
+			try:
+				response = mysql_execute_query(query , params = [json.dumps(json_du), response, success, du_id])
+				print('Metido en la mysql!!!', response)
     
-			# 	response = mysql_execute_query(query_hilo, None)
-			# 	print('Metido en la mysql!!!', response)
-			# except Exception as e:
-			# 	print(f"Error al conectar a MySQL: {e}")
+				response = mysql_execute_query(query_hilo, None)
+				print('Metido en la mysql!!!', response)
+			except Exception as e:
+				print(f"Error al conectar a MySQL: {e}")
 			
 			# if success:
 			# 	set_label_gmail(mail_track_id, 'Label_5337764771777216081')
