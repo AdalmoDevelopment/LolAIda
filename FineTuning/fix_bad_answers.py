@@ -74,7 +74,6 @@ def mark_as_processed(mysql_conn_params, hilo_id, du, user_reponse, assistant_re
 			VALUES (%s, %s, %s, CURRENT_TIMESTAMP(), 1)
 			""", (hilo_id, du, assistant_reponse))
 			conn.commit()
-			print('DUs', du,' metido')
 		cursor.close()  
 		conn.close()
 	except:

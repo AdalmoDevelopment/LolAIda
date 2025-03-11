@@ -227,12 +227,13 @@ def change_du_type(json_du, lineas_du):
 			linea["Envase"] = None
 			linea["Residuo"] = None
 
-			nueva_linea = {
-				"Producto": "[TT] TRANSPORTE",
-				"Envase": None,
-				"Residuo": None
-			} 	
-			lineas_du.insert(0, nueva_linea)
+			if not any(linea["Producto"] == "[TT] TRANSPORTE" for linea in lineas_du):
+				nueva_linea = {
+					"Producto": "[TT] TRANSPORTE",
+					"Envase": None,
+					"Residuo": None
+				} 	
+				lineas_du.insert(0, nueva_linea)
 		
 		# Si viene un DU de estructura TT pero con el transporte equivocado(THORA/C/R)
 		if ('THORA' in linea['Producto'] or 'CAMBIO' in linea['Producto']) and any(linea["Tipo_Producto"] == "ENVASE" for linea in lineas_du) and all(linea["Producto"] not in envases_tc_cambio for linea in lineas_du):
