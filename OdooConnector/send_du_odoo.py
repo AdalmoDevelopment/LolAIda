@@ -4,29 +4,6 @@ from colorama import Fore, Back, Style
 
 load_dotenv()
 
-du = {
-  "Titular": "AENA SME SA",
-  "Contrato": "AA2403673",
-  "Lugar de recogida": "AENA SME SA, Planta de Transferencia",
-  "Categoria de vehiculo": "Contenedores/Cadenas",
-  "Lineas del DU": [
-	{
-	  "Producto": "[TC] CAMBIO",
-	  "Unidades": 1,
-	  "Envase": "[EKT] CONTENEDOR TAPADO C (28 m3)",
-	  "Residuo": None,
-	  "product_id": 2603,
-	  "container_id": 2681,
-	  "waste_id": 2554
-	}
-  ],
-  "holder_id": 10815,
-  "agreement_id": 4340,
-  "pickup_id": 33435,
-  "category_fleet_id": 7,
-  "Track_Gmail_Uid": "1929ea310218f554"
-}
-
 headers = {
 	'API-KEY': os.getenv('ODOO_API_KEY'),
 	'Content-Type': 'application/json'

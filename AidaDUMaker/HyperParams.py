@@ -1,7 +1,8 @@
-model = 'ft:gpt-4o-2024-08-06:personal:quintofinetuning:Ao9lX6jZ'
+model = 'ft:gpt-4o-2024-08-06:personal:sextofinetuning:BCmaxSC1'
 # ft:gpt-4o-2024-08-06:personal:segundofinetuning:ADtQlEw4
 # ft:gpt-4o-2024-08-06:personal:cuartofinetuning:Ahf5TKcF
 # ft:gpt-4o-2024-08-06:personal:quintofinetuning:Ao9lX6jZ
+# ft:gpt-4o-2024-08-06:personal:sextofinetuning:BCmaxSC1
 aida_assistant_id =  'asst_5ZarbjA6POT814f7nIJvbEWu'
 aida2_assistant_id =  'asst_bHxwCy3IppmQETNJsCHy6apR'
 

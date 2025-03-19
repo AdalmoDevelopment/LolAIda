@@ -217,7 +217,7 @@ def change_du_type(json_du, lineas_du):
 		# 	]
 		if linea['Producto'] == '[TC] CAMBIO' and linea["Envase"] not in [
 				'[EC] CONTENEDOR C (28 m3)', '[EK] CONTENEDOR K (5 m3)', '[EKT] CONTENEDOR TAPADO K (5 m3)', '[EP] CONTENEDOR P (11 m3)',
-				'CONTENEDOR K PEQUEÑO (1.5 m3)',
+				'[EKP] CONTENEDOR K PEQUEÑO (1.5 m3)',
 				'[EAZ1000] CONTENEDOR AZUL 1000L', '[EV1000] CONTENEDOR VERDE 1000L', '[EAM1000] CONTENEDOR AMARILLO 1000L',
 				'[EAUTO] AUTOCOMPACTADOR',
 				'[EAE] COMPACTADOR ESTÁTICO (30 m3)'
