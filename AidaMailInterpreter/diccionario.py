@@ -12,7 +12,7 @@ black_list = ["Anotamos petición", "Anotamos la petición", "Anotamos la solici
     "adjunto", "adjuntamos",
     "pegatina", "etiqueta",
     "definitiva",
-    "entrega",
+    "entrega", "programa"
     
     "ecolec"
 ]

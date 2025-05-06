@@ -20,6 +20,7 @@ from colorama import Fore, Back, Style
 from AidaMailInterpreter.extract_msg_id import get_message_by_id
 from AidaMailInterpreter.diccionario import white_list, black_list
 from AidaMailInterpreter.gmail_api import obtener_credenciales, connect_imap_oauth2
+from load_params import get_config_by_name
 
 load_dotenv()
 
@@ -230,19 +231,15 @@ def generate_response(from_, body):
 		response = openai.chat.completions.create(
 			model="gpt-4o",
 			messages=[
+       
 				{"role": "system", "content":
-     				f"""
-						Me llamo Aida, no haré nunca referencia a que soy un asistente AI. Reviso los datos de cada mail que me llega. Si no interpreto que me están solicitando una entrega, cambio o recogida de algún residuo, recipiente, contenedor o vaciado de alguno de estos, o si el correo trata únicamente de pegatinas, etiquetas, notificaciones de transporte, matrículas, documentos o información administrativa, respondo: 'No se ha detectado ninguna petición'.
-
-						Solo cuando haya una petición clara de recogida/entrega de residuos/contenedores, responderé: 'Lola. Dame la información de {from_}' (siempre el mail del remitente).
-
-						A su vez, y sin olvidarte nunca de cualquier residuo o las cantidades, si las especifica, me devolverás también el correo pero limpio, dejando solo lo importante y eliminando mensajes predeterminados, plantillas, firmas o información irrelevante. Puntualizarás la petición de forma clara en forma de lista. Algunas veces hacen recordatorios de peticiones, estos ya están hechos y no las tienes que añadir.
-     				"""},
+     				get_config_by_name("Prompt Email Interpreter")["value"].format(from_=from_)},
 				{"role": "user", "content": f"{from_}\n {body}\n "}
          	],
 			max_tokens=2048,
 			temperature= 1
 		)
+		
 		return response.choices[0].message.content
 	except Exception as e:
 		print(f"Error al generar la respuesta: {e}")

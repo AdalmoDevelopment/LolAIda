@@ -8,6 +8,7 @@ from OdooConnector.conn_params import postgres_conn_params, mysql_conn_params
 from OdooConnector.send_du_odoo import send_du_odoo
 from AidaMailInterpreter.set_label_mail import set_label_gmail
 from OdooConnector.product_groups import envases_tc_cambio, tipos_thora, tipos_servicio
+from load_params import get_config_by_name
 
 def execute_query(query, params):
 	try:
@@ -379,8 +380,8 @@ def du_fixer():
 			except Exception as e:
 				print(f"Error al conectar a MySQL: {e}")
 			
-			# if success:
-			# 	set_label_gmail(mail_track_id, 'Label_5337764771777216081')
+			if success and get_config_by_name("Etiquetar Mails al crear el DU")["active"] == 1:
+				set_label_gmail(mail_track_id, 'Label_5337764771777216081')
 		
 	return(True)
 

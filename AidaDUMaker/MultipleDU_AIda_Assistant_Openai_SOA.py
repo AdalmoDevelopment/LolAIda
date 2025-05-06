@@ -7,6 +7,7 @@ import re
 from AidaDUMaker.HyperParams import model, aida_instructions, vector_store_id, aida_assistant_id
 from AidaDUMaker.funcs.funcs import get_pending_hilos, mark_as_processed, mysql_conn_params
 from AidaDUMaker.MultipleDU_Corrector import correct_dus
+from load_params import get_config_by_name
 
 # Inicializar la clave API de OpenAI
 openai.api_key = os.getenv('OPENAI_API_KEY')
@@ -24,7 +25,7 @@ def process_pending_hilos():
 		thread = client.beta.threads.create(
 		tool_resources={
 			"file_search": {
-			"vector_store_ids": [vector_store_id]
+			"vector_store_ids": [get_config_by_name("Vector Store Id")["value"]]
 			}
 		}        
 		)
@@ -37,10 +38,10 @@ def process_pending_hilos():
 		
 		run = client.beta.threads.runs.create(
 			thread_id=thread.id,
-			assistant_id=aida_assistant_id,
+			assistant_id=get_config_by_name("Assistant Id")["value"],
 			temperature=0.1,
-			model= model,
-			instructions= aida_instructions,
+			model= get_config_by_name("Current Model")["value"],
+			instructions= get_config_by_name("Prompt DU generator")["value"],
 			
 			tools=[{"type": "file_search"}]
 		)

@@ -7,11 +7,15 @@ from OdooConnector.du_final_fixer import du_fixer
 from OdooConnector.send_du_odoo import send_du_odoo
 from FineTuning.fix_bad_answers import ft_process_pending_hilos
 import sys
+from load_params import get_config_by_name
 
 def main(param):
     
     try:
-        if param != '-f':
+        if get_config_by_name("Pausar la generacion de DUs")["active"] == 1:
+            raise ValueError("¡La generación de DUs está pausada!")
+        
+        elif param != '-f':
             # Paso 1: Se interpreta y resume cada mail con AI y se crea un hilo(una línea en la base de datos).
             
             if param != '-m':
