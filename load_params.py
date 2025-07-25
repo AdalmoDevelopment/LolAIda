@@ -16,6 +16,12 @@ def fetch_table_data(cursor, table_name):
     cursor.execute(f"SELECT * FROM {table_name}")
     return cursor.fetchall(), [desc[0] for desc in cursor.description]
 
+def fetch_table_data_prop(field_name, table_name):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute(f"SELECT {field_name} FROM {table_name} WHERE {field_name} IS NOT NULL")
+    return cursor.fetchall()
+
 def get_all_configs_and_params():
     try:
         conn = get_db_connection()

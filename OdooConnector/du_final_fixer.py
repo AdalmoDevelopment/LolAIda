@@ -6,9 +6,20 @@ import json
 from decimal import Decimal
 from OdooConnector.conn_params import postgres_conn_params, mysql_conn_params
 from OdooConnector.send_du_odoo import send_du_odoo
-from AidaMailInterpreter.set_label_mail import set_label_gmail
+from AidaMailInterpreter.set_label_mail import  set_label_outlook
 from OdooConnector.product_groups import envases_tc_cambio, tipos_thora, tipos_servicio
 from load_params import get_config_by_name
+
+service_types = [
+    "CAMBIO"
+	"SERVICIO CAMIÓN AUTOGRÚA PLUMA HORA",
+	"SERVICIO CAMIÓN HORA (CISTERNA)",
+	"SERVICIO CAMIÓN HORA (GRÚA)",
+	"SERVICIO CAMIÓN HORA (PULPO)",
+	"SERVICIO CAMIÓN HORA (RECOLECTOR)",
+	"TRANSPORTE",
+]
+
 
 def execute_query(query, params):
 	try:
@@ -116,8 +127,9 @@ def query_format_du(json_du):
 		
 		for linea in reversed(lineas_du):
 			checkpoint = 1
+   
 			print('residuo y envase cache actual:',residuo_cache, envase_cache)
-			results4 = execute_query(query_product_ids, (linea['Producto'], linea['Producto'], linea['Producto'],))
+			results4 = execute_query(query_product_ids, (linea['Producto'], linea['Producto'], linea['Producto'],)) or [('', '')]
 			results5 = execute_query(query_product_ids, (linea['Envase'], linea['Envase'], linea['Envase'],)) or [('', '')]
 			results6 = execute_query(query_product_ids, (linea['Residuo'], linea['Residuo'], linea['Residuo'],)) or [('', '')]
    
@@ -152,18 +164,23 @@ def query_format_du(json_du):
 			cat_vehiculo_aida = json_du["Categoria de vehiculo"]
 			
 			try:
-				linea["Tipo_Producto"] = results4[0][1]
+				if results4 and len(results4[0]) > 1:
+					linea["Tipo_Producto"] = results4[0][1]
+				else:
+					linea["Tipo_Producto"] = ""
 				print(f"Tipo producto es {linea['Tipo_Producto']}")
-			except:
-				print("No se ha podido extraer Tipo_Producto")	
+			except Exception as e:
+				linea["Tipo_Producto"] = ""
+				print(f"No se ha podido extraer Tipo_Producto: {e}")
+
 
 			# Si la línea actual es de transporte, la usamos para condicionar la Categoría de Vehículo
-			if results4[0][1] == 'TRANSPORTE':
+			if linea["Tipo_Producto"] == 'TRANSPORTE':
 				if linea['Producto'] == '[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)':
 					json_du["Categoria de vehiculo"] = "Cisternas"
 					json_du["category_fleet_id"] = 13
 					
-				elif linea['Producto'] == '[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)':
+				elif linea['Producto'] == '[THORA] SERVICIO CAMIÓN HORA (PULPO)':
 					hay_big_bag = any('BIG BAG' in linea['Producto'] and linea['Tipo_Producto'] == 'ENVASE' for linea in json_du["Lineas del DU"])
 					solo_big_bag = all(('BIG BAG' in linea['Producto']) for linea in json_du["Lineas del DU"] if linea['Tipo_Producto'] == 'ENVASE')
 
@@ -275,23 +292,54 @@ def change_du_type(json_du, lineas_du):
 				'MATERIAL ALIMENTACIÓN INADECUADO'
 			]):
 			for linea in lineas_du:
-				if linea['Producto'] in ['[THORA] SERVICIO CAMIÓN HORA (PULPO/GRÚA)', '[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)', '[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)']:
+				if linea['Producto'] in ['[THORA] SERVICIO CAMIÓN HORA (PULPO)', '[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)', '[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)']:
 					print('Por sus residuos debería ser TT, en cambio es: ', linea['Producto'])
 					linea['Producto'] = '[TT] TRANSPORTE'
 					break
+ 
+		if any(word in linea['Producto'] for word in [
+				'VEHÍCULOS DESCONTAMINADOS' 
+			]):
+			for linea in lineas_du:
+				if linea['Producto'] in ['[TT] TRANSPORTE']:
+					print('Por sus residuos debería ser THORAR, en cambio es: ', linea['Producto'])
+					linea['Producto'] = '[THORA] SERVICIO CAMIÓN HORA (PULPO)'
+					break
+ 
+		# if any(word in linea['Envase'] for word in [
+		# 		'VEHÍCULOS DESCONTAMINADOS' 
+		# 	]):
+		# 	for linea in lineas_du:
+		# 		if linea['Producto'] in ['[TT] TRANSPORTE']:
+		# 			print('Por sus residuos debería ser CAMBIO, en cambio es: ', linea['Producto'])
+		# 			linea['Producto'] = '[THORA] SERVICIO CAMIÓN HORA (PULPO)'
+		# 			break
 	return json_du
 
+def normalize_du_keys(du: dict) -> dict:
+	# Renombrar claves mal formateadas a su forma estándar
+	rename_map = {
+		"Lineas_del_DU": "Lineas del DU",
+		"Lugar_de_recogida": "Lugar de recogida",
+		"Categoria_de_vehiculo": "Categoria de vehiculo"
+	}
+	for old, new in rename_map.items():
+		if old in du:
+			du[new] = du.pop(old)
+	return du
+
 def du_fixer():
-	pending_hilos = mysql_execute_query("SELECT gda.id, id_hilo, du , h.mail_track_id FROM generated_dus_aida gda, hilos h WHERE id_hilo = h.id AND odoo_final_response IS NULL AND DATE(date_created) = CURDATE() AND odoo_processed = 0", None)
+	pending_hilos = mysql_execute_query("SELECT gda.id, id_hilo, du , h.mail_track_id, h.microsoft_mail_url, h.microsoft_mail_graph_id FROM generated_dus_aida gda, hilos h WHERE id_hilo = h.id AND odoo_final_response IS NULL AND DATE(date_created) = CURDATE() AND odoo_processed = 0", None)
 
 	#Hilos con al menos un DU de [TT]:
 	dus_tt_unidos = []
 	
-	for du_id, hilo_id, aida_generated, mail_track_id in pending_hilos:
+	for du_id, hilo_id, aida_generated, mail_track_id, microsoft_mail_url, microsoft_mail_graph_id in pending_hilos:
 		print(f"Se está tratanto el DU {du_id}")
 		if du_id not in dus_tt_unidos:
 			try:
 				json_du = json.loads(aida_generated)
+				json_du = normalize_du_keys(json_du)
 				print("JSON cargado con éxito")
 			except json.JSONDecodeError as e:
 				print(f"Error al decodificar el JSON en el hilo {hilo_id}: {e}")
@@ -299,8 +347,14 @@ def du_fixer():
 				continue
 			
 			json_du["Track_Gmail_Uid"] = mail_track_id
+			json_du["Track_Outlook_URL"] = microsoft_mail_url
+		
 			print(Fore.BLUE + f"EL MAIL TRACK ID DE ESTE CORREO ES: {mail_track_id}, en el du : {json_du['Track_Gmail_Uid']}" + Style.RESET_ALL)
 			
+			if 'Lineas del DU' not in json_du and 'Lineas_del_DU' in json_du:
+				json_du["Lineas_del_DU"] = json_du["Lineas del DU"]
+    
+    
 			lineas_du = json_du["Lineas del DU"]
 			print(f'DU ante de formatear las lineas {json.dumps(json_du, indent=2)}')
 			query_format_du(json_du)
@@ -314,11 +368,12 @@ def du_fixer():
 			# Si se está tratando un TT, une las lineas del resto de DUs de TT de la misma petición, si los hay.
 			if any(linea["Producto"] == "[TT] TRANSPORTE" for linea in lineas_du):
 				print("Es un DU de TT y se intentara mergear")
-				for du_id_merge, hilo_id_merge, aida_generated_merge, mail_track_id in pending_hilos:
+				for du_id_merge, hilo_id_merge, aida_generated_merge, mail_track_id, microsoft_mail_url, microsoft_mail_graph_id in pending_hilos:
 					if hilo_id_merge == hilo_id and du_id_merge != du_id and any(linea["Producto"] == "[TT] TRANSPORTE" for linea in lineas_du):
 						print("chekpoint 1 ")
 						try:
 							json_du_merge = json.loads(aida_generated_merge)
+							json_du_merge = normalize_du_keys(json_du_merge)
 						except json.JSONDecodeError as e:
 							print(f"Error al decodificar el JSON en el hilo {hilo_id_merge}: {e}")
 							continue
@@ -381,8 +436,10 @@ def du_fixer():
 				print(f"Error al conectar a MySQL: {e}")
 			
 			if success and get_config_by_name("Etiquetar Mails al crear el DU")["active"] == 1:
-				set_label_gmail(mail_track_id, 'Label_5337764771777216081')
-		
+				print('Se etiqueta')
+				set_label_outlook(microsoft_mail_graph_id, 'AQMkADU2MjBlZjhiLTUyZjYtNDQANzgtOTQ2Ny1lZGY3OTM5YTcwN2QALgAAA75zQKy2BSpOujZQqy03r3sBALuxnWChS2FKrToCbg5rxI0AAAIBOAAAAA==')
+			else:
+				print('No se etiqueta')
 	return(True)
 
 if __name__ == "__main__":

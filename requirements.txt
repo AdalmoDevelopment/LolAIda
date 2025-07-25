@@ -10,3 +10,4 @@ colorama
 numpy
 tiktoken
 requests
+msal 

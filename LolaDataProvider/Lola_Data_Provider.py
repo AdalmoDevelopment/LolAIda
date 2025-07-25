@@ -182,7 +182,7 @@ def data_provider():
         if isinstance(results, str):
             print(f"Error ejecutando la consulta: {results2}\n")
         else:
-            print(f"Resultados obtenidos: {results2}")
+            print(f"Resultados obtenidos")
         
         mark_as_processed(mysql_conn_params, hilo_id, results, results2, result_json)
     return(True)
