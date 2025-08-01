@@ -10,17 +10,6 @@ from AidaMailInterpreter.set_label_mail import  set_label_outlook
 from OdooConnector.product_groups import envases_tc_cambio, tipos_thora, tipos_servicio
 from load_params import get_config_by_name
 
-service_types = [
-    "CAMBIO"
-	"SERVICIO CAMIÓN AUTOGRÚA PLUMA HORA",
-	"SERVICIO CAMIÓN HORA (CISTERNA)",
-	"SERVICIO CAMIÓN HORA (GRÚA)",
-	"SERVICIO CAMIÓN HORA (PULPO)",
-	"SERVICIO CAMIÓN HORA (RECOLECTOR)",
-	"TRANSPORTE",
-]
-
-
 def execute_query(query, params):
 	try:
 		conn = psycopg2.connect(**postgres_conn_params)
@@ -193,7 +182,7 @@ def query_format_du(json_du):
 					
 				elif linea['Producto'] == '[THORAR] SERVICIO CAMIÓN HORA (RECOLECTOR)':
 					json_du["Categoria de vehiculo"] = "Recolectores"
-					json_du["category_fleet_id"] = 15 
+					json_du["category_fleet_id"] = 15 	
 					
 				elif linea['Producto'] == '[TC] CAMBIO':
 					if linea["container_id"] in [2672, 2668, 2926]:
@@ -243,15 +232,30 @@ def change_du_type(json_du, lineas_du):
 			print(f"Es un cambio de un Envase({linea['Envase']}) que debería ser TT")
 			
 			if any(l["Producto"] == linea["Envase"] for l in lineas_du):
+				
 				# Eliminar la línea con el Producto "[TC] CAMBIO"
 				lineas_du = [l for l in lineas_du if l['Producto'] != "[TC] CAMBIO"]
 				json_du["Lineas del DU"] = lineas_du
 				print("Se ha eliminado la línea de TC CAMBIO porque debería ser TT")
+			elif linea["Envase"] == '[EJ] JAULA':
+				# Por si el envase es una JAULA, se utiliza el CAMBIO como resposición.
+				residuo_asociado = None
+				for l in lineas_du:
+					if l["Producto"] != "[TC] CAMBIO" and l.get("Envase") == "[EJ] JAULA":
+						residuo_asociado = l.get("Producto")
+						break
+
+				linea["Producto"] = '[TC] CAMBIO'
+				linea["Residuo"] = residuo_asociado
+				linea["Tipo_Producto"] = 'TRANSPORTE'
+				linea["Unidades"] = 1
+
 			else:
+				
 				linea["Producto"] = linea["Envase"]
 				linea["Envase"] = None
 				linea["Residuo"] = None
-				linea["Tipo_Producto"] = 'TRANSPORTE'
+				linea["Tipo_Producto"] = 'ENVASE'
 				linea["Unidades"] = 1
 
 	

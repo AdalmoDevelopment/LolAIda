@@ -116,7 +116,7 @@ def email_listener():
 				for attachment in attachments:
 					if attachment.get("@odata.type") == "#microsoft.graph.fileAttachment":
 						name = attachment.get("name", "").lower()
-						if name.endswith(('.xlsx', '.xls', '.csv')):
+						if name.endswithmira(('.xlsx', '.xls', '.csv')):
 							from base64 import b64decode
 							import pandas as pd
 							import io
@@ -165,12 +165,12 @@ def email_listener():
 		try:
 			# Normalizar remitente
 			from_ = sender  # Use the sender as from_
-			if any(domain in from_ for domain in ["@gmail", "@hotmail", "@telefonica"]):
+			if any(domain in from_ for domain in ["@gmail", "@hotmail", "@telefonica", "@outlook"]):
 				from_ = from_.split('@')[0]
 			else:
 				from_ = from_.split('@')[1].split('.')[0]
 
-			if 'adalmo' in from_ or 'ecolec' in from_:
+			if 'adalmo'  in from_ or 'ecoembes' in from_ or 'ecolec' in from_ or 'leroy' in from_ or 'ecotic' in from_:
 				print("Es de {from_}, no se procesa.")
 				continue
    

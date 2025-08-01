@@ -154,7 +154,7 @@ def data_provider():
             where pnt_holder_id IN (select id from res_partner where email ilike %s and is_company = true)
             and paa.state = 'done'and pt.company_id = 1
             and pc.name not in ('Varios', 'MANIPULACIÓN')
-            and concat('[',pp.default_code,'] ', pt.name) not in ('[TTB] TRANSPORTE BULTO', '[TA] ALQUILER', '[TR] RETIRADA', '[TE] ENTREGA')
+            and concat('[',pp.default_code,'] ', pt.name) not in ('[TTB] TRANSPORTE BULTO', '[TA] ALQUILER', '[TR] RETIRADA', '[TE] ENTREGA', '[DCT] CONTRATO DE TRATAMIENTO')
             order by rp.display_name, paa.name
         """
         results = execute_query(query_contratos, (email_pattern,), postgres_conn_params)
