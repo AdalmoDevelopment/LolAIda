@@ -10,6 +10,7 @@ from load_params import get_config_by_name
 from colorama import Fore, Style
 import pymysql
 from AidaMailInterpreter.auth_outlook import get_access_token 
+from openai import OpenAI
 
 load_dotenv()
 
@@ -19,6 +20,8 @@ TENANT_ID = os.getenv("OUTLOOK_TENANT_ID")
 USER_ID = os.getenv("OUTLOOK_USER_ID")
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+
+client = OpenAI()
 
 # URL base para Microsoft Graph
 AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
@@ -39,22 +42,48 @@ def generate_response(from_, body):
 	try:
 		openai.api_key = OPENAI_API_KEY
 		
-		response = openai.chat.completions.create(
+		response = client.responses.create(
 			model="gpt-4o",
-			messages=[
-	   
-				{"role": "system", "content":
-	 				get_config_by_name("Prompt Email Interpreter")["value"].format(from_=from_)},
-				{"role": "user", "content": f"{from_}\n {body}\n "}
-		 	],
-			max_tokens=2048,
-			temperature= 1
+   			input=[				{
+					"role": "assistant",
+					"content": [
+						{
+							"type": "output_text",
+							"text": get_config_by_name("Prompt Email Interpreter")["value"].format(from_=from_)
+						}
+					]
+				},
+				{"role": "user", "content":  f"{from_}\n {body}\n "}],
 		)
 		
-		return response.choices[0].message.content
+		return response.output[0].content[0].text
 	except Exception as e:
 		print(f"Error al generar la respuesta: {e}")
 		return "Error al generar la respuesta."
+
+# def generate_response(from_, body):
+# 	# Para sacar la cantidad de contratos del cliente en cuestión
+# 	# result = execute_query( from_, postgres_conn_params)
+
+# 	try:
+# 		openai.api_key = OPENAI_API_KEY
+		
+# 		response = openai.chat.completions.create(
+# 			model="gpt-4o",
+# 			messages=[
+	   
+# 				{"role": "system", "content":
+# 	 				get_config_by_name("Prompt Email Interpreter")["value"].format(from_=from_)},
+# 				{"role": "user", "content": f"{from_}\n {body}\n "}
+# 		 	],
+# 			max_tokens=2048,
+# 			temperature= 1
+# 		)
+		
+# 		return response.choices[0].message.content
+# 	except Exception as e:
+# 		print(f"Error al generar la respuesta: {e}")
+# 		return "Error al generar la respuesta."
 
 def parse_email_graph(body):
 	try:
