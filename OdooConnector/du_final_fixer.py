@@ -161,7 +161,11 @@ def query_format_du(json_du):
 			except Exception as e:
 				linea["Tipo_Producto"] = ""
 				print(f"No se ha podido extraer Tipo_Producto: {e}")
-
+			
+			# Si hay un THORAC CISTERNA y una línea ENVASE, se elimina la de ENVASE
+			if any(linea["Producto"] == "[THORAC] SERVICIO CAMIÓN HORA (CISTERNA)" for linea in lineas_du):
+				print('Hay que borrar el envase')
+				lineas_du = [l for l in lineas_du if l.get("Tipo_Producto") != "ENVASE"]
 
 			# Si la línea actual es de transporte, la usamos para condicionar la Categoría de Vehículo
 			if linea["Tipo_Producto"] == 'TRANSPORTE':
@@ -309,7 +313,13 @@ def change_du_type(json_du, lineas_du):
 					print('Por sus residuos debería ser THORAR, en cambio es: ', linea['Producto'])
 					linea['Producto'] = '[THORA] SERVICIO CAMIÓN HORA (PULPO)'
 					break
- 
+		
+		if any(word in linea['Producto'] for word in [
+				'[EGRA] GRANEL' 
+			]):
+			print('Se ha corregido las unidades de GRANEL a 1')
+			linea['Unidades'] = 1
+   
 		# if any(word in linea['Envase'] for word in [
 		# 		'VEHÍCULOS DESCONTAMINADOS' 
 		# 	]):

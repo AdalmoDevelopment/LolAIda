@@ -44,11 +44,12 @@ def generate_response(from_, body):
 		
 		response = client.responses.create(
 			model="gpt-4o",
-   			input=[				{
-					"role": "assistant",
+   			input=[
+             	{
+					"role": "system",
 					"content": [
 						{
-							"type": "output_text",
+							"type": "input_text",
 							"text": get_config_by_name("Prompt Email Interpreter")["value"].format(from_=from_)
 						}
 					]
