@@ -188,7 +188,7 @@ def query_format_du(json_du):
 					json_du["Categoria de vehiculo"] = "Recolectores"
 					json_du["category_fleet_id"] = 15 	
 					
-				elif linea['Producto'] == '[TC] CAMBIO':
+				elif linea['Producto'] == '[TC] CAMBIO' and not any(linea["Producto"] == "[TT] TRANSPORTE" for linea in lineas_du):
 					if linea["container_id"] in [2672, 2668, 2926]:
 						json_du["Categoria de vehiculo"] = "Contenedores/Cadenas"
 						json_du["category_fleet_id"] = 7
@@ -258,7 +258,7 @@ def change_du_type(json_du, lineas_du):
 				
 				linea["Producto"] = linea["Envase"]
 				linea["Envase"] = None
-				linea["Residuo"] = None
+				linea["Residuo"] = None 
 				linea["Tipo_Producto"] = 'ENVASE'
 				linea["Unidades"] = 1
 
@@ -304,7 +304,7 @@ def change_du_type(json_du, lineas_du):
 					print('Por sus residuos debería ser TT, en cambio es: ', linea['Producto'])
 					linea['Producto'] = '[TT] TRANSPORTE'
 					break
- 
+		
 		if any(word in linea['Producto'] for word in [
 				'VEHÍCULOS DESCONTAMINADOS' 
 			]):
