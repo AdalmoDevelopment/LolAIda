@@ -13,7 +13,7 @@ headers = {
 def send_du_odoo(du):
 	du = json.dumps(du, indent=1)
 	print(du)
-	url = os.getenv('ODOO_ENDPOINT_PRO') if get_config_by_name('Pasar a produccion')['active'] == 1 else os.getenv('ODOO_ENDPOINT_STAGE')
+	url = os.getenv('ODOO_ENDPOINT_PRO') if get_config_by_name('Pasar a produccion')['active'] == 1 else os.getenv('ODOO18_ENDPOINT_DEV')
 	r = requests.post(url, headers=headers, data=du, verify=False)
  
 	print(f"Enviando DU a {url}")

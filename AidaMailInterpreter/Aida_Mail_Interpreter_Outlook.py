@@ -102,7 +102,7 @@ def email_listener():
 	}
 
 	# Obtener el correo más reciente
-	url = f"https://graph.microsoft.com/v1.0/users/{USER_ID}/mailFolders/inbox/messages?$top=50&$orderby=receivedDateTime desc"
+	url = f"https://graph.microsoft.com/v1.0/users/{USER_ID}/mailFolders/inbox/messages?$top=200&$orderby=receivedDateTime desc"
 	response = requests.get(url, headers=headers)
 
 	if response.status_code != 200:

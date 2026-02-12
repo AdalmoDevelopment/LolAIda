@@ -49,7 +49,7 @@ def get_pending_hilos(mysql_conn_params):
     try:
         conn = pymysql.connect(**mysql_conn_params)
         cursor = conn.cursor()
-        
+         
         cursor.execute("SELECT id, aida_request FROM hilos WHERE lola_generated = 0 AND aida_response LIKE '%Lola%'")
         hilos = cursor.fetchall()
         
@@ -124,38 +124,68 @@ def data_provider():
 
         print(f"Obteniendo contratos para: {aida_request}")
         query_contratos = """
-            SELECT rp.display_name, paa.name as Contrato,
-            case when pp.default_code is not null then concat('[',pp.default_code,'] ', pt.name) end as Producto,
+            --Todos los contratos del titular que contenga x en su email
+            SELECT rp.complete_name, paa.name as Contrato,
+                    case when pp.default_code is not null then concat('[',pp.default_code,'] ', pt.name ->> 'es_ES') end as Producto,
 
-            case when ptContainer.default_code is not null then concat('[',ptContainer.default_code,'] ', ptContainer.name) end as ENVASE,
+                    case when ptContainer.default_code is not null then concat('[',ptContainer.default_code,'] ', ptContainer.name::json ->> 'es_ES') end as ENVASE,
 
-            case when ppWaste.default_code is not null then concat('[',ppWaste.default_code,'] ', ptWaste.name) end as Residuo,
+                    case when pc.name = 'TRANSPORTE' then null when ppWaste.default_code is not null then concat('[',ppWaste.default_code,'] ', ptWaste.name::json ->> 'es_ES') end as Residuo,
+                    
+                    pc.name
 
-            case when pc.name = 'TRANSPORTE' then null when ppWaste.default_code is not null then concat('[',ppWaste.default_code,'] ', ptWaste.name) end as Residuo
+                    FROM public.pnt_agreement_agreement paa
 
-            FROM public.pnt_agreement_agreement paa
+                    left join res_partner rp on paa.pnt_holder_id = rp.id
+                    LEFT JOIN pnt_agreement_line pal ON paa.id  = pal.pnt_agreement_id
 
-            left join res_partner rp on paa.pnt_holder_id = rp.id
-            LEFT JOIN pnt_agreement_line pal ON paa.id  = pal.pnt_agreement_id
+                    left join uom_uom uu on pal.pnt_product_Economic_uom = uu.id
 
-            left join uom_uom uu on pal.pnt_product_Economic_uom = uu.id
+                    LEFT JOIN product_product pp ON pal.pnt_product_id  = pp.id
+                    LEFT JOIN product_template pt ON pp.product_tmpl_id  = pt.id
 
-            LEFT JOIN product_product pp ON pal.pnt_product_id  = pp.id
-            LEFT JOIN product_template pt ON pp.product_tmpl_id  = pt.id
+                    LEFT JOIN product_product ppContainer ON pal.pnt_container_id  = ppContainer.id
+                    LEFT JOIN product_template ptContainer ON ppContainer.product_tmpl_id  = ptContainer.id
 
-            LEFT JOIN product_product ppContainer ON pal.pnt_container_id  = ppContainer.id
-            LEFT JOIN product_template ptContainer ON ppContainer.product_tmpl_id  = ptContainer.id
+                    LEFT JOIN product_product ppWaste ON pal.pnt_product_waste_id  = ppWaste.id
+                    LEFT JOIN product_template ptWaste ON ppWaste.product_tmpl_id  = ptWaste.id
 
-            LEFT JOIN product_product ppWaste ON pal.pnt_product_waste_id  = ppWaste.id
-            LEFT JOIN product_template ptWaste ON ppWaste.product_tmpl_id  = ptWaste.id
-
-            left join product_category pc  on pt.categ_id = pc.id
-
-            where pnt_holder_id IN (select id from res_partner where email ilike %s and is_company = true)
-            and paa.state = 'done'and pt.company_id = 1
-            and pc.name not in ('Varios', 'MANIPULACIÓN')
-            and concat('[',pp.default_code,'] ', pt.name) not in ('[TTB] TRANSPORTE BULTO', '[TA] ALQUILER', '[TR] RETIRADA', '[TE] ENTREGA', '[DCT] CONTRATO DE TRATAMIENTO')
-            order by rp.display_name, paa.name
+                    left join product_category pc  on pt.categ_id = pc.id
+                    
+            where pnt_holder_id in (
+                select
+                    id
+                from
+                    res_partner
+                where
+                    is_company = true)
+                and paa.pnt_holder_id in (
+                select
+                    id
+                from
+                    res_partner
+                where
+                    email ilike %s
+                    and is_company = true)
+                    and paa.state = 'done'
+                    and pt.company_id = 1
+                    and pc.name not in ('Varios', 'MANIPULACIÓN')
+                    and concat('[',pp.default_code,'] ', pt.name ::json ->> 'es_ES') not in ('[TTB] TRANSPORTE BULTO', '[TA] ALQUILER', '[TR] RETIRADA', '[TE] ENTREGA', '[DCT] CONTRATO DE TRATAMIENTO')
+                    and ( CONCAT('[',pp.default_code,'] ',	pt.name::json ->> 'es_ES') != '[TC] CAMBIO'
+                    or exists (
+                        select
+                            1
+                        from
+                            pnt_agreement_line pal2
+                        join product_product pp2 on
+                            pal2.pnt_product_id = pp2.id
+                        join product_template pt2 on
+                            pp2.product_tmpl_id = pt2.id
+                        where
+                            pal2.pnt_agreement_id = paa.id
+                            and CONCAT('[', pp2.default_code, '] ', pt2.name ::json ->> 'es_ES') = '[TA] ALQUILER' and pal2.pnt_container_id = pal.pnt_container_id )
+            )
+            order by rp.complete_name, paa.name
         """
         results = execute_query(query_contratos, (email_pattern,), postgres_conn_params)
         
@@ -166,14 +196,15 @@ def data_provider():
 
         print(f"Obteniendo lugares de recogida para: {aida_request}")
         query_lugares_recogida = """
-            SELECT paa.name, rprecog.display_name as Lugar_de_recogida
-            FROM public.pnt_agreement_agreement paa
-            LEFT JOIN res_partner rp ON paa.pnt_holder_id = rp.id
-            LEFT JOIN pnt_agreement_partner_pickup_rel pappr ON paa.id = pappr.pnt_agreement_id
-            LEFT JOIN res_partner rprecog ON pappr.partner_id = rprecog.id
-            WHERE paa.pnt_holder_id IN (SELECT id FROM res_partner WHERE email ILIKE %s AND is_company = true)
-            AND paa.state = 'done'
+            --Lugares de recogida posibles por contrato
+            SELECT paa.name, rprecog.complete_name as Lugar_de_recogida FROM public.pnt_agreement_agreement paa
+            left join res_partner rp on paa.pnt_holder_id = rp.id
+            left join pnt_agreement_partner_pickup_rel pappr on paa.id = pappr.pnt_agreement_id
+            left join res_partner rprecog on pappr.partner_id = rprecog.id
+            where paa.pnt_holder_id IN (select id from res_partner where email ilike %s and is_company = true)
+            and paa.state = 'done'
             and rp.company_id = 1
+            order by paa.name
         """
         results2 = execute_query(query_lugares_recogida, (email_pattern,), postgres_conn_params)
         

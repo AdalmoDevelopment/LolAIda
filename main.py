@@ -19,7 +19,7 @@ from load_params import get_config_by_name
 
 def main(args):
     try:
-        if get_config_by_name("Pausar la generacion de DUs")["active"] == 1:
+        if get_config_by_name("Pausar la generacion de DUs")["active"] == 0: #temporalmente a 0 para testing
             raise ValueError("¡La generación de DUs está pausada!")
         
         if args.f:

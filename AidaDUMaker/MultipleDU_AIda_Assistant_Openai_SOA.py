@@ -4,7 +4,6 @@ import os
 import json
 from openai import OpenAI
 import re
-from AidaDUMaker.HyperParams import model, aida_instructions, vector_store_id, aida_assistant_id
 from AidaDUMaker.funcs.funcs import get_pending_hilos, mark_as_processed, mysql_conn_params
 from AidaDUMaker.MultipleDU_Corrector import correct_dus
 from load_params import get_config_by_name

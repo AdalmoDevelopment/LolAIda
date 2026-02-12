@@ -55,6 +55,7 @@ def query_format_du(json_du):
 
 	# Consulta SQL
 	query_holder_id = """
+ 		-- Id de cliente y de contrato filtrado por Nombre de Contrato Ej: AA1234567
 		select rp.id, paa.id
 		from res_partner rp
 		JOIN pnt_agreement_agreement paa ON rp.id  = paa.pnt_holder_id
@@ -66,7 +67,7 @@ def query_format_du(json_du):
 		left join res_partner rp on paa.pnt_holder_id = rp.id
 		left join pnt_agreement_partner_pickup_rel pappr on paa.id = pappr.pnt_agreement_id
 		left join res_partner rprecog on pappr.partner_id = rprecog.id
-		where (rprecog.name = %s OR rprecog.display_name = %s)
+		where (rprecog.name = %s OR rprecog.complete_name = %s)
 		and paa.name = %s
 		limit 1
 	"""
@@ -82,9 +83,11 @@ def query_format_du(json_du):
 		left join product_product pp on pt.id = pp.product_tmpl_id
 		left join product_category pc  on pt.categ_id = pc.id
 		where
-			case WHEN position(']' in %s) = 0 then pt.name = %s
-			else concat('[',pp.default_code,'] ', pt.name) = %s
-		END
+			CASE 
+				WHEN position(']' IN %s) = 0 
+					THEN pt.name->>'es_ES' = %s
+				ELSE concat('[', pp.default_code, '] ', pt.name ::json ->> 'es_ES') = %s
+			END
 		and pp.active          
 		and company_id = 1 
 	"""
@@ -262,7 +265,6 @@ def change_du_type(json_du, lineas_du):
 				linea["Tipo_Producto"] = 'ENVASE'
 				linea["Unidades"] = 1
 
-	
 			print(f'Lineas hasta aqui: {json.dumps(json_du["Lineas del DU"] , indent=2)}')
 
 			if not any(l["Producto"] == "[TT] TRANSPORTE" for l in lineas_du):
@@ -343,7 +345,7 @@ def normalize_du_keys(du: dict) -> dict:
 	return du
 
 def du_fixer():
-	pending_hilos = mysql_execute_query("SELECT gda.id, id_hilo, du , h.mail_track_id, h.microsoft_mail_url, h.microsoft_mail_graph_id FROM generated_dus_aida gda, hilos h WHERE id_hilo = h.id AND odoo_final_response IS NULL AND DATE(date_created) = CURDATE() AND odoo_processed = 0", None)
+	pending_hilos = mysql_execute_query("SELECT gda.id, id_hilo, du , h.mail_track_id, h.microsoft_mail_url, h.microsoft_mail_graph_id FROM generated_dus_aida gda, hilos h WHERE id_hilo = h.id AND odoo_final_response IS NULL AND DATE(date_created) between '2026-01-14' and '2026-01-20' AND odoo_processed = 0", None)
 
 	#Hilos con al menos un DU de [TT]:
 	dus_tt_unidos = []
